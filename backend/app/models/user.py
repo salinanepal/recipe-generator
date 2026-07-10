@@ -27,16 +27,18 @@ class User(Base):
         server_default=func.now(),
         onupdate=func.now()
     )
+    
+    # TODO: Uncomment after RecipeHistory and FavoriteRecipe models are implemented.
+    
+    # # Relationships
+    # recipe_history = relationship(
+    #     "RecipeHistory",
+    #     back_populates="user",
+    #     cascade="all, delete-orphan"
+    # )
 
-    # Relationships
-    recipe_history = relationship(
-        "RecipeHistory",
-        back_populates="user",
-        cascade="all, delete-orphan"
-    )
-
-    favorite_recipes = relationship(
-        "FavoriteRecipe",
-        back_populates="user",
-        cascade="all, delete-orphan"
-    )
+    # favorite_recipes = relationship(
+    #     "FavoriteRecipe",
+    #     back_populates="user",
+    #     cascade="all, delete-orphan"
+    # )

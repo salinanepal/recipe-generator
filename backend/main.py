@@ -3,7 +3,10 @@ from sqlalchemy import text
 
 from app.core.database import Base, engine
 from app.models.user import User
+from app.models.recipe import Recipe
+
 from app.routers.auth import router as auth_router
+from app.routers.recipes import router as recipe_router
 
 app = FastAPI(
     title="Recipe Generator API",
@@ -13,6 +16,7 @@ app = FastAPI(
 Base.metadata.create_all(bind=engine)
 
 app.include_router(auth_router)
+app.include_router(recipe_router)
 
 @app.get("/")
 def home():

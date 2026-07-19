@@ -10,12 +10,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-CULINARY_INGREDIENTS_FILE = (
-    BASE_DIR / "data" / "02_Ingredients.csv"
-)
-
-NEPALI_METADATA_FILE = (
-    BASE_DIR / "data" / "nepali_ingredient_metadata.csv"
+INGREDIENT_METADATA_FILE = (
+    BASE_DIR / "data" / "ingredients_metadata.csv"
 )
 
 
@@ -97,85 +93,31 @@ def normalize_ingredient(ingredient):
 
 
 # -------------------------------------------------------
-# Load CulinaryDB Ingredients
+# Load Ingredient Metadata
 # -------------------------------------------------------
 
-def load_culinary_ingredients(
-    vocabulary,
-    synonym_map,
-):
+def load_ingredient_metadata():
     """
-    Load CulinaryDB ingredients and synonyms.
+    Build ingredient vocabulary and synonym mapping
+    from the master ingredient metadata file.
     """
 
-    if not CULINARY_INGREDIENTS_FILE.exists():
+    global _INGREDIENT_CACHE
+
+    if _INGREDIENT_CACHE is not None:
+        return _INGREDIENT_CACHE
+
+    if not INGREDIENT_METADATA_FILE.exists():
         raise FileNotFoundError(
-            "02_Ingredients.csv not found."
+            "ingredients_metadata.csv not found."
         )
 
-    with open(
-        CULINARY_INGREDIENTS_FILE,
-        mode="r",
-        encoding="utf-8-sig",
-        newline="",
-    ) as file:
+    vocabulary = set()
 
-        reader = csv.DictReader(file)
-
-        for row in reader:
-
-            canonical = clean_ingredient(
-                row.get(
-                    "Aliased Ingredient Name",
-                    "",
-                )
-            )
-
-            if not canonical:
-                continue
-
-            vocabulary.add(canonical)
-
-            synonym_map[canonical] = canonical
-
-            synonyms = row.get(
-                "Ingredient Synonyms",
-                "",
-            )
-
-            if not synonyms:
-                continue
-
-            for synonym in synonyms.split(";"):
-
-                synonym = clean_ingredient(
-                    synonym
-                )
-
-                if synonym:
-                    synonym_map[synonym] = canonical
-
-
-# -------------------------------------------------------
-# Load Nepali Ingredients
-# -------------------------------------------------------
-
-def load_nepali_ingredients(
-    vocabulary,
-    synonym_map,
-):
-    """
-    Load Nepali ingredient metadata.
-    """
-
-    if not NEPALI_METADATA_FILE.exists():
-        raise FileNotFoundError(
-            "nepali_ingredient_metadata.csv "
-            "not found."
-        )
+    synonym_map = {}
 
     with open(
-        NEPALI_METADATA_FILE,
+        INGREDIENT_METADATA_FILE,
         mode="r",
         encoding="utf-8-sig",
         newline="",
@@ -214,37 +156,8 @@ def load_nepali_ingredients(
                 )
 
                 if synonym:
+
                     synonym_map[synonym] = canonical
-
-
-# -------------------------------------------------------
-# Load Ingredient Metadata
-# -------------------------------------------------------
-
-def load_ingredient_metadata():
-    """
-    Build combined ingredient vocabulary
-    and synonym mapping.
-    """
-
-    global _INGREDIENT_CACHE
-
-    if _INGREDIENT_CACHE is not None:
-        return _INGREDIENT_CACHE
-
-    vocabulary = set()
-
-    synonym_map = {}
-
-    load_culinary_ingredients(
-        vocabulary,
-        synonym_map,
-    )
-
-    load_nepali_ingredients(
-        vocabulary,
-        synonym_map,
-    )
 
     _INGREDIENT_CACHE = {
         "vocabulary": vocabulary,

@@ -30,7 +30,14 @@ class User(Base):
     
     # TODO: Uncomment after RecipeHistory and FavoriteRecipe models are implemented.
     
-    # # Relationships
+    # Relationships
+
+    # recipes = relationship(
+    #     "Recipe",
+    #     back_populates="user",
+    #     cascade="all, delete-orphan"
+    # )
+
     # recipe_history = relationship(
     #     "RecipeHistory",
     #     back_populates="user",

@@ -160,23 +160,34 @@ def build_output_format_section():
 OUTPUT FORMAT
 ==================================================
 
-Recipe Name:
+Return ONLY valid JSON.
 
-Cuisine:
+{
+  "recipe_name": "",
+  "cuisine": "",
+  "recipe_type": "",
+  "preparation_time": "",
+  "cooking_time": "",
+  "servings": 0,
+  "ingredients": [
+    {
+      "name": "",
+      "quantity": ""
+    }
+  ],
+  "instructions": [
+    ""
+  ],
+  "cooking_tips": ""
+}
 
-Recipe Type:
+Do not return markdown.
 
-Preparation Time:
+Do not wrap the JSON inside ```.
 
-Cooking Time:
+Do not explain anything.
 
-Servings:
-
-Ingredients (with realistic quantities):
-
-Instructions (step by step):
-
-Cooking Tips:
+Return only the JSON object.
 """
 
 def build_prompt(

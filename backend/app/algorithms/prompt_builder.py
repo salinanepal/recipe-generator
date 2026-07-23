@@ -160,14 +160,20 @@ def build_output_format_section():
 OUTPUT FORMAT
 ==================================================
 
-Return ONLY valid JSON.
+Return ONLY one valid JSON object.
+
+Every field must always be present.
+
+Do not omit fields.
+
+If a value is unknown, use an empty string or empty list.
 
 {
   "recipe_name": "",
   "cuisine": "",
   "recipe_type": "",
   "preparation_time": "",
-  "cooking_time": "",
+  "cooking_time": 0,
   "servings": 0,
   "ingredients": [
     {
@@ -178,7 +184,9 @@ Return ONLY valid JSON.
   "instructions": [
     ""
   ],
-  "cooking_tips": ""
+  "cooking_tips": [
+    ""
+  ]
 }
 
 Do not return markdown.

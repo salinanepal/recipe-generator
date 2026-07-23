@@ -16,6 +16,12 @@ class Recipe(Base):
 
     instructions = Column(Text, nullable=False)
 
+    cuisine = Column(String(100))
+
+    recipe_type = Column(String(100))
+
+    cooking_tips = Column(Text)
+
     cooking_time = Column(Integer)
 
     servings = Column(Integer)

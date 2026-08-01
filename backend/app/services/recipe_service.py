@@ -29,11 +29,15 @@ def generate_recipe_with_ai(
     # Preprocess Ingredients
     # --------------------------------------------
 
-    processed_ingredients = preprocess_ingredients(
+    preprocessing_result = preprocess_ingredients(
         request.ingredients
-    )
+     )
 
-    # --------------------------------------------
+    processed_ingredients = preprocessing_result["processed_ingredients"]
+    unknown_ingredients = preprocessing_result["unknown_ingredients"]
+    corrections = preprocessing_result["corrections"]
+
+    # --------------------------------------------~
     # Classify Ingredients
     # --------------------------------------------
 
@@ -96,10 +100,17 @@ def generate_recipe_with_ai(
     # --------------------------------------------
     # Build Prompt
     # --------------------------------------------
+    
+    print("\n===== Processed Ingredients =====")
+    print(processed_ingredients)
+    print("Unknown:", unknown_ingredients)
+    print("Corrections:", corrections)
+    print("===============================\n")
 
     prompt = build_prompt(
         processed_ingredients,
         recommendation_result,
+        request.servings,
     )
 
     # --------------------------------------------
@@ -172,32 +183,38 @@ def generate_recipe_with_ai(
            )
 
     # --------------------------------------------
-    # Save Recipe
+    # Save Recipe (only for authenticated users)
     # --------------------------------------------
 
-    try:
-        recipe = save_recipe(
-            db=db,
-            title=recipe_data["recipe_name"],
-            ingredients=json.dumps(
-                recipe_data["ingredients"]
-            ),
-            instructions=json.dumps(
-                recipe_data["instructions"]
-            ),
-            cuisine=recipe_data["cuisine"],
-            recipe_type=recipe_data["recipe_type"],
-            cooking_tips=recipe_data["cooking_tips"],
-            cooking_time=recipe_data["cooking_time"],
-            servings=recipe_data["servings"],
-            user_id=user_id,
-        )
-    except Exception as e:
-        raise RecipeGenerationError(
-            f"Failed to save recipe: {e}"
-        )
+    if user_id is not None:
+        try:
+            recipe = save_recipe(
+                db=db,
+                title=recipe_data["recipe_name"],
+                ingredients=json.dumps(
+                    recipe_data["ingredients"]
+                ),
+                instructions=json.dumps(
+                    recipe_data["instructions"]
+                ),
+                cuisine=recipe_data["cuisine"],
+                recipe_type=recipe_data["recipe_type"],
+                cooking_tips=json.dumps(
+                    recipe_data["cooking_tips"]
+                ),
+                cooking_time=recipe_data["cooking_time"],
+                servings=recipe_data["servings"],
+                user_id=user_id,
+            )
+        except Exception as e:
+            raise RecipeGenerationError(
+                f"Failed to save recipe: {e}"
+            )
 
-    return recipe
+        return recipe
+
+    # Guest user: return recipe without saving
+    return recipe_data
 
    
 def save_recipe(

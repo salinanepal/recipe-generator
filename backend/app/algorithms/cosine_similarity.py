@@ -142,7 +142,7 @@ def calculate_recipe_similarities(
                 "recipe_type":
                    recipe_types[index],
 
-                "recipe_cuisine":
+                "cuisine":
                    recipe_cuisines[index],
 
                 "ingredients":
@@ -218,6 +218,6 @@ if __name__ == "__main__":
             print(
                 f"{recipe['recipe_name']} | "
                 f"{recipe['recipe_type']} | "
-                f"{recipe['recipe_cuisine']} | "
+                f"{recipe['cuisine']} | "
                 f"{recipe['similarity_score']:.4f}"
             ) 

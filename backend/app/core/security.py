@@ -1,3 +1,9 @@
+from fastapi import Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
+from sqlalchemy.orm import Session
+
+from app.core.database import get_db
+
 from datetime import datetime, timedelta, timezone
 
 from jose import jwt
@@ -15,6 +21,10 @@ pwd_context = CryptContext(
     deprecated="auto"
 )
 
+oauth2_scheme = OAuth2PasswordBearer(
+    tokenUrl="/auth/login",
+    auto_error=False,
+)
 
 def hash_password(password: str) -> str:
     """
@@ -49,3 +59,32 @@ def create_access_token(data: dict):
     )
 
     return encoded_jwt
+
+def get_current_user(
+    token: str = Depends(oauth2_scheme),
+    db: Session = Depends(get_db),
+):
+    from app.services.auth_service import get_user_by_email
+
+    # Guest user (no token provided)
+    if token is None:
+        return None
+
+    try:
+        payload = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM],
+        )
+
+        email: str = payload.get("sub")
+
+        if email is None:
+            return None
+
+    except Exception:
+        return None
+
+    user = get_user_by_email(db, email)
+
+    return user

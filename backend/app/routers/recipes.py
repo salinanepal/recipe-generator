@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from app.core.security import get_current_user
 
 from app.core.database import get_db
 from app.schemas.recipe import RecipeGenerateRequest
@@ -15,27 +16,26 @@ router = APIRouter(
     tags=["Recipes"],
 )
 
-
 @router.post("/generate")
 def generate_recipe(
     request: RecipeGenerateRequest,
     db: Session = Depends(get_db),
+    current_user = Depends(get_current_user),
 ):
     try:
         recipe = generate_recipe_with_ai(
             db=db,
             request=request,
-            user_id=1,  # Temporary until JWT authentication is connected
+            user_id=current_user.id if current_user else None,
         )
+
         return recipe
-    
+
     except RecipeGenerationError as e:
         raise HTTPException(
             status_code=500,
             detail=str(e),
         )
-
-
 
 @router.get("/")
 def list_recipes(db: Session = Depends(get_db)):

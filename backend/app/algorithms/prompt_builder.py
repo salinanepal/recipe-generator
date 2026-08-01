@@ -198,9 +198,27 @@ Do not explain anything.
 Return only the JSON object.
 """
 
+def build_servings_section(servings):
+    """
+    Tell Gemini the exact number of servings requested.
+    """
+
+    return f"""
+==================================================
+SERVINGS
+==================================================
+
+Generate the recipe for exactly {servings} serving(s).
+
+Scale ingredient quantities accordingly.
+
+The JSON field \"servings\" must be {servings}.
+"""
+
 def build_prompt(
     processed_ingredients,
     recommendation_result,
+    servings,
 ):
     """
     Build the complete prompt.
@@ -228,6 +246,10 @@ def build_prompt(
 
         build_recommendation_section(
             recommendation_result,
+        ),
+
+        build_servings_section(
+            servings
         ),
 
         build_requirements_section(),
@@ -282,6 +304,7 @@ if __name__ == "__main__":
     prompt = build_prompt(
         processed_ingredients,
         recommendation_result,
+        2,
     )
 
     print(prompt)

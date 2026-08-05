@@ -11,16 +11,8 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// if the token is invalid/expired, boot the user back to login
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem("access_token");
-      window.location.href = "/login";
-    }
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
-
 export default api;

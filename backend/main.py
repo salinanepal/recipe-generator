@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
+
 from app.core.database import Base, engine
 from app.models.user import User
 from app.models.recipe import Recipe
@@ -9,6 +10,10 @@ from app.models.recipe import Recipe
 from app.routers.auth import router as auth_router
 from app.routers.recipes import router as recipe_router
 from app.routers.history import router as history_router
+
+from app.models import recipe, user
+
+Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI(
@@ -19,6 +24,10 @@ app = FastAPI(
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+        "http://localhost:5174",
+    "http://127.0.0.1:5174",
+        "http://localhost:5175",
+    "http://127.0.0.1:5175",
 ]
 
 app.add_middleware(

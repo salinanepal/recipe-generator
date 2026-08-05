@@ -39,3 +39,6 @@ class RecipeSummary(BaseModel):
 class RecipeDetail(RecipeSummary):
     ingredients: str
     instructions: str
+    cuisine: Optional[str] = None
+    recipe_type: Optional[str] = None
+    cooking_tips: Optional[str] = None

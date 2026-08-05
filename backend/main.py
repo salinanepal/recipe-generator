@@ -6,8 +6,9 @@ from sqlalchemy import text
 from app.core.database import Base, engine
 from app.models.user import User
 from app.models.recipe import Recipe
+from app.models.favorite import Favorite
 
-from app.routers.auth import router as auth_router
+from app.routers.auth import router as auth_router 
 from app.routers.recipes import router as recipe_router
 from app.routers.history import router as history_router
 

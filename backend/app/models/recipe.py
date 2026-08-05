@@ -1,6 +1,9 @@
 from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
+from pydantic import BaseModel, ConfigDict
+from datetime import datetime
+from typing import Optional
 
 from app.core.database import Base
 

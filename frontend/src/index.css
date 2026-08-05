@@ -1,1 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --color-paper: #FAF8F3;
+  --color-ink: #2A2A24;
+
+  --color-basil: #2F6B3E;
+  --color-basil-dark: #234F2E;
+  --color-basil-light: #EAF4EA;
+
+  --color-saffron: #E0A526;
+  --color-saffron-dark: #C08A16;
+
+  --color-clay: #D8CFC0;
+
+  --color-category-protein: #C1502E;
+  --color-category-vegetable: #4C8577;
+  --color-category-grain: #B08947;
+  --color-category-dairy: #7FA8C9;
+  --color-category-spice: #A83232;
+  --color-category-fruit: #C23B5D;
+  --color-category-oilfat: #CC9B3E;
+
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-display text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-basil);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-md bg-basil px-4 py-2 text-sm font-medium text-white
+           hover:bg-basil-dark transition-colors disabled:opacity-50;
+  }
+
+  .card {
+    @apply rounded-lg border border-clay bg-white p-5 shadow-sm;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-ink;
+  }
+
+  .input-field {
+    @apply mt-1 w-full rounded-md border border-clay bg-white px-3 py-2 text-sm
+           text-ink placeholder:text-ink/40
+           focus:border-basil focus:ring-1 focus:ring-basil transition-colors;
+  }
+}

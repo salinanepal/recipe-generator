@@ -1,5 +1,7 @@
 from pydantic import BaseModel, ConfigDict
 from typing import Optional
+from datetime import datetime
+
 
 
 # Request sent by the frontend
@@ -21,3 +23,19 @@ class RecipeResponse(BaseModel):
     user_id: int
 
     model_config = ConfigDict(from_attributes=True)
+
+# --- History module ---
+
+class RecipeSummary(BaseModel):
+    id: int
+    title: str
+    cooking_time: Optional[int] = None
+    servings: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class RecipeDetail(RecipeSummary):
+    ingredients: str
+    instructions: str

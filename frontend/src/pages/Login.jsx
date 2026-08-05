@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import AuthLayout from "../layouts/AuthLayout";
+import AuthLayout from "../components/layouts/AuthLayout";
 import PasswordInput from "../components/common/PasswordInput";
 
 export default function Login() {
@@ -19,9 +19,21 @@ export default function Login() {
     try {
       await login(email, password);
       navigate("/");
-    } catch (err) {
-      setError(err.response?.data?.detail || "Login failed");
-    } finally {
+    }
+    catch (err) {
+      console.log(err.response?.data);
+    
+      const detail = err.response?.data?.detail;
+    
+      if (typeof detail === "string") {
+        setError(detail);
+      } else if (Array.isArray(detail)) {
+        setError(detail.map(e => e.msg).join(", "));
+      } else {
+        setError("Login failed");
+      }
+    }
+    finally {
       setSubmitting(false);
     }
   };

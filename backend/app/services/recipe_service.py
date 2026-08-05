@@ -110,6 +110,8 @@ def generate_recipe_with_ai(
     prompt = build_prompt(
         processed_ingredients,
         recommendation_result,
+        request.cuisine,
+        request.meal_type,
         request.servings,
     )
 

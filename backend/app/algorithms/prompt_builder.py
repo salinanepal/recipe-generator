@@ -116,6 +116,41 @@ The recommendation algorithm analyzed similar recipes and determined that the us
 Generate a recipe consistent with this style while adapting naturally to the available ingredients.
 """
 
+def build_cuisine_section(cuisine):
+    """
+    Build cuisine preference section.
+    """
+
+    if not cuisine:
+        return ""
+
+    return f"""
+==================================================
+CUISINE
+==================================================
+
+Generate a {cuisine} recipe.
+
+Do not generate recipes from other cuisines.
+"""
+
+
+def build_meal_type_section(meal_type):
+    """
+    Build meal type preference section.
+    """
+
+    if not meal_type:
+        return ""
+
+    return f"""
+==================================================
+MEAL TYPE
+==================================================
+
+Generate a recipe suitable for {meal_type}.
+"""
+
 def build_requirements_section():
     """
     Build recipe generation requirements.
@@ -218,6 +253,8 @@ The JSON field \"servings\" must be {servings}.
 def build_prompt(
     processed_ingredients,
     recommendation_result,
+    cuisine,
+    meal_type,
     servings,
 ):
     """
@@ -230,6 +267,13 @@ def build_prompt(
 
         build_mandatory_ingredients_section(
             processed_ingredients,
+        ),
+        build_cuisine_section(
+        cuisine,
+        ),
+
+        build_meal_type_section(
+            meal_type,
         ),
 
         build_priority_ingredients_section(
@@ -304,6 +348,8 @@ if __name__ == "__main__":
     prompt = build_prompt(
         processed_ingredients,
         recommendation_result,
+        "Nepali",
+        "Dinner",
         2,
     )
 

@@ -42,3 +42,22 @@ class RecipeDetail(RecipeSummary):
     cuisine: Optional[str] = None
     recipe_type: Optional[str] = None
     cooking_tips: Optional[str] = None
+
+# --- Favorites module ---
+
+class FavoriteResponse(BaseModel):
+    id: int
+    recipe_id: int
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class FavoriteRecipe(BaseModel):
+    id: int
+    title: str
+    cooking_time: Optional[int] = None
+    servings: Optional[int] = None
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)

@@ -33,3 +33,7 @@ def generate_recipe(
         raise Exception("Gemini returned an empty response.")
 
     return response.text
+
+# Fallback testing 
+# def generate_recipe(prompt):
+#     raise Exception("Forced Gemini failure for testing fallback")

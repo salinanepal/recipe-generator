@@ -1,11 +1,227 @@
 ingredient,synonyms,category
-ground beef,minced beef;beef mince,protein
-onion,onions,vegetable
-tomato,tomatoes,vegetable
-tomato sauce,tomato puree,condiment
-cheddar cheese,cheddar,dairy
-olive oil,olive oil,oil
-butter,butter,dairy
-salt,salt,spice
-garlic,garlic cloves,spice
-jalapeno,jalapeño,vegetable
+turmeric powder,haldi;besar;ground turmeric,Spice
+cumin powder,jeera powder;ground cumin,Spice
+cumin seeds,jeera,Spice
+coriander powder,dhaniya powder,Spice
+red chili powder,chili powder;khursani powder;chili powder,Spice
+garam masala,,Spice
+salt,noon,Spice
+black pepper,kali mirch;black pepppercorn;ground black pepper;fresh ground black pepper;pepper,Spice
+cardamom powder,elainchi powder;ground cardamom,Spice
+green cardamom,sukumel;cardamom pods;cardamom,Spice
+black cardamom,alainchi,Spice
+cinnamon stick,dalchini;cinnamon,Spice
+cloves,lwang;clove,Spice
+bay leaf,tej patta,Spice
+fenugreek seeds,methi,Spice
+asafoetida,hing,Spice
+timur pepper,sichuan pepper;timur;nepali pepper,Spice
+jimbu,himalayan herb,Spice
+fennel seeds,saunf,Spice
+chat masala,,Spice
+black salt,birenun;kalo nun,Spice
+soy sauce,,Spice
+vinegar,,Spice
+saffron strands,kesar,Spice
+poppy seeds,khas khas,Spice
+sesame seeds,til,Spice
+white sesame seeds,til,Spice
+dry red chili,sukeko khursani,Spice
+garlic,lasun;garlic clove;garlic cloves;ginger-garlic paste;garlic paste,Spice
+ginger,aduwa;fresh ginger;gingerroot;ginger paste;ginger powder,Spice
+green chili,hariyo khursani;green chilies;green chili peppers;jalapeno;jalapenos,Spice
+sugar,chini,Spice
+jaggery,gud,Spice
+chaku,,Spice
+honey,,Spice
+tomato ketchup,,Spice
+green chutney,,Spice
+mint chutney,,Spice
+pickle,achar,Spice
+tomato achar,,Spice
+mexican seasoning,,Spice
+mixed spice,,Spice
+tabasco sauce,,Spice
+hot sauce,,Spice
+oregano leaves,dried oregano;oregano,Spice
+chili powder,mexican chili powder,Spice
+paprika,,Spice
+cayenne pepper,cayenne,Spice
+white pepper,white peppercorns,Spice
+soy sauce,low sodium soy sauce,Spice
+radish pickle,mula ko achar,Spice
+potato,aloo;potatoes,Vegetable
+onion,pyaj;onions;white onion;white onions;red onion;red onions;yellow onion;yellow onions,Vegetable
+tomato,golbheda;tomatoes;plum tomato;plum tomatoes;roma tomato;roma tomatoes;fresh tomato;fresh tomatoes;chopped tomato;chopped tomatoes,Vegetable
+cauliflower,kauli,Vegetable
+cabbage,bandakopi,Vegetable
+spinach,palungo;spinach leaves;fresh spinach;frozen spinach;frozen chopped spinach,Vegetable
+pumpkin,farsi,Vegetable
+radish,mula;white radish,Vegetable
+carrot,gajar;carrots,Vegetable
+cucumber,kakro;cucumbers,Vegetable
+capsicum,bhindi khursani;bell pepper;green pepper;green peppers;green bell pepper;green bell peppers,Vegetable
+green bean,simi,Vegetable
+green pea,matar,Vegetable
+eggplant,bhanta;eggplants;aubergine;aubergines,Vegetable
+chayote squash,iskus,Vegetable
+bitter gourd,karela,Vegetable
+bamboo shoots,tama,Vegetable
+fiddlehead fern,ningro,Vegetable
+stinging nettle,sisnu,Vegetable
+mustard greens,rayo ko saag,Vegetable
+pumpkin shoots,farsi ko munta,Vegetable
+pumpkin flowers,farsi ko phool,Vegetable
+sweet potato,,Vegetable
+yam,tarul,Vegetable
+fresh coriander,cilantro;dhaniya;fresh cilantro;coriander leaves,Vegetable
+spring onion,green onion;green onions;scallion;scallions;spring onions,Vegetable
+gundruk,fermented leafy greens,Vegetable
+sinki,fermented radish,Vegetable
+khalpi,fermented cucumber,Vegetable
+mushroom,chyau;mushrooms;white mushroom;white mushrooms;button mushroom;button mushrooms;fresh mushrooms;sliced mushrooms,Vegetable
+zucchini,courgette;courgettes,Vegetable
+celery,,Vegetable
+broccoli,,Vegetable
+bell pepper,red bell pepper;red bell peppers;red pepper;red peppers,Vegetable
+corn,sweet corn;makai;corn kernels;whole kernel corn;ear of corn;corn kernel,Vegetable
+lettuce,salad patta,Vegetable
+olive,ripe olive,Vegetable
+winter squash,,Vegetable
+okra,bhindi,Vegetable
+mint leaves,pudina,Vegetable
+parsley,fresh parsley;dried parsley;parsley flakes,Vegetable
+basil,fresh basil;dried basil,Vegetable
+rice,chamal;white rice;steamed rice;cooked rice,Grain
+beaten rice,chiura,Grain
+puffed rice,muri,Grain
+all-purpose flour,maida;flour;plain flour,Grain
+whole wheat flour,atta,Grain
+rice flour,chamal ko pitho,Grain
+gram flour,besan,Grain
+buckwheat flour,phapar ko pitho,Grain
+finger millet flour,kodo ko pitho,Grain
+corn flour,makai ko pitho,Grain
+sooji,semolina;rava,Grain
+maize flour,makai ko pitho,Grain
+barley flour,jau ko pitho,Grain
+roasted wheat flour,,Grain
+noodle,chow chow,Grain
+flat wheat noodles,,Grain
+seviyan,vermicelli,Grain
+bread,,Grain
+crackers,,Grain
+cornmeal,yellow cornmeal,Grain
+fettuccine pasta,fettuccine,Grain
+lasagna noodle,lasagna noodles,Grain
+ciabatta,,Grain
+spaghetti,spaghetti pasta,Grain
+mung bean flour,,Grain
+chicken,kukhura ko masu;chicken breast;chicken breasts;boneless chicken breast;boneless chicken breasts;boneless skinless chicken breast;boneless skinless chicken breasts;chicken thighs,Protein
+ground chicken,minced chicken,Protein
+boneless chicken,chicken,Protein
+chicken with bone,chicken,Protein
+buff meat,bhaisi ko masu,Protein
+ground buff,ground buff meat;raw minced buff meat,Protein
+boneless buff,boneless buff meat,Protein
+buff tripe,,Protein
+buff intestine,,Protein
+goat meat,khasi ko masu;goat meat with bone,Protein
+goat liver,kalejo,Protein
+bone marrow,,Protein
+fish,maachha;whole fish,Protein
+fish head,,Protein
+fish bone,,Protein
+fish steak,,Protein
+egg,anda;eggs,Protein
+boiled egg,anda ko pila;boiled eggs,Protein
+split yellow lentils,moong dal;lentil;lentils,Protein
+red split lentils,masoor dal;lentil;lentils,Protein
+black lentils,maas ko dal;urad dal;black lentil;lentil;lentils,Protein
+whole black lentils,whole black lentil;lentil;lentils,Protein
+lentils,dal;lentil;split yellow lentils;red split lentils;black lentils;whole black lentils;split yellow moong lentils,Protein
+split yellow moong lentils,split yellow moong lentil;lentil;lentils,Protein
+chickpea,chana;chickpeas,Protein
+black eyed peas,bodi;black eyed pea;peas;pea,Protein
+dried yellow peas,dried yellow pea;peas;pea,Protein
+soybean,bhatmas;soybeans;dry soybeans,Protein
+black soybean,soybean,Protein
+mixed sprouted beans,kwati;sprouted beans,Protein
+roasted soybean powder,,Protein
+kinema,fermented soybean,Protein
+ground beef,lean ground beef;extra lean ground beef;ground chuck;90% lean ground beef,Protein
+beef,stewing beef,Protein
+pork,ground pork;stewing pork,Protein
+italian sausage,sausage,Protein
+genoa salami,,Protein
+ham,,Protein
+almond,badam;almonds,Protein
+pistachio,pista;pistachios,Protein
+cashew,kaju;cashews,Protein
+peanut,badam;peanuts,Protein
+roasted peanuts,,Protein
+walnut,,Protein
+chopped nuts,,Protein
+snails,ghonghi,Protein
+black lentil paste,,Protein
+milk,dudh;1% low-fat milk;2% low-fat milk,Dairy
+whole milk,,Dairy
+plain yogurt,dahi;soy yogurt,Dairy
+yogurt,dahi;plain yogurt,Dairy
+yogurt culture,,Dairy
+butter,makkhan;margarine,Dairy
+ghee,ghiu,Dairy
+chhurpi,himalayan hard cheese,Dairy
+khoya,khuwa,Dairy
+cheddar cheese,low-fat cheddar cheese;2% cheddar cheese,Dairy
+mozzarella cheese,part-skim mozzarella cheese;lowfat mozzarella cheese,Dairy
+parmesan cheese,fresh parmesan cheese,Dairy
+ricotta cheese,,Dairy
+cottage cheese,,Dairy
+provolone cheese,,Dairy
+monterey jack cheese,,Dairy
+cream,35% cream;half-and-half,Dairy
+condensed milk,,Dairy
+lemon,kagati,Fruit
+lime,nibuwa,Fruit
+lemon juice,,Fruit
+lime juice,,Fruit
+banana,kera,Fruit
+ripe banana,,Fruit
+lapsi,hog plum,Fruit
+mango,,Fruit
+pomegranate seeds,,Fruit
+coconut,nariwal,Fruit
+grated coconut,,Fruit
+tamarind pulp,imli,Fruit
+raisins,,Fruit
+avocado,,Fruit
+mustard oil,tori ko tel,Oil & fat
+vegetable oil,canola oil,Oil & fat
+sesame oil,,Oil & fat
+olive oil,extra virgin olive oil,Oil & fat
+butter,,Oil & fat
+ghee,,Oil & fat
+vegetable shortening,,Oil & fat
+baking powder,,Other
+baking soda,,Other
+vegetable broth,,Other
+chicken broth,,Other
+black tea leaves,tea leaves,Other
+cardamom,,Spice
+buff meat with bone,,Protein
+sukuti,dried meat,Protein
+soybean powder,,Protein
+wai wai noodles,,Grain
+raw rice,,Grain
+wheat flour,,Grain
+finger millet,,Grain
+boiled potato,,Vegetable
+baby potato,,Vegetable
+green leafy vegetables,,Vegetable
+garlic paste,,Spice
+sesame powder,,Spice
+dalle khursani,round chili,Spice
+akabare chili,small hot chili,Spice
+chopped pistachio,,Protein
+yeast,,Other

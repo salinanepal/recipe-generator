@@ -123,14 +123,18 @@ export default function History() {
                 </div>
 
                 <h3 className="mt-4 text-sm font-medium text-ink">Ingredients</h3>
-                <p className="mt-1 whitespace-pre-wrap text-sm text-ink/70">
-                  {selected.ingredients}
-                </p>
+                <div className="mt-2 space-y-1 text-sm text-ink/70">
+                  {JSON.parse(selected.ingredients).map((ing, i) => (
+                    <p key={i}>• {ing.quantity} {ing.name}</p>
+                  ))}
+                </div>
 
                 <h3 className="mt-4 text-sm font-medium text-ink">Instructions</h3>
-                <p className="mt-1 whitespace-pre-wrap text-sm text-ink/70">
-                  {selected.instructions}
-                </p>
+                <div className="mt-2 space-y-2 text-sm text-ink/70">
+                  {JSON.parse(selected.instructions).map((step, i) => (
+                    <p key={i}>{i + 1}. {step}</p>
+                  ))}
+                </div>
               </>
             )}
           </div>

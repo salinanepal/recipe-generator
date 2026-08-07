@@ -18,3 +18,17 @@ export const getRecipeDetail = async (id) => {
 export const deleteRecipeFromHistory = async (id) => {
   await api.delete(`/history/${id}`);
 };
+
+export const getFavorites = async () => {
+  const response = await api.get('/favorites/');
+  return response.data;
+};
+
+export const addFavorite = async (recipeId) => {
+  const response = await api.post(`/favorites/${recipeId}`);
+  return response.data;
+};
+
+export const removeFavorite = async (recipeId) => {
+  await api.delete(`/favorites/${recipeId}`);
+};

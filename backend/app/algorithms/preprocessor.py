@@ -14,12 +14,17 @@ INGREDIENT_METADATA_FILE = (
     BASE_DIR / "data" / "ingredients_metadata.csv"
 )
 
+INGREDIENT_VOCABULARY_FILE = (
+    BASE_DIR / "data" / "ingredient_vocabulary.csv"
+)
+
 
 # -------------------------------------------------------
 # Cache
 # -------------------------------------------------------
 
-_INGREDIENT_CACHE = None
+_METADATA_CACHE = None
+_VOCABULARY_CACHE = None
 
 
 # -------------------------------------------------------
@@ -96,23 +101,58 @@ def normalize_ingredient(ingredient):
 # Load Ingredient Metadata
 # -------------------------------------------------------
 
+def load_ingredient_vocabulary():
+    """
+    Load all valid ingredient names from ingredient_vocabulary.csv.
+    """
+
+    global _VOCABULARY_CACHE
+
+    if _VOCABULARY_CACHE is not None:
+        return _VOCABULARY_CACHE
+
+    if not INGREDIENT_VOCABULARY_FILE.exists():
+        raise FileNotFoundError(
+            "ingredient_vocabulary.csv not found."
+        )
+
+    vocabulary = set()
+
+    with open(
+        INGREDIENT_VOCABULARY_FILE,
+        mode="r",
+        encoding="utf-8-sig",
+        newline="",
+    ) as file:
+
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            ingredient = clean_ingredient(
+                row.get("ingredient", "")
+            )
+
+            if ingredient:
+                vocabulary.add(ingredient)
+
+    _VOCABULARY_CACHE = vocabulary
+    return vocabulary
+
+
 def load_ingredient_metadata():
     """
-    Build ingredient vocabulary and synonym mapping
-    from the master ingredient metadata file.
+    Load only synonym mappings from ingredients_metadata.csv.
     """
 
-    global _INGREDIENT_CACHE
+    global _METADATA_CACHE
 
-    if _INGREDIENT_CACHE is not None:
-        return _INGREDIENT_CACHE
+    if _METADATA_CACHE is not None:
+        return _METADATA_CACHE
 
     if not INGREDIENT_METADATA_FILE.exists():
         raise FileNotFoundError(
             "ingredients_metadata.csv not found."
         )
-
-    vocabulary = set()
 
     synonym_map = {}
 
@@ -128,43 +168,24 @@ def load_ingredient_metadata():
         for row in reader:
 
             canonical = clean_ingredient(
-                row.get(
-                    "ingredient",
-                    "",
-                )
+                row.get("ingredient", "")
             )
 
             if not canonical:
                 continue
 
-            vocabulary.add(canonical)
-
             synonym_map[canonical] = canonical
 
-            synonyms = row.get(
-                "synonyms",
-                "",
-            )
+            synonyms = row.get("synonyms", "")
 
-            if not synonyms:
-                continue
+            if synonyms:
+                for synonym in synonyms.split(";"):
+                    synonym = clean_ingredient(synonym)
+                    if synonym:
+                        synonym_map[synonym] = canonical
 
-            for synonym in synonyms.split(";"):
-
-                synonym = clean_ingredient(
-                    synonym
-                )
-
-                if synonym:
-
-                    synonym_map[synonym] = canonical
-
-    _INGREDIENT_CACHE = {
-        "vocabulary": vocabulary,
-        "synonym_map": synonym_map,
-    }
-
-    return _INGREDIENT_CACHE
+    _METADATA_CACHE = synonym_map
+    return synonym_map
 
 
 # -------------------------------------------------------
@@ -251,11 +272,8 @@ def preprocess_ingredients(ingredients):
     Preprocess user ingredient list.
     """
 
-    metadata = load_ingredient_metadata()
-
-    vocabulary = metadata["vocabulary"]
-
-    synonym_map = metadata["synonym_map"]
+    vocabulary = load_ingredient_vocabulary()
+    synonym_map = load_ingredient_metadata()
 
     processed_ingredients = []
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
-import { generateRecipe } from "../services/recipeService";
+import { useAuth } from "../context/AuthContext";
+import { generateRecipe, addFavorite } from "../services/recipeService";
 
 export default function GenerateRecipe() {
   const [input, setInput] = useState("");
@@ -13,6 +14,10 @@ export default function GenerateRecipe() {
   const [cuisine, setCuisine] = useState("");
   const [mealType, setMealType] = useState("");
   const [servings, setServings] = useState(2);
+
+  const { user } = useAuth();
+  const [saved, setSaved] = useState(false);
+
   const addIngredient = () => {
     const trimmed = input.trim();
     if (!trimmed) return;
@@ -46,8 +51,27 @@ export default function GenerateRecipe() {
         meal_type: mealType || null,
         servings,
       });
-  
-      setRecipe(data);
+
+      const normalized = {
+  ...data,
+  title: data.title || data.recipe_name,
+  ingredients:
+    typeof data.ingredients === "string"
+      ? JSON.parse(data.ingredients)
+      : data.ingredients,
+  instructions:
+    typeof data.instructions === "string"
+      ? JSON.parse(data.instructions)
+      : data.instructions,
+  cooking_tips:
+    typeof data.cooking_tips === "string"
+      ? JSON.parse(data.cooking_tips)
+      : data.cooking_tips,
+};
+
+      setRecipe(normalized);
+      setSaved(false);
+
     } catch (err) {
       console.error(err);
   
@@ -59,6 +83,31 @@ export default function GenerateRecipe() {
       setLoading(false);
     }
   };
+
+const handleAddFavorite = async () => {
+  // Guest user
+  if (!user) {
+    alert("Please log in to save recipes to your favorites.");
+    return;
+  }
+
+  // Logged-in user but no saved recipe ID
+  if (!recipe?.id) {
+    alert("This recipe must be saved before it can be favorited.");
+    return;
+  }
+
+  try {
+    await addFavorite(recipe.id);
+    setSaved(true);
+  } catch (err) {
+    if (err.response?.status === 400) {
+      setSaved(true);
+    } else {
+      alert("Failed to save favorite.");
+    }
+  }
+};
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -287,6 +336,18 @@ export default function GenerateRecipe() {
           ))}
         </ul>
       </div>
+      <button
+        type="button"
+        onClick={handleAddFavorite}
+        disabled={saved}
+        className={`mt-6 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+          saved
+            ? "bg-category-protein/10 text-category-protein border border-category-protein/30 cursor-default"
+            : "bg-basil text-white hover:bg-basil-dark"
+        }`}
+      >
+        {saved ? "Added to Favorites" : "Add to Favorites"}
+      </button>
     </div>
   </>
 )}

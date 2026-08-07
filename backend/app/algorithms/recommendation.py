@@ -5,74 +5,43 @@ from collections import Counter
 # Recommend Recipe Type
 # -------------------------------------------------------
 
-def recommend_recipe_type(
-    similarity_result,
-    top_n=10,
-):
+def recommend_recipe_type(similarity_result, top_n=10):
     """
-    Recommend the recipe type based on
-    the most common recipe type among
-    the top similar recipes.
+    Recommend recipe type using weighted similarity scores
+    instead of simple majority voting.
     """
 
-    top_recipes = similarity_result[
-        "recipe_similarities"
-    ][:top_n]
+    top_recipes = similarity_result["recipe_similarities"][:top_n]
 
     if not top_recipes:
         return None
 
-    recipe_types = Counter()
+    recipe_type_scores = Counter()
 
     for recipe in top_recipes:
+        recipe_type_scores[recipe["recipe_type"]] += recipe["similarity_score"]
 
-        recipe_types[
-            recipe["recipe_type"]
-        ] += 1
-
-    return (
-        recipe_types
-        .most_common(1)[0][0]
-    )
-
+    return recipe_type_scores.most_common(1)[0][0]
 
 # -------------------------------------------------------
 # Recommend Cuisine
 # -------------------------------------------------------
 
-def recommend_cuisine(
-    similarity_result,
-    user_cuisine=None,
-    top_n=10,
-):
-    """
-    Recommend cuisine unless the user
-    already selected one.
-    """
-
+def recommend_cuisine(similarity_result, user_cuisine=None, top_n=10):
     if user_cuisine:
-
         return user_cuisine
 
-    top_recipes = similarity_result[
-        "recipe_similarities"
-    ][:top_n]
+    top_recipes = similarity_result["recipe_similarities"][:top_n]
 
     if not top_recipes:
         return None
 
-    cuisines = Counter()
+    cuisine_scores = Counter()
 
     for recipe in top_recipes:
+        cuisine_scores[recipe["cuisine"]] += recipe["similarity_score"]
 
-        cuisines[
-            recipe["cuisine"]
-        ] += 1
-
-    return (
-        cuisines
-        .most_common(1)[0][0]
-    )
+    return cuisine_scores.most_common(1)[0][0]
 
 
 # -------------------------------------------------------
@@ -169,46 +138,46 @@ def generate_recommendation(
     processed_ingredients,
     similarity_result,
     ranking_result,
+    classification_result,
     user_cuisine=None,
 ):
     """
     Generate the final recommendation.
+    Apply a Nepali cooking heuristic: if the user has both
+    a Grain and a Protein ingredient, prefer a Main dish.
     """
 
+    recommended_recipe_type = recommend_recipe_type(similarity_result)
+
+    # Nepali heuristic
+    categories = set(
+        item["category"]
+        for item in ranking_result["ranked_ingredients"]
+    )
+
+    if "Grain" in categories and "Protein" in categories:
+        recommended_recipe_type = "main dish"
+
     return {
+        "recommended_recipe_type": recommended_recipe_type,
 
-        "recommended_recipe_type":
+        "recommended_cuisine": recommend_cuisine(
+            similarity_result,
+            user_cuisine,
+        ),
 
-            recommend_recipe_type(
-                similarity_result,
-            ),
+        "priority_ingredients": select_priority_ingredients(
+            ranking_result,
+        ),
 
-        "recommended_cuisine":
+        "optional_ingredients": recommend_optional_ingredients(
+            processed_ingredients,
+            similarity_result,
+        ),
 
-            recommend_cuisine(
-                similarity_result,
-                user_cuisine,
-            ),
-
-        "priority_ingredients":
-
-            select_priority_ingredients(
-                ranking_result,
-            ),
-
-        "optional_ingredients":
-
-            recommend_optional_ingredients(
-                processed_ingredients,
-                similarity_result,
-            ),
-
-        "top_recipe_matches":
-
-            similarity_result[
-                "recipe_similarities"
-            ][:10],
-
+        "top_recipe_matches": similarity_result[
+            "recipe_similarities"
+        ][:10],
     }
 
 

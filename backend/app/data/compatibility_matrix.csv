@@ -1,0 +1,3162 @@
+ingredient_1,ingredient_2,score
+split yellow lentils,dry red chili,1.0
+split yellow lentils,mustard oil,1.0
+split yellow lentils,ginger,1.0
+split yellow lentils,rice,1.0
+split yellow lentils,coriander powder,1.0
+split yellow lentils,turmeric powder,1.0
+split yellow lentils,fresh coriander,1.0
+split yellow lentils,asafoetida,1.0
+split yellow lentils,cumin seeds,1.0
+split yellow lentils,ghee,1.0
+split yellow lentils,onion,1.0
+split yellow lentils,salt,1.0
+split yellow lentils,garlic,1.0
+dry red chili,turmeric powder,1.0
+dry red chili,fresh coriander,1.0
+dry red chili,onion,1.0
+dry red chili,salt,1.0
+dry red chili,garlic,1.0
+mustard oil,salt,1.0
+coriander powder,ginger,1.0
+coriander powder,turmeric powder,1.0
+coriander powder,onion,1.0
+coriander powder,salt,1.0
+coriander powder,garlic,1.0
+turmeric powder,salt,1.0
+fresh coriander,salt,1.0
+asafoetida,dry red chili,1.0
+asafoetida,ginger,1.0
+asafoetida,turmeric powder,1.0
+asafoetida,fresh coriander,1.0
+asafoetida,cumin seeds,1.0
+asafoetida,ghee,1.0
+asafoetida,onion,1.0
+asafoetida,salt,1.0
+asafoetida,garlic,1.0
+cumin seeds,ginger,1.0
+cumin seeds,turmeric powder,1.0
+cumin seeds,fresh coriander,1.0
+cumin seeds,onion,1.0
+cumin seeds,salt,1.0
+cumin seeds,garlic,1.0
+onion,salt,1.0
+garlic,salt,1.0
+tomato,salt,1.0
+red chili powder,salt,1.0
+green chili,salt,1.0
+cumin powder,salt,1.0
+potato,green chili,1.0
+potato,onion,1.0
+potato,salt,1.0
+cauliflower,mustard oil,1.0
+cauliflower,ginger,1.0
+cauliflower,red chili powder,1.0
+cauliflower,coriander powder,1.0
+cauliflower,turmeric powder,1.0
+cauliflower,fresh coriander,1.0
+cauliflower,green pea,1.0
+cauliflower,cumin powder,1.0
+cauliflower,tomato,1.0
+cauliflower,onion,1.0
+cauliflower,salt,1.0
+cauliflower,garlic,1.0
+green pea,mustard oil,1.0
+green pea,ginger,1.0
+green pea,fresh coriander,1.0
+green pea,onion,1.0
+green pea,salt,1.0
+green pea,garlic,1.0
+cabbage,cumin powder,1.0
+cabbage,onion,1.0
+cabbage,salt,1.0
+cabbage,garlic,1.0
+fenugreek seeds,mustard oil,1.0
+fenugreek seeds,salt,1.0
+fenugreek seeds,garlic,1.0
+butter,salt,1.0
+spinach,fresh coriander,1.0
+spinach,turmeric powder,1.0
+spinach,green chili,1.0
+spinach,onion,1.0
+spinach,salt,1.0
+red split lentils,dry red chili,1.0
+red split lentils,mustard oil,1.0
+red split lentils,ginger,1.0
+red split lentils,fresh coriander,1.0
+red split lentils,coriander powder,1.0
+red split lentils,turmeric powder,1.0
+red split lentils,green chili,1.0
+red split lentils,cumin seeds,1.0
+red split lentils,tomato,1.0
+red split lentils,onion,1.0
+red split lentils,salt,1.0
+red split lentils,garlic,1.0
+red split lentils,lemon juice,1.0
+split yellow moong lentils,dry red chili,1.0
+split yellow moong lentils,tomato,1.0
+split yellow moong lentils,ginger,1.0
+split yellow moong lentils,fresh coriander,1.0
+split yellow moong lentils,turmeric powder,1.0
+split yellow moong lentils,green chili,1.0
+split yellow moong lentils,asafoetida,1.0
+split yellow moong lentils,garlic,1.0
+split yellow moong lentils,cumin seeds,1.0
+split yellow moong lentils,ghee,1.0
+split yellow moong lentils,onion,1.0
+split yellow moong lentils,salt,1.0
+garam masala,ginger,1.0
+garam masala,onion,1.0
+garam masala,salt,1.0
+garam masala,garlic,1.0
+whole black lentils,garam masala,1.0
+whole black lentils,mustard oil,1.0
+whole black lentils,ginger,1.0
+whole black lentils,red chili powder,1.0
+whole black lentils,coriander powder,1.0
+whole black lentils,turmeric powder,1.0
+whole black lentils,fresh coriander,1.0
+whole black lentils,green chili,1.0
+whole black lentils,cumin seeds,1.0
+whole black lentils,tomato,1.0
+whole black lentils,onion,1.0
+whole black lentils,salt,1.0
+whole black lentils,garlic,1.0
+pumpkin,fresh coriander,1.0
+pumpkin,turmeric powder,1.0
+pumpkin,green chili,1.0
+pumpkin,cumin powder,1.0
+pumpkin,onion,1.0
+pumpkin,salt,1.0
+black eyed peas,mustard oil,1.0
+black eyed peas,ginger,1.0
+black eyed peas,red chili powder,1.0
+black eyed peas,coriander powder,1.0
+black eyed peas,turmeric powder,1.0
+black eyed peas,fresh coriander,1.0
+black eyed peas,green chili,1.0
+black eyed peas,cumin powder,1.0
+black eyed peas,cumin seeds,1.0
+black eyed peas,tomato,1.0
+black eyed peas,onion,1.0
+black eyed peas,salt,1.0
+black eyed peas,garlic,1.0
+chickpea,fresh coriander,1.0
+chickpea,green chili,1.0
+chickpea,cumin powder,1.0
+chickpea,potato,1.0
+chickpea,onion,1.0
+chickpea,salt,1.0
+bay leaf,ginger,1.0
+egg,ginger,1.0
+egg,onion,1.0
+egg,salt,1.0
+egg,garlic,1.0
+cinnamon stick,ginger,1.0
+cinnamon stick,cloves,1.0
+cinnamon stick,bay leaf,1.0
+green cardamom,fresh coriander,1.0
+green cardamom,cinnamon stick,1.0
+green cardamom,cumin seeds,1.0
+green cardamom,garlic,1.0
+green cardamom,cumin powder,1.0
+green cardamom,onion,1.0
+green cardamom,garam masala,1.0
+green cardamom,ginger,1.0
+green cardamom,green chili,1.0
+green cardamom,cloves,1.0
+green cardamom,yogurt,1.0
+green cardamom,chicken with bone,1.0
+green cardamom,mustard oil,1.0
+green cardamom,bay leaf,1.0
+green cardamom,red chili powder,1.0
+green cardamom,coriander powder,1.0
+green cardamom,turmeric powder,1.0
+green cardamom,tomato,1.0
+green cardamom,salt,1.0
+cloves,cinnamon stick,1.0
+cloves,ginger,1.0
+cloves,bay leaf,1.0
+chicken with bone,fresh coriander,1.0
+chicken with bone,cinnamon stick,1.0
+chicken with bone,cumin seeds,1.0
+chicken with bone,garlic,1.0
+chicken with bone,cumin powder,1.0
+chicken with bone,onion,1.0
+chicken with bone,green cardamom,1.0
+chicken with bone,garam masala,1.0
+chicken with bone,ginger,1.0
+chicken with bone,green chili,1.0
+chicken with bone,cloves,1.0
+chicken with bone,yogurt,1.0
+chicken with bone,mustard oil,1.0
+chicken with bone,bay leaf,1.0
+chicken with bone,red chili powder,1.0
+chicken with bone,coriander powder,1.0
+chicken with bone,turmeric powder,1.0
+chicken with bone,tomato,1.0
+chicken with bone,salt,1.0
+black cardamom,fresh coriander,1.0
+black cardamom,cinnamon stick,1.0
+black cardamom,cumin seeds,1.0
+black cardamom,garlic,1.0
+black cardamom,cumin powder,1.0
+black cardamom,goat meat,1.0
+black cardamom,onion,1.0
+black cardamom,garam masala,1.0
+black cardamom,ginger,1.0
+black cardamom,green chili,1.0
+black cardamom,cloves,1.0
+black cardamom,yogurt,1.0
+black cardamom,bay leaf,1.0
+black cardamom,mustard oil,1.0
+black cardamom,red chili powder,1.0
+black cardamom,coriander powder,1.0
+black cardamom,turmeric powder,1.0
+black cardamom,tomato,1.0
+black cardamom,salt,1.0
+goat meat,fresh coriander,1.0
+goat meat,cinnamon stick,1.0
+goat meat,cumin seeds,1.0
+goat meat,garlic,1.0
+goat meat,black cardamom,1.0
+goat meat,cumin powder,1.0
+goat meat,onion,1.0
+goat meat,garam masala,1.0
+goat meat,ginger,1.0
+goat meat,green chili,1.0
+goat meat,cloves,1.0
+goat meat,yogurt,1.0
+goat meat,bay leaf,1.0
+goat meat,mustard oil,1.0
+goat meat,red chili powder,1.0
+goat meat,coriander powder,1.0
+goat meat,turmeric powder,1.0
+goat meat,tomato,1.0
+goat meat,salt,1.0
+fish steak,bay leaf,1.0
+fish steak,mustard oil,1.0
+fish steak,ginger,1.0
+fish steak,red chili powder,1.0
+fish steak,coriander powder,1.0
+fish steak,turmeric powder,1.0
+fish steak,fresh coriander,1.0
+fish steak,green chili,1.0
+fish steak,cumin powder,1.0
+fish steak,cumin seeds,1.0
+fish steak,fenugreek seeds,1.0
+fish steak,tomato,1.0
+fish steak,onion,1.0
+fish steak,salt,1.0
+fish steak,garlic,1.0
+fish steak,lemon juice,1.0
+bamboo shoots,tomato,1.0
+bamboo shoots,mustard oil,1.0
+bamboo shoots,ginger,1.0
+bamboo shoots,red chili powder,1.0
+bamboo shoots,coriander powder,1.0
+bamboo shoots,turmeric powder,1.0
+bamboo shoots,fresh coriander,1.0
+bamboo shoots,green chili,1.0
+bamboo shoots,cumin powder,1.0
+bamboo shoots,fenugreek seeds,1.0
+bamboo shoots,potato,1.0
+bamboo shoots,onion,1.0
+bamboo shoots,salt,1.0
+bamboo shoots,garlic,1.0
+gundruk,mustard oil,1.0
+gundruk,ginger,1.0
+gundruk,fresh coriander,1.0
+gundruk,turmeric powder,1.0
+gundruk,green chili,1.0
+gundruk,onion,1.0
+gundruk,salt,1.0
+gundruk,garlic,1.0
+gundruk,lemon juice,1.0
+timur pepper,salt,1.0
+timur pepper,garlic,1.0
+mixed sprouted beans,timur pepper,1.0
+mixed sprouted beans,bay leaf,1.0
+mixed sprouted beans,ginger,1.0
+mixed sprouted beans,red chili powder,1.0
+mixed sprouted beans,coriander powder,1.0
+mixed sprouted beans,turmeric powder,1.0
+mixed sprouted beans,ghee,1.0
+mixed sprouted beans,fresh coriander,1.0
+mixed sprouted beans,green chili,1.0
+mixed sprouted beans,cumin powder,1.0
+mixed sprouted beans,tomato,1.0
+mixed sprouted beans,onion,1.0
+mixed sprouted beans,salt,1.0
+mixed sprouted beans,garlic,1.0
+finger millet flour,ghee,1.0
+finger millet flour,salt,1.0
+finger millet flour,buckwheat flour,1.0
+pickle,ghee,1.0
+pickle,yogurt,1.0
+pickle,finger millet flour,1.0
+pickle,salt,1.0
+pickle,buckwheat flour,1.0
+buckwheat flour,ghee,1.0
+buckwheat flour,finger millet flour,1.0
+buckwheat flour,salt,1.0
+corn flour,salt,1.0
+green bean,fresh coriander,1.0
+green bean,garlic,1.0
+green bean,carrot,1.0
+green bean,soy sauce,1.0
+green bean,cumin powder,1.0
+green bean,onion,1.0
+green bean,lemon juice,1.0
+green bean,spring onion,1.0
+green bean,ginger,1.0
+green bean,green chili,1.0
+green bean,turmeric powder,1.0
+green bean,salt,1.0
+carrot,fresh coriander,1.0
+carrot,garlic,1.0
+carrot,cumin powder,1.0
+carrot,onion,1.0
+carrot,ginger,1.0
+carrot,green chili,1.0
+carrot,salt,1.0
+soy sauce,garlic,1.0
+soy sauce,ginger,1.0
+soy sauce,salt,1.0
+flat wheat noodles,fresh coriander,1.0
+flat wheat noodles,cabbage,1.0
+flat wheat noodles,garlic,1.0
+flat wheat noodles,carrot,1.0
+flat wheat noodles,soy sauce,1.0
+flat wheat noodles,cumin powder,1.0
+flat wheat noodles,onion,1.0
+flat wheat noodles,lemon juice,1.0
+flat wheat noodles,spring onion,1.0
+flat wheat noodles,ginger,1.0
+flat wheat noodles,green chili,1.0
+flat wheat noodles,coriander powder,1.0
+flat wheat noodles,turmeric powder,1.0
+flat wheat noodles,tomato,1.0
+flat wheat noodles,salt,1.0
+spring onion,garlic,1.0
+spring onion,soy sauce,1.0
+spring onion,ginger,1.0
+spring onion,salt,1.0
+vegetable broth,fresh coriander,1.0
+vegetable broth,cabbage,1.0
+vegetable broth,green bean,1.0
+vegetable broth,garlic,1.0
+vegetable broth,carrot,1.0
+vegetable broth,soy sauce,1.0
+vegetable broth,flat wheat noodles,1.0
+vegetable broth,cumin powder,1.0
+vegetable broth,onion,1.0
+vegetable broth,lemon juice,1.0
+vegetable broth,spring onion,1.0
+vegetable broth,ginger,1.0
+vegetable broth,green chili,1.0
+vegetable broth,vegetable oil,1.0
+vegetable broth,coriander powder,1.0
+vegetable broth,turmeric powder,1.0
+vegetable broth,tomato,1.0
+vegetable broth,salt,1.0
+chicken broth,fresh coriander,1.0
+chicken broth,cabbage,1.0
+chicken broth,garlic,1.0
+chicken broth,carrot,1.0
+chicken broth,soy sauce,1.0
+chicken broth,flat wheat noodles,1.0
+chicken broth,cumin powder,1.0
+chicken broth,onion,1.0
+chicken broth,lemon juice,1.0
+chicken broth,spring onion,1.0
+chicken broth,ginger,1.0
+chicken broth,green chili,1.0
+chicken broth,boneless chicken,1.0
+chicken broth,mustard oil,1.0
+chicken broth,coriander powder,1.0
+chicken broth,turmeric powder,1.0
+chicken broth,tomato,1.0
+chicken broth,salt,1.0
+boneless chicken,fresh coriander,1.0
+boneless chicken,garlic,1.0
+boneless chicken,cumin powder,1.0
+boneless chicken,onion,1.0
+boneless chicken,ginger,1.0
+boneless chicken,green chili,1.0
+boneless chicken,mustard oil,1.0
+boneless chicken,turmeric powder,1.0
+boneless chicken,salt,1.0
+sinki,tomato,1.0
+sinki,mustard oil,1.0
+sinki,ginger,1.0
+sinki,fresh coriander,1.0
+sinki,turmeric powder,1.0
+sinki,green chili,1.0
+sinki,cumin powder,1.0
+sinki,fenugreek seeds,1.0
+sinki,potato,1.0
+sinki,onion,1.0
+sinki,salt,1.0
+sinki,garlic,1.0
+sinki,lemon juice,1.0
+rice flour,salt,1.0
+ground chicken,ginger,1.0
+ground chicken,soy sauce,1.0
+ground chicken,cumin powder,1.0
+ground chicken,onion,1.0
+ground chicken,salt,1.0
+ground chicken,garlic,1.0
+black lentils,mustard oil,1.0
+black lentils,ginger,1.0
+black lentils,fresh coriander,1.0
+black lentils,turmeric powder,1.0
+black lentils,green chili,1.0
+black lentils,onion,1.0
+black lentils,salt,1.0
+black lentils,garlic,1.0
+ground buff,ginger,1.0
+ground buff,cumin powder,1.0
+ground buff,onion,1.0
+ground buff,salt,1.0
+ground buff,garlic,1.0
+soybean powder,timur pepper,1.0
+soybean powder,mustard oil,1.0
+soybean powder,ginger,1.0
+soybean powder,fresh coriander,1.0
+soybean powder,ground buff,1.0
+soybean powder,turmeric powder,1.0
+soybean powder,green chili,1.0
+soybean powder,cumin powder,1.0
+soybean powder,fenugreek seeds,1.0
+soybean powder,onion,1.0
+soybean powder,salt,1.0
+soybean powder,garlic,1.0
+soybean powder,lemon juice,1.0
+boneless buff,timur pepper,1.0
+boneless buff,mustard oil,1.0
+boneless buff,ginger,1.0
+boneless buff,red chili powder,1.0
+boneless buff,fresh coriander,1.0
+boneless buff,turmeric powder,1.0
+boneless buff,green chili,1.0
+boneless buff,cumin powder,1.0
+boneless buff,onion,1.0
+boneless buff,salt,1.0
+boneless buff,garlic,1.0
+boneless buff,lemon juice,1.0
+buff tripe,mustard oil,1.0
+buff tripe,ginger,1.0
+buff tripe,red chili powder,1.0
+buff tripe,fresh coriander,1.0
+buff tripe,turmeric powder,1.0
+buff tripe,green chili,1.0
+buff tripe,cumin powder,1.0
+buff tripe,garlic,1.0
+buff tripe,fenugreek seeds,1.0
+buff tripe,onion,1.0
+buff tripe,salt,1.0
+buff tripe,lemon juice,1.0
+buff intestine,timur pepper,1.0
+buff intestine,bay leaf,1.0
+buff intestine,mustard oil,1.0
+buff intestine,ginger,1.0
+buff intestine,red chili powder,1.0
+buff intestine,fresh coriander,1.0
+buff intestine,turmeric powder,1.0
+buff intestine,green chili,1.0
+buff intestine,cumin powder,1.0
+buff intestine,garlic,1.0
+buff intestine,fenugreek seeds,1.0
+buff intestine,tomato,1.0
+buff intestine,buff tripe,1.0
+buff intestine,onion,1.0
+buff intestine,salt,1.0
+buff intestine,lemon juice,1.0
+grated coconut,ghee,1.0
+grated coconut,rice flour,1.0
+grated coconut,cardamom powder,1.0
+grated coconut,salt,1.0
+sesame seeds,ghee,1.0
+sesame seeds,cardamom powder,1.0
+sesame seeds,jaggery,1.0
+chopped pistachio,sugar,1.0
+chopped pistachio,cardamom powder,1.0
+saffron strands,sugar,1.0
+saffron strands,cardamom powder,1.0
+whole milk,sugar,1.0
+baking powder,all-purpose flour,1.0
+baking powder,sugar,1.0
+baking powder,vegetable oil,1.0
+baking powder,ghee,1.0
+fish head,mustard oil,1.0
+fish head,ginger,1.0
+fish head,fresh coriander,1.0
+fish head,turmeric powder,1.0
+fish head,green chili,1.0
+fish head,cumin powder,1.0
+fish head,fenugreek seeds,1.0
+fish head,tomato,1.0
+fish head,fish bone,1.0
+fish head,onion,1.0
+fish head,salt,1.0
+fish head,garlic,1.0
+fish head,lemon juice,1.0
+fish bone,fish head,1.0
+fish bone,mustard oil,1.0
+fish bone,ginger,1.0
+fish bone,fresh coriander,1.0
+fish bone,turmeric powder,1.0
+fish bone,green chili,1.0
+fish bone,cumin powder,1.0
+fish bone,fenugreek seeds,1.0
+fish bone,tomato,1.0
+fish bone,onion,1.0
+fish bone,salt,1.0
+fish bone,garlic,1.0
+fish bone,lemon juice,1.0
+ripe banana,all-purpose flour,1.0
+ripe banana,sugar,1.0
+ripe banana,cardamom powder,1.0
+ripe banana,vegetable oil,1.0
+ripe banana,ghee,1.0
+whole wheat flour,fresh coriander,1.0
+whole wheat flour,garlic,1.0
+whole wheat flour,cumin powder,1.0
+whole wheat flour,onion,1.0
+whole wheat flour,garam masala,1.0
+whole wheat flour,ginger,1.0
+whole wheat flour,green chili,1.0
+whole wheat flour,vegetable oil,1.0
+whole wheat flour,all-purpose flour,1.0
+whole wheat flour,red chili powder,1.0
+whole wheat flour,turmeric powder,1.0
+whole wheat flour,salt,1.0
+sooji,fresh coriander,1.0
+sooji,potato,1.0
+sooji,cumin powder,1.0
+sooji,onion,1.0
+sooji,green chili,1.0
+sooji,vegetable oil,1.0
+sooji,all-purpose flour,1.0
+sooji,salt,1.0
+raisins,rice,1.0
+raisins,saffron strands,1.0
+raisins,sugar,1.0
+raisins,chopped nuts,1.0
+raisins,ghee,1.0
+raisins,whole milk,1.0
+raisins,cardamom powder,1.0
+chopped nuts,cardamom powder,1.0
+khoya,saffron strands,1.0
+khoya,sugar,1.0
+khoya,cardamom powder,1.0
+pistachio,sugar,1.0
+pistachio,chopped nuts,1.0
+pistachio,almond,1.0
+pistachio,cardamom powder,1.0
+almond,sugar,1.0
+almond,cardamom powder,1.0
+raw rice,jaggery,1.0
+raw rice,poppy seeds,1.0
+raw rice,vegetable oil,1.0
+raw rice,ghee,1.0
+raw rice,cardamom powder,1.0
+poppy seeds,raw rice,1.0
+poppy seeds,jaggery,1.0
+poppy seeds,vegetable oil,1.0
+poppy seeds,ghee,1.0
+poppy seeds,cardamom powder,1.0
+fennel seeds,all-purpose flour,1.0
+fennel seeds,vegetable oil,1.0
+fennel seeds,ghee,1.0
+fennel seeds,cardamom powder,1.0
+wheat flour,all-purpose flour,1.0
+wheat flour,ghee,1.0
+wheat flour,fennel seeds,1.0
+wheat flour,vegetable oil,1.0
+wheat flour,cardamom powder,1.0
+coconut,ghee,1.0
+coconut,cardamom powder,1.0
+chaku,ghee,1.0
+chaku,salt,1.0
+chaku,yam,1.0
+yam,ghee,1.0
+yam,salt,1.0
+sweet potato,salt,1.0
+sweet potato,yam,1.0
+sweet potato,ghee,1.0
+banana,wheat flour,1.0
+banana,all-purpose flour,1.0
+banana,sugar,1.0
+banana,cardamom powder,1.0
+banana,fennel seeds,1.0
+banana,vegetable oil,1.0
+banana,ghee,1.0
+banana,milk,1.0
+sesame oil,spring onion,1.0
+sesame oil,ginger,1.0
+sesame oil,soy sauce,1.0
+sesame oil,salt,1.0
+sesame oil,garlic,1.0
+black pepper,ginger,1.0
+garlic paste,fresh coriander,1.0
+garlic paste,ground buff,1.0
+garlic paste,cabbage,1.0
+garlic paste,garlic,1.0
+garlic paste,soy sauce,1.0
+garlic paste,cumin powder,1.0
+garlic paste,onion,1.0
+garlic paste,spring onion,1.0
+garlic paste,ginger,1.0
+garlic paste,corn flour,1.0
+garlic paste,green chili,1.0
+garlic paste,vegetable oil,1.0
+garlic paste,ground chicken,1.0
+garlic paste,sesame oil,1.0
+garlic paste,all-purpose flour,1.0
+garlic paste,mustard oil,1.0
+garlic paste,tomato,1.0
+garlic paste,salt,1.0
+sukuti,mustard oil,1.0
+sukuti,ginger,1.0
+sukuti,red chili powder,1.0
+sukuti,fresh coriander,1.0
+sukuti,turmeric powder,1.0
+sukuti,green chili,1.0
+sukuti,tomato,1.0
+sukuti,onion,1.0
+sukuti,salt,1.0
+sukuti,garlic,1.0
+roasted soybean powder,timur pepper,1.0
+roasted soybean powder,mustard oil,1.0
+roasted soybean powder,ginger,1.0
+roasted soybean powder,red chili powder,1.0
+roasted soybean powder,fresh coriander,1.0
+roasted soybean powder,turmeric powder,1.0
+roasted soybean powder,sukuti,1.0
+roasted soybean powder,green chili,1.0
+roasted soybean powder,tomato,1.0
+roasted soybean powder,onion,1.0
+roasted soybean powder,salt,1.0
+roasted soybean powder,garlic,1.0
+roasted soybean powder,lemon juice,1.0
+soybean,timur pepper,1.0
+soybean,mustard oil,1.0
+soybean,ginger,1.0
+soybean,turmeric powder,1.0
+soybean,fresh coriander,1.0
+soybean,green chili,1.0
+soybean,tomato,1.0
+soybean,onion,1.0
+soybean,salt,1.0
+soybean,garlic,1.0
+roasted peanuts,mustard oil,1.0
+roasted peanuts,red chili powder,1.0
+roasted peanuts,fresh coriander,1.0
+roasted peanuts,green chili,1.0
+roasted peanuts,cucumber,1.0
+roasted peanuts,chat masala,1.0
+roasted peanuts,tomato,1.0
+roasted peanuts,onion,1.0
+roasted peanuts,salt,1.0
+roasted peanuts,lemon juice,1.0
+cucumber,mustard oil,1.0
+cucumber,red chili powder,1.0
+cucumber,green chili,1.0
+cucumber,salt,1.0
+cucumber,lemon juice,1.0
+chat masala,fresh coriander,1.0
+chat masala,green chili,1.0
+chat masala,salt,1.0
+chat masala,lemon juice,1.0
+wai wai noodles,mustard oil,1.0
+wai wai noodles,ginger,1.0
+wai wai noodles,red chili powder,1.0
+wai wai noodles,fresh coriander,1.0
+wai wai noodles,green chili,1.0
+wai wai noodles,roasted peanuts,1.0
+wai wai noodles,cucumber,1.0
+wai wai noodles,green pea,1.0
+wai wai noodles,chat masala,1.0
+wai wai noodles,tomato,1.0
+wai wai noodles,onion,1.0
+wai wai noodles,salt,1.0
+wai wai noodles,garlic,1.0
+wai wai noodles,lemon juice,1.0
+baby potato,timur pepper,1.0
+baby potato,mustard oil,1.0
+baby potato,ginger,1.0
+baby potato,red chili powder,1.0
+baby potato,fresh coriander,1.0
+baby potato,turmeric powder,1.0
+baby potato,green chili,1.0
+baby potato,cumin powder,1.0
+baby potato,chat masala,1.0
+baby potato,salt,1.0
+baby potato,garlic,1.0
+baby potato,lemon juice,1.0
+pomegranate seeds,mustard oil,1.0
+pomegranate seeds,red chili powder,1.0
+pomegranate seeds,fresh coriander,1.0
+pomegranate seeds,green chili,1.0
+pomegranate seeds,roasted peanuts,1.0
+pomegranate seeds,cucumber,1.0
+pomegranate seeds,corn,1.0
+pomegranate seeds,chat masala,1.0
+pomegranate seeds,tomato,1.0
+pomegranate seeds,onion,1.0
+pomegranate seeds,salt,1.0
+pomegranate seeds,lemon juice,1.0
+corn,mustard oil,1.0
+corn,red chili powder,1.0
+corn,fresh coriander,1.0
+corn,green chili,1.0
+corn,roasted peanuts,1.0
+corn,cucumber,1.0
+corn,pomegranate seeds,1.0
+corn,chat masala,1.0
+corn,tomato,1.0
+corn,onion,1.0
+corn,salt,1.0
+corn,lemon juice,1.0
+boiled potato,fresh coriander,1.0
+boiled potato,roasted peanuts,1.0
+boiled potato,garlic,1.0
+boiled potato,carrot,1.0
+boiled potato,cucumber,1.0
+boiled potato,seviyan,1.0
+boiled potato,cumin powder,1.0
+boiled potato,onion,1.0
+boiled potato,lemon juice,1.0
+boiled potato,ginger,1.0
+boiled potato,green chili,1.0
+boiled potato,beaten rice,1.0
+boiled potato,green pea,1.0
+boiled potato,chat masala,1.0
+boiled potato,mustard oil,1.0
+boiled potato,red chili powder,1.0
+boiled potato,puffed rice,1.0
+boiled potato,tomato,1.0
+boiled potato,salt,1.0
+seviyan,fresh coriander,1.0
+seviyan,roasted peanuts,1.0
+seviyan,garlic,1.0
+seviyan,boiled potato,1.0
+seviyan,carrot,1.0
+seviyan,cucumber,1.0
+seviyan,cumin powder,1.0
+seviyan,onion,1.0
+seviyan,lemon juice,1.0
+seviyan,ginger,1.0
+seviyan,green chili,1.0
+seviyan,beaten rice,1.0
+seviyan,green pea,1.0
+seviyan,chat masala,1.0
+seviyan,mustard oil,1.0
+seviyan,red chili powder,1.0
+seviyan,puffed rice,1.0
+seviyan,tomato,1.0
+seviyan,salt,1.0
+beaten rice,fresh coriander,1.0
+beaten rice,roasted peanuts,1.0
+beaten rice,garlic,1.0
+beaten rice,boiled potato,1.0
+beaten rice,carrot,1.0
+beaten rice,cucumber,1.0
+beaten rice,seviyan,1.0
+beaten rice,cumin powder,1.0
+beaten rice,onion,1.0
+beaten rice,lemon juice,1.0
+beaten rice,ginger,1.0
+beaten rice,green chili,1.0
+beaten rice,green pea,1.0
+beaten rice,chat masala,1.0
+beaten rice,mustard oil,1.0
+beaten rice,red chili powder,1.0
+beaten rice,puffed rice,1.0
+beaten rice,tomato,1.0
+beaten rice,salt,1.0
+puffed rice,fresh coriander,1.0
+puffed rice,roasted peanuts,1.0
+puffed rice,garlic,1.0
+puffed rice,boiled potato,1.0
+puffed rice,carrot,1.0
+puffed rice,cucumber,1.0
+puffed rice,seviyan,1.0
+puffed rice,cumin powder,1.0
+puffed rice,onion,1.0
+puffed rice,lemon juice,1.0
+puffed rice,ginger,1.0
+puffed rice,green chili,1.0
+puffed rice,beaten rice,1.0
+puffed rice,green pea,1.0
+puffed rice,chat masala,1.0
+puffed rice,mustard oil,1.0
+puffed rice,red chili powder,1.0
+puffed rice,tomato,1.0
+puffed rice,salt,1.0
+mung bean flour,sesame oil,1.0
+mung bean flour,timur pepper,1.0
+mung bean flour,spring onion,1.0
+mung bean flour,mustard oil,1.0
+mung bean flour,ginger,1.0
+mung bean flour,red chili powder,1.0
+mung bean flour,fresh coriander,1.0
+mung bean flour,corn flour,1.0
+mung bean flour,green chili,1.0
+mung bean flour,soy sauce,1.0
+mung bean flour,white sesame seeds,1.0
+mung bean flour,vinegar,1.0
+mung bean flour,salt,1.0
+mung bean flour,garlic,1.0
+white sesame seeds,sesame oil,1.0
+white sesame seeds,timur pepper,1.0
+white sesame seeds,spring onion,1.0
+white sesame seeds,mustard oil,1.0
+white sesame seeds,ginger,1.0
+white sesame seeds,red chili powder,1.0
+white sesame seeds,fresh coriander,1.0
+white sesame seeds,corn flour,1.0
+white sesame seeds,green chili,1.0
+white sesame seeds,soy sauce,1.0
+white sesame seeds,mung bean flour,1.0
+white sesame seeds,vinegar,1.0
+white sesame seeds,salt,1.0
+white sesame seeds,garlic,1.0
+vinegar,mustard oil,1.0
+vinegar,ginger,1.0
+vinegar,fresh coriander,1.0
+vinegar,green chili,1.0
+vinegar,soy sauce,1.0
+vinegar,salt,1.0
+vinegar,garlic,1.0
+baking soda,vegetable oil,1.0
+green chutney,fresh coriander,1.0
+green chutney,egg,1.0
+green chutney,garlic,1.0
+green chutney,soy sauce,1.0
+green chutney,cumin powder,1.0
+green chutney,onion,1.0
+green chutney,tomato ketchup,1.0
+green chutney,whole wheat flour,1.0
+green chutney,garam masala,1.0
+green chutney,ginger,1.0
+green chutney,green chili,1.0
+green chutney,vegetable oil,1.0
+green chutney,boneless chicken,1.0
+green chutney,all-purpose flour,1.0
+green chutney,mustard oil,1.0
+green chutney,red chili powder,1.0
+green chutney,turmeric powder,1.0
+green chutney,capsicum,1.0
+green chutney,vinegar,1.0
+green chutney,salt,1.0
+tomato ketchup,fresh coriander,1.0
+tomato ketchup,egg,1.0
+tomato ketchup,green chutney,1.0
+tomato ketchup,garlic,1.0
+tomato ketchup,soy sauce,1.0
+tomato ketchup,cumin powder,1.0
+tomato ketchup,onion,1.0
+tomato ketchup,whole wheat flour,1.0
+tomato ketchup,garam masala,1.0
+tomato ketchup,ginger,1.0
+tomato ketchup,green chili,1.0
+tomato ketchup,vegetable oil,1.0
+tomato ketchup,boneless chicken,1.0
+tomato ketchup,all-purpose flour,1.0
+tomato ketchup,mustard oil,1.0
+tomato ketchup,red chili powder,1.0
+tomato ketchup,turmeric powder,1.0
+tomato ketchup,capsicum,1.0
+tomato ketchup,vinegar,1.0
+tomato ketchup,salt,1.0
+capsicum,fresh coriander,1.0
+capsicum,egg,1.0
+capsicum,garlic,1.0
+capsicum,soy sauce,1.0
+capsicum,cumin powder,1.0
+capsicum,onion,1.0
+capsicum,ginger,1.0
+capsicum,green chili,1.0
+capsicum,mustard oil,1.0
+capsicum,turmeric powder,1.0
+capsicum,vinegar,1.0
+capsicum,salt,1.0
+tamarind pulp,chickpea,1.0
+tamarind pulp,all-purpose flour,1.0
+tamarind pulp,sooji,1.0
+tamarind pulp,fresh coriander,1.0
+tamarind pulp,vegetable oil,1.0
+tamarind pulp,green chili,1.0
+tamarind pulp,black salt,1.0
+tamarind pulp,cumin powder,1.0
+tamarind pulp,chat masala,1.0
+tamarind pulp,jaggery,1.0
+tamarind pulp,potato,1.0
+tamarind pulp,baking soda,1.0
+tamarind pulp,onion,1.0
+tamarind pulp,salt,1.0
+tamarind pulp,lemon juice,1.0
+tamarind pulp,mint leaves,1.0
+black salt,tamarind pulp,1.0
+black salt,chickpea,1.0
+black salt,all-purpose flour,1.0
+black salt,sooji,1.0
+black salt,fresh coriander,1.0
+black salt,vegetable oil,1.0
+black salt,green chili,1.0
+black salt,cumin powder,1.0
+black salt,chat masala,1.0
+black salt,jaggery,1.0
+black salt,potato,1.0
+black salt,baking soda,1.0
+black salt,onion,1.0
+black salt,salt,1.0
+black salt,lemon juice,1.0
+black salt,mint leaves,1.0
+mint leaves,tamarind pulp,1.0
+mint leaves,chickpea,1.0
+mint leaves,all-purpose flour,1.0
+mint leaves,sooji,1.0
+mint leaves,fresh coriander,1.0
+mint leaves,vegetable oil,1.0
+mint leaves,green chili,1.0
+mint leaves,black salt,1.0
+mint leaves,cumin powder,1.0
+mint leaves,chat masala,1.0
+mint leaves,jaggery,1.0
+mint leaves,potato,1.0
+mint leaves,baking soda,1.0
+mint leaves,onion,1.0
+mint leaves,salt,1.0
+mint leaves,lemon juice,1.0
+cardamom,black pepper,1.0
+cardamom,bay leaf,1.0
+cardamom,ginger,1.0
+cardamom,black tea leaves,1.0
+cardamom,sugar,1.0
+cardamom,cloves,1.0
+cardamom,cinnamon stick,1.0
+cardamom,whole milk,1.0
+finger millet,yeast,1.0
+noodle,timur pepper,1.0
+noodle,tomato,1.0
+noodle,mustard oil,1.0
+noodle,ginger,1.0
+noodle,fresh coriander,1.0
+noodle,turmeric powder,1.0
+noodle,buff meat with bone,1.0
+noodle,green chili,1.0
+noodle,cumin powder,1.0
+noodle,potato,1.0
+noodle,radish,1.0
+noodle,onion,1.0
+noodle,salt,1.0
+noodle,garlic,1.0
+buff meat with bone,timur pepper,1.0
+buff meat with bone,tomato,1.0
+buff meat with bone,mustard oil,1.0
+buff meat with bone,ginger,1.0
+buff meat with bone,fresh coriander,1.0
+buff meat with bone,turmeric powder,1.0
+buff meat with bone,green chili,1.0
+buff meat with bone,cumin powder,1.0
+buff meat with bone,radish,1.0
+buff meat with bone,onion,1.0
+buff meat with bone,salt,1.0
+buff meat with bone,garlic,1.0
+radish,mustard oil,1.0
+radish,fresh coriander,1.0
+radish,turmeric powder,1.0
+radish,green chili,1.0
+radish,salt,1.0
+radish,garlic,1.0
+maize flour,timur pepper,1.0
+maize flour,tomato,1.0
+maize flour,mustard oil,1.0
+maize flour,ginger,1.0
+maize flour,fresh coriander,1.0
+maize flour,turmeric powder,1.0
+maize flour,green chili,1.0
+maize flour,cumin powder,1.0
+maize flour,potato,1.0
+maize flour,onion,1.0
+maize flour,salt,1.0
+maize flour,garlic,1.0
+roasted wheat flour,butter,1.0
+roasted wheat flour,sugar,1.0
+roasted wheat flour,barley flour,1.0
+roasted wheat flour,milk,1.0
+roasted wheat flour,salt,1.0
+barley flour,butter,1.0
+barley flour,roasted wheat flour,1.0
+barley flour,sugar,1.0
+barley flour,milk,1.0
+barley flour,salt,1.0
+kinema,mustard oil,1.0
+kinema,ginger,1.0
+kinema,red chili powder,1.0
+kinema,coriander powder,1.0
+kinema,turmeric powder,1.0
+kinema,fresh coriander,1.0
+kinema,green chili,1.0
+kinema,cumin powder,1.0
+kinema,tomato,1.0
+kinema,onion,1.0
+kinema,salt,1.0
+kinema,garlic,1.0
+snails,mustard oil,1.0
+snails,ginger,1.0
+snails,red chili powder,1.0
+snails,coriander powder,1.0
+snails,turmeric powder,1.0
+snails,fresh coriander,1.0
+snails,green chili,1.0
+snails,cumin powder,1.0
+snails,tomato,1.0
+snails,onion,1.0
+snails,salt,1.0
+snails,garlic,1.0
+snails,lemon juice,1.0
+black lentil paste,mustard oil,1.0
+black lentil paste,ginger,1.0
+black lentil paste,fresh coriander,1.0
+black lentil paste,turmeric powder,1.0
+black lentil paste,green chili,1.0
+black lentil paste,rice flour,1.0
+black lentil paste,cumin powder,1.0
+black lentil paste,onion,1.0
+black lentil paste,salt,1.0
+black lentil paste,garlic,1.0
+eggplant,pumpkin,1.0
+eggplant,red chili powder,1.0
+eggplant,fresh coriander,1.0
+eggplant,turmeric powder,1.0
+eggplant,green chili,1.0
+eggplant,rice flour,1.0
+eggplant,gram flour,1.0
+eggplant,cumin powder,1.0
+eggplant,vegetable oil,1.0
+eggplant,potato,1.0
+eggplant,onion,1.0
+eggplant,salt,1.0
+lapsi,timur pepper,1.0
+lapsi,mustard oil,1.0
+lapsi,red chili powder,1.0
+lapsi,sugar,1.0
+lapsi,cumin powder,1.0
+lapsi,garlic,1.0
+lapsi,salt,1.0
+lapsi,fenugreek seeds,1.0
+lapsi,lemon juice,1.0
+sesame powder,mustard oil,1.0
+sesame powder,red chili powder,1.0
+sesame powder,turmeric powder,1.0
+sesame powder,green chili,1.0
+sesame powder,garlic,1.0
+sesame powder,salt,1.0
+sesame powder,fenugreek seeds,1.0
+sesame powder,lemon juice,1.0
+dalle khursani,mustard oil,1.0
+dalle khursani,turmeric powder,1.0
+dalle khursani,fenugreek seeds,1.0
+dalle khursani,akabare chili,1.0
+dalle khursani,salt,1.0
+dalle khursani,garlic,1.0
+dalle khursani,lemon juice,1.0
+akabare chili,mustard oil,1.0
+akabare chili,turmeric powder,1.0
+akabare chili,dalle khursani,1.0
+akabare chili,fenugreek seeds,1.0
+akabare chili,salt,1.0
+akabare chili,garlic,1.0
+akabare chili,lemon juice,1.0
+bone marrow,mustard oil,1.0
+bone marrow,ginger,1.0
+bone marrow,red chili powder,1.0
+bone marrow,coriander powder,1.0
+bone marrow,turmeric powder,1.0
+bone marrow,fresh coriander,1.0
+bone marrow,green chili,1.0
+bone marrow,cumin powder,1.0
+bone marrow,fenugreek seeds,1.0
+bone marrow,buff tripe,1.0
+bone marrow,onion,1.0
+bone marrow,salt,1.0
+bone marrow,garlic,1.0
+bone marrow,lemon juice,1.0
+bitter gourd,tomato,1.0
+bitter gourd,mustard oil,1.0
+bitter gourd,ginger,1.0
+bitter gourd,red chili powder,1.0
+bitter gourd,coriander powder,1.0
+bitter gourd,turmeric powder,1.0
+bitter gourd,green chili,1.0
+bitter gourd,cumin powder,1.0
+bitter gourd,potato,1.0
+bitter gourd,onion,1.0
+bitter gourd,salt,1.0
+bitter gourd,garlic,1.0
+bitter gourd,lemon juice,1.0
+chayote squash,tomato,1.0
+chayote squash,mustard oil,1.0
+chayote squash,ginger,1.0
+chayote squash,fresh coriander,1.0
+chayote squash,coriander powder,1.0
+chayote squash,turmeric powder,1.0
+chayote squash,green chili,1.0
+chayote squash,cumin powder,1.0
+chayote squash,fenugreek seeds,1.0
+chayote squash,potato,1.0
+chayote squash,onion,1.0
+chayote squash,salt,1.0
+chayote squash,garlic,1.0
+pumpkin shoots,tomato,1.0
+pumpkin shoots,mustard oil,1.0
+pumpkin shoots,ginger,1.0
+pumpkin shoots,fresh coriander,1.0
+pumpkin shoots,turmeric powder,1.0
+pumpkin shoots,green chili,1.0
+pumpkin shoots,cumin powder,1.0
+pumpkin shoots,potato,1.0
+pumpkin shoots,onion,1.0
+pumpkin shoots,salt,1.0
+pumpkin shoots,garlic,1.0
+mustard greens,butter,1.0
+mustard greens,mustard oil,1.0
+mustard greens,ginger,1.0
+mustard greens,turmeric powder,1.0
+mustard greens,green chili,1.0
+mustard greens,cumin powder,1.0
+mustard greens,tomato,1.0
+mustard greens,onion,1.0
+mustard greens,salt,1.0
+mustard greens,garlic,1.0
+mustard greens,lemon juice,1.0
+stinging nettle,mustard oil,1.0
+stinging nettle,ginger,1.0
+stinging nettle,fresh coriander,1.0
+stinging nettle,turmeric powder,1.0
+stinging nettle,green chili,1.0
+stinging nettle,cumin powder,1.0
+stinging nettle,tomato,1.0
+stinging nettle,onion,1.0
+stinging nettle,salt,1.0
+stinging nettle,garlic,1.0
+stinging nettle,lemon juice,1.0
+fiddlehead fern,timur pepper,1.0
+fiddlehead fern,tomato,1.0
+fiddlehead fern,mustard oil,1.0
+fiddlehead fern,ginger,1.0
+fiddlehead fern,fresh coriander,1.0
+fiddlehead fern,coriander powder,1.0
+fiddlehead fern,turmeric powder,1.0
+fiddlehead fern,green chili,1.0
+fiddlehead fern,cumin powder,1.0
+fiddlehead fern,potato,1.0
+fiddlehead fern,onion,1.0
+fiddlehead fern,salt,1.0
+fiddlehead fern,garlic,1.0
+jimbu,tomato,1.0
+jimbu,mustard oil,1.0
+jimbu,ginger,1.0
+jimbu,fresh coriander,1.0
+jimbu,turmeric powder,1.0
+jimbu,green chili,1.0
+jimbu,cumin powder,1.0
+jimbu,potato,1.0
+jimbu,onion,1.0
+jimbu,garlic,1.0
+jimbu,salt,1.0
+dried yellow peas,garam masala,1.0
+dried yellow peas,mustard oil,1.0
+dried yellow peas,ginger,1.0
+dried yellow peas,coriander powder,1.0
+dried yellow peas,turmeric powder,1.0
+dried yellow peas,red chili powder,1.0
+dried yellow peas,fresh coriander,1.0
+dried yellow peas,green chili,1.0
+dried yellow peas,cumin powder,1.0
+dried yellow peas,tomato,1.0
+dried yellow peas,onion,1.0
+dried yellow peas,salt,1.0
+dried yellow peas,garlic,1.0
+dried yellow peas,lemon juice,1.0
+goat liver,timur pepper,1.0
+goat liver,garam masala,1.0
+goat liver,mustard oil,1.0
+goat liver,ginger,1.0
+goat liver,red chili powder,1.0
+goat liver,coriander powder,1.0
+goat liver,turmeric powder,1.0
+goat liver,fresh coriander,1.0
+goat liver,green chili,1.0
+goat liver,cumin powder,1.0
+goat liver,tomato,1.0
+goat liver,onion,1.0
+goat liver,salt,1.0
+goat liver,garlic,1.0
+goat liver,lemon juice,1.0
+pumpkin flowers,ginger,1.0
+pumpkin flowers,red chili powder,1.0
+pumpkin flowers,turmeric powder,1.0
+pumpkin flowers,green chili,1.0
+pumpkin flowers,rice flour,1.0
+pumpkin flowers,gram flour,1.0
+pumpkin flowers,cumin powder,1.0
+pumpkin flowers,vegetable oil,1.0
+pumpkin flowers,salt,1.0
+pumpkin flowers,baking soda,1.0
+pumpkin flowers,onion,1.0
+pumpkin flowers,garlic,1.0
+chhurpi,tomato,1.0
+chhurpi,mustard oil,1.0
+chhurpi,ginger,1.0
+chhurpi,red chili powder,1.0
+chhurpi,coriander powder,1.0
+chhurpi,turmeric powder,1.0
+chhurpi,fresh coriander,1.0
+chhurpi,green chili,1.0
+chhurpi,cumin powder,1.0
+chhurpi,potato,1.0
+chhurpi,onion,1.0
+chhurpi,salt,1.0
+chhurpi,garlic,1.0
+green leafy vegetables,timur pepper,1.0
+green leafy vegetables,mustard oil,1.0
+green leafy vegetables,ginger,1.0
+green leafy vegetables,fresh coriander,1.0
+green leafy vegetables,soybean,1.0
+green leafy vegetables,turmeric powder,1.0
+green leafy vegetables,green chili,1.0
+green leafy vegetables,cumin powder,1.0
+green leafy vegetables,tomato,1.0
+green leafy vegetables,onion,1.0
+green leafy vegetables,garlic,1.0
+green leafy vegetables,salt,1.0
+cashew,khoya,1.0
+cashew,pistachio,1.0
+cashew,sugar,1.0
+cashew,chopped nuts,1.0
+cashew,coconut,1.0
+cashew,saffron strands,1.0
+cashew,almond,1.0
+cashew,ghee,1.0
+cashew,cardamom powder,1.0
+ginger,salt,0.986
+ginger,garlic,0.986
+mustard oil,garlic,0.985
+tomato,ginger,0.981
+tomato,green chili,0.981
+tomato,onion,0.981
+tomato,garlic,0.981
+turmeric powder,garlic,0.971
+cumin powder,onion,0.968
+coriander powder,fresh coriander,0.967
+tomato,fresh coriander,0.962
+red chili powder,green chili,0.957
+potato,turmeric powder,0.955
+potato,fresh coriander,0.955
+potato,cumin powder,0.955
+cumin powder,garlic,0.952
+fenugreek seeds,turmeric powder,0.952
+lemon juice,salt,0.947
+onion,garlic,0.946
+ginger,onion,0.945
+fresh coriander,onion,0.945
+fresh coriander,garlic,0.945
+fresh coriander,green chili,0.945
+green chili,fresh coriander,0.945
+green chili,garlic,0.945
+timur pepper,ginger,0.944
+timur pepper,fresh coriander,0.944
+timur pepper,green chili,0.944
+timur pepper,mustard oil,0.944
+turmeric powder,green chili,0.943
+tomato,mustard oil,0.942
+mustard oil,green chili,0.94
+garam masala,turmeric powder,0.938
+garam masala,fresh coriander,0.938
+garam masala,cumin powder,0.938
+red chili powder,garlic,0.936
+garlic,ginger,0.935
+coriander powder,mustard oil,0.933
+coriander powder,green chili,0.933
+onion,ginger,0.932
+onion,fresh coriander,0.932
+green chili,onion,0.932
+turmeric powder,fresh coriander,0.929
+turmeric powder,onion,0.929
+mustard oil,fresh coriander,0.925
+cumin powder,ginger,0.921
+onion,green chili,0.919
+ginger,fresh coriander,0.918
+fresh coriander,ginger,0.918
+cumin seeds,mustard oil,0.917
+cumin seeds,coriander powder,0.917
+cumin seeds,tomato,0.917
+cumin seeds,green chili,0.917
+soy sauce,cumin powder,0.917
+soy sauce,onion,0.917
+red chili powder,fresh coriander,0.915
+turmeric powder,ginger,0.914
+mustard oil,ginger,0.91
+garlic,onion,0.909
+cumin powder,fresh coriander,0.905
+cumin powder,green chili,0.905
+fenugreek seeds,green chili,0.905
+tomato,turmeric powder,0.904
+ginger,green chili,0.904
+green chili,ginger,0.904
+green chili,turmeric powder,0.904
+coriander powder,tomato,0.9
+coriander powder,cumin powder,0.9
+spring onion,cumin powder,0.9
+spring onion,onion,0.9
+all-purpose flour,vegetable oil,0.9
+mustard oil,turmeric powder,0.896
+mustard oil,onion,0.896
+garlic,fresh coriander,0.896
+garlic,green chili,0.896
+lemon juice,green chili,0.895
+lemon juice,garlic,0.895
+fresh coriander,turmeric powder,0.89
+cumin powder,turmeric powder,0.889
+garlic,turmeric powder,0.883
+onion,turmeric powder,0.878
+ginger,turmeric powder,0.877
+garam masala,red chili powder,0.875
+garam masala,green chili,0.875
+bay leaf,tomato,0.875
+bay leaf,red chili powder,0.875
+bay leaf,turmeric powder,0.875
+bay leaf,fresh coriander,0.875
+bay leaf,green chili,0.875
+bay leaf,cumin powder,0.875
+bay leaf,onion,0.875
+bay leaf,salt,0.875
+bay leaf,garlic,0.875
+red chili powder,ginger,0.872
+red chili powder,turmeric powder,0.872
+red chili powder,onion,0.872
+lemon juice,mustard oil,0.868
+potato,ginger,0.864
+potato,garlic,0.864
+green chili,mustard oil,0.863
+turmeric powder,mustard oil,0.857
+garlic,mustard oil,0.857
+cabbage,fresh coriander,0.857
+fenugreek seeds,fresh coriander,0.857
+cabbage,soy sauce,0.857
+cabbage,spring onion,0.857
+cabbage,ginger,0.857
+gram flour,vegetable oil,0.857
+red chili powder,mustard oil,0.851
+fresh coriander,mustard oil,0.849
+ginger,mustard oil,0.836
+egg,mustard oil,0.833
+egg,turmeric powder,0.833
+egg,fresh coriander,0.833
+egg,green chili,0.833
+egg,cumin powder,0.833
+timur pepper,turmeric powder,0.833
+timur pepper,onion,0.833
+soy sauce,fresh coriander,0.833
+soy sauce,spring onion,0.833
+chopped nuts,sugar,0.833
+chopped nuts,ghee,0.833
+sesame oil,all-purpose flour,0.833
+sesame oil,ground buff,0.833
+sesame oil,cumin powder,0.833
+sesame oil,onion,0.833
+ground buff,sesame oil,0.833
+ground buff,spring onion,0.833
+ground buff,all-purpose flour,0.833
+ground buff,soy sauce,0.833
+chat masala,mustard oil,0.833
+chat masala,red chili powder,0.833
+chat masala,onion,0.833
+baking soda,green chili,0.833
+baking soda,cumin powder,0.833
+baking soda,onion,0.833
+baking soda,salt,0.833
+onion,cumin powder,0.824
+salt,garlic,0.819
+lemon juice,fresh coriander,0.816
+onion,mustard oil,0.811
+turmeric powder,cumin powder,0.8
+green pea,red chili powder,0.8
+green pea,cumin powder,0.8
+carrot,soy sauce,0.8
+carrot,lemon juice,0.8
+carrot,spring onion,0.8
+carrot,turmeric powder,0.8
+carrot,tomato,0.8
+spring onion,fresh coriander,0.8
+carrot,mustard oil,0.8
+ground chicken,fresh coriander,0.8
+jaggery,ghee,0.8
+jaggery,cardamom powder,0.8
+cardamom powder,sugar,0.8
+black pepper,spring onion,0.8
+black pepper,soy sauce,0.8
+black pepper,cumin powder,0.8
+black pepper,onion,0.8
+black pepper,salt,0.8
+black pepper,garlic,0.8
+ground chicken,sesame oil,0.8
+ground chicken,spring onion,0.8
+ground chicken,all-purpose flour,0.8
+ground chicken,ground buff,0.8
+ground chicken,cabbage,0.8
+cucumber,fresh coriander,0.8
+cucumber,roasted peanuts,0.8
+cucumber,chat masala,0.8
+cucumber,tomato,0.8
+cucumber,onion,0.8
+cucumber,garlic,0.8
+green pea,green chili,0.8
+ginger,cumin powder,0.795
+cumin powder,mustard oil,0.794
+lemon juice,ginger,0.789
+lemon juice,turmeric powder,0.789
+lemon juice,onion,0.789
+tomato,cumin powder,0.788
+salt,onion,0.787
+fresh coriander,cumin powder,0.781
+green chili,cumin powder,0.781
+garlic,cumin powder,0.779
+timur pepper,cumin powder,0.778
+salt,fresh coriander,0.777
+salt,green chili,0.777
+potato,mustard oil,0.773
+vegetable oil,salt,0.769
+coriander powder,red chili powder,0.767
+salt,ginger,0.766
+red chili powder,cumin powder,0.766
+fenugreek seeds,onion,0.762
+fenugreek seeds,ginger,0.762
+fenugreek seeds,lemon juice,0.762
+dry red chili,mustard oil,0.75
+dry red chili,ginger,0.75
+dry red chili,cumin seeds,0.75
+cumin seeds,red chili powder,0.75
+dry red chili,green chili,0.75
+garam masala,mustard oil,0.75
+bay leaf,mustard oil,0.75
+bay leaf,coriander powder,0.75
+boneless chicken,lemon juice,0.75
+boneless chicken,red chili powder,0.75
+cardamom powder,ghee,0.75
+chopped pistachio,saffron strands,0.75
+all-purpose flour,salt,0.75
+khoya,almond,0.75
+almond,khoya,0.75
+almond,pistachio,0.75
+almond,saffron strands,0.75
+almond,chopped nuts,0.75
+almond,ghee,0.75
+roasted peanuts,ginger,0.75
+roasted peanuts,garlic,0.75
+radish,tomato,0.75
+radish,ginger,0.75
+radish,cumin powder,0.75
+radish,onion,0.75
+khoya,ghee,0.75
+mustard oil,cumin powder,0.746
+salt,turmeric powder,0.745
+mustard oil,tomato,0.731
+timur pepper,tomato,0.722
+gram flour,red chili powder,0.714
+gram flour,turmeric powder,0.714
+gram flour,green chili,0.714
+gram flour,cumin powder,0.714
+gram flour,onion,0.714
+gram flour,salt,0.714
+salt,mustard oil,0.713
+ginger,tomato,0.699
+green chili,tomato,0.699
+sugar,cardamom powder,0.696
+vegetable oil,all-purpose flour,0.692
+onion,tomato,0.689
+fresh coriander,tomato,0.685
+potato,tomato,0.682
+red chili powder,tomato,0.681
+turmeric powder,tomato,0.671
+salt,cumin powder,0.67
+cumin seeds,cumin powder,0.667
+fenugreek seeds,cumin powder,0.667
+cinnamon stick,fresh coriander,0.667
+cinnamon stick,cumin seeds,0.667
+cinnamon stick,garlic,0.667
+cinnamon stick,cumin powder,0.667
+cinnamon stick,onion,0.667
+cinnamon stick,garam masala,0.667
+cinnamon stick,green chili,0.667
+cinnamon stick,yogurt,0.667
+cinnamon stick,mustard oil,0.667
+cinnamon stick,red chili powder,0.667
+cinnamon stick,coriander powder,0.667
+cinnamon stick,turmeric powder,0.667
+cinnamon stick,tomato,0.667
+cinnamon stick,salt,0.667
+cloves,fresh coriander,0.667
+cloves,cumin seeds,0.667
+cloves,garlic,0.667
+cloves,cumin powder,0.667
+cloves,onion,0.667
+cloves,garam masala,0.667
+cloves,green chili,0.667
+cloves,yogurt,0.667
+cloves,mustard oil,0.667
+cloves,red chili powder,0.667
+cloves,coriander powder,0.667
+cloves,turmeric powder,0.667
+cloves,tomato,0.667
+cloves,salt,0.667
+gundruk,tomato,0.667
+gundruk,fenugreek seeds,0.667
+timur pepper,red chili powder,0.667
+corn flour,vegetable oil,0.667
+soy sauce,green chili,0.667
+egg,soy sauce,0.667
+rice flour,turmeric powder,0.667
+rice flour,green chili,0.667
+rice flour,cumin powder,0.667
+rice flour,onion,0.667
+ground buff,fresh coriander,0.667
+milk,ghee,0.667
+milk,cardamom powder,0.667
+milk,salt,0.667
+whole milk,cardamom powder,0.667
+baking powder,milk,0.667
+baking powder,cardamom powder,0.667
+milk,sugar,0.667
+baking powder,salt,0.667
+whole wheat flour,potato,0.667
+whole wheat flour,mustard oil,0.667
+pistachio,khoya,0.667
+pistachio,saffron strands,0.667
+pistachio,ghee,0.667
+fennel seeds,sugar,0.667
+fennel seeds,wheat flour,0.667
+sesame oil,fresh coriander,0.667
+sesame oil,cabbage,0.667
+sesame oil,ground chicken,0.667
+ground buff,cabbage,0.667
+ground buff,ground chicken,0.667
+sesame oil,vegetable oil,0.667
+ground buff,vegetable oil,0.667
+corn flour,fresh coriander,0.667
+corn flour,garlic,0.667
+corn flour,soy sauce,0.667
+corn flour,spring onion,0.667
+corn flour,ginger,0.667
+corn flour,green chili,0.667
+corn flour,sesame oil,0.667
+corn flour,mustard oil,0.667
+chat masala,ginger,0.667
+chat masala,roasted peanuts,0.667
+chat masala,cucumber,0.667
+chat masala,tomato,0.667
+chat masala,garlic,0.667
+vinegar,spring onion,0.667
+vinegar,red chili powder,0.667
+baking soda,red chili powder,0.667
+baking soda,fresh coriander,0.667
+baking soda,turmeric powder,0.667
+baking soda,gram flour,0.667
+vinegar,egg,0.667
+vinegar,cumin powder,0.667
+vinegar,onion,0.667
+vinegar,turmeric powder,0.667
+vinegar,capsicum,0.667
+black tea leaves,sugar,0.667
+black tea leaves,whole milk,0.667
+yeast,rice,0.667
+garlic,tomato,0.662
+cumin powder,tomato,0.651
+lemon juice,tomato,0.632
+lemon juice,cumin powder,0.632
+garam masala,coriander powder,0.625
+bay leaf,cumin seeds,0.625
+yogurt,salt,0.625
+fenugreek seeds,red chili powder,0.619
+green chili,red chili powder,0.616
+tomato,red chili powder,0.615
+timur pepper,lemon juice,0.611
+lemon juice,red chili powder,0.605
+ghee,salt,0.6
+green pea,turmeric powder,0.6
+green pea,tomato,0.6
+spring onion,cabbage,0.6
+spring onion,green chili,0.6
+ghee,cardamom powder,0.6
+jaggery,salt,0.6
+jaggery,vegetable oil,0.6
+spring onion,sesame oil,0.6
+spring onion,all-purpose flour,0.6
+black pepper,sesame oil,0.6
+black pepper,all-purpose flour,0.6
+black pepper,fresh coriander,0.6
+black pepper,ground buff,0.6
+black pepper,cabbage,0.6
+black pepper,ground chicken,0.6
+ground chicken,black pepper,0.6
+ground chicken,vegetable oil,0.6
+cucumber,ginger,0.6
+green pea,lemon juice,0.6
+mustard oil,red chili powder,0.597
+potato,red chili powder,0.591
+fresh coriander,red chili powder,0.589
+turmeric powder,red chili powder,0.586
+soy sauce,turmeric powder,0.583
+soy sauce,mustard oil,0.583
+soy sauce,all-purpose flour,0.583
+vegetable oil,cumin powder,0.577
+vegetable oil,onion,0.577
+cumin powder,red chili powder,0.571
+garlic,red chili powder,0.571
+cabbage,turmeric powder,0.571
+cabbage,green chili,0.571
+fenugreek seeds,tomato,0.571
+cabbage,vegetable oil,0.571
+cabbage,sesame oil,0.571
+cabbage,all-purpose flour,0.571
+cabbage,ground buff,0.571
+cabbage,ground chicken,0.571
+gram flour,fresh coriander,0.571
+gram flour,baking soda,0.571
+ginger,red chili powder,0.562
+garam masala,tomato,0.562
+rice flour,ginger,0.556
+rice flour,fresh coriander,0.556
+rice flour,garlic,0.556
+onion,red chili powder,0.554
+salt,tomato,0.553
+all-purpose flour,cumin powder,0.55
+all-purpose flour,onion,0.55
+sugar,ghee,0.522
+tomato,coriander powder,0.519
+dry red chili,coriander powder,0.5
+dry red chili,asafoetida,0.5
+dry red chili,ghee,0.5
+asafoetida,split yellow lentils,0.5
+asafoetida,mustard oil,0.5
+asafoetida,rice,0.5
+asafoetida,coriander powder,0.5
+potato,coriander powder,0.5
+salt,red chili powder,0.5
+butter,mustard oil,0.5
+butter,ginger,0.5
+butter,turmeric powder,0.5
+butter,green chili,0.5
+butter,tomato,0.5
+butter,onion,0.5
+butter,garlic,0.5
+spinach,butter,0.5
+spinach,mustard oil,0.5
+spinach,ginger,0.5
+spinach,tomato,0.5
+spinach,garlic,0.5
+dry red chili,tomato,0.5
+asafoetida,tomato,0.5
+asafoetida,green chili,0.5
+asafoetida,split yellow moong lentils,0.5
+cumin seeds,garam masala,0.5
+pumpkin,mustard oil,0.5
+pumpkin,ginger,0.5
+pumpkin,sugar,0.5
+pumpkin,fenugreek seeds,0.5
+pumpkin,garlic,0.5
+chickpea,garam masala,0.5
+chickpea,tomato,0.5
+chickpea,mustard oil,0.5
+chickpea,ginger,0.5
+chickpea,red chili powder,0.5
+chickpea,coriander powder,0.5
+chickpea,turmeric powder,0.5
+chickpea,bay leaf,0.5
+chickpea,cumin seeds,0.5
+chickpea,garlic,0.5
+bay leaf,garam masala,0.5
+egg,garam masala,0.5
+finger millet flour,yogurt,0.5
+finger millet flour,pickle,0.5
+buckwheat flour,yogurt,0.5
+buckwheat flour,pickle,0.5
+finger millet flour,corn flour,0.5
+finger millet flour,vegetable oil,0.5
+buckwheat flour,corn flour,0.5
+buckwheat flour,vegetable oil,0.5
+green bean,cabbage,0.5
+green bean,flat wheat noodles,0.5
+green bean,vegetable broth,0.5
+green bean,vegetable oil,0.5
+green bean,coriander powder,0.5
+green bean,tomato,0.5
+soy sauce,cabbage,0.5
+soy sauce,vegetable oil,0.5
+flat wheat noodles,green bean,0.5
+flat wheat noodles,vegetable broth,0.5
+flat wheat noodles,vegetable oil,0.5
+spring onion,vegetable oil,0.5
+spring onion,turmeric powder,0.5
+flat wheat noodles,chicken broth,0.5
+flat wheat noodles,boneless chicken,0.5
+flat wheat noodles,mustard oil,0.5
+spring onion,mustard oil,0.5
+boneless chicken,soy sauce,0.5
+boneless chicken,tomato,0.5
+black lentils,egg,0.5
+boneless chicken,timur pepper,0.5
+boneless buff,fenugreek seeds,0.5
+boneless buff,tomato,0.5
+buff tripe,timur pepper,0.5
+buff tripe,bay leaf,0.5
+buff tripe,tomato,0.5
+buff tripe,buff intestine,0.5
+grated coconut,sesame seeds,0.5
+grated coconut,jaggery,0.5
+grated coconut,milk,0.5
+sesame seeds,rice flour,0.5
+sesame seeds,grated coconut,0.5
+sesame seeds,milk,0.5
+sesame seeds,salt,0.5
+chopped pistachio,yogurt,0.5
+yogurt,sugar,0.5
+yogurt,cardamom powder,0.5
+whole milk,saffron strands,0.5
+milk,all-purpose flour,0.5
+milk,vegetable oil,0.5
+ripe banana,baking powder,0.5
+ripe banana,rice flour,0.5
+ripe banana,milk,0.5
+ripe banana,salt,0.5
+sooji,cumin seeds,0.5
+sooji,garlic,0.5
+sooji,whole wheat flour,0.5
+sooji,garam masala,0.5
+sooji,ginger,0.5
+sooji,mustard oil,0.5
+sooji,red chili powder,0.5
+sooji,coriander powder,0.5
+sooji,turmeric powder,0.5
+sooji,tomato,0.5
+all-purpose flour,garlic,0.5
+all-purpose flour,ginger,0.5
+saffron strands,ghee,0.5
+chopped nuts,saffron strands,0.5
+khoya,pistachio,0.5
+khoya,chopped nuts,0.5
+saffron strands,khoya,0.5
+chopped nuts,pistachio,0.5
+chopped nuts,almond,0.5
+ripe banana,chopped nuts,0.5
+ripe banana,fennel seeds,0.5
+ripe banana,whole milk,0.5
+wheat flour,coconut,0.5
+wheat flour,jaggery,0.5
+wheat flour,salt,0.5
+coconut,wheat flour,0.5
+coconut,all-purpose flour,0.5
+coconut,fennel seeds,0.5
+coconut,vegetable oil,0.5
+coconut,jaggery,0.5
+coconut,salt,0.5
+sesame seeds,chopped nuts,0.5
+yam,chaku,0.5
+yam,sweet potato,0.5
+wheat flour,banana,0.5
+wheat flour,sugar,0.5
+wheat flour,milk,0.5
+sesame oil,black pepper,0.5
+spring onion,ground buff,0.5
+ground buff,black pepper,0.5
+soy sauce,sesame oil,0.5
+boneless buff,garam masala,0.5
+boneless buff,boneless chicken,0.5
+boneless chicken,garam masala,0.5
+sukuti,timur pepper,0.5
+sukuti,roasted soybean powder,0.5
+sukuti,lemon juice,0.5
+soybean,red chili powder,0.5
+soybean,fenugreek seeds,0.5
+soybean,lemon juice,0.5
+roasted peanuts,green pea,0.5
+chat masala,cumin powder,0.5
+baking soda,ginger,0.5
+baking soda,potato,0.5
+baking soda,garlic,0.5
+spinach,red chili powder,0.5
+spinach,gram flour,0.5
+spinach,cumin powder,0.5
+spinach,vegetable oil,0.5
+spinach,potato,0.5
+spinach,baking soda,0.5
+capsicum,green chutney,0.5
+capsicum,tomato ketchup,0.5
+capsicum,whole wheat flour,0.5
+capsicum,garam masala,0.5
+capsicum,vegetable oil,0.5
+capsicum,boneless chicken,0.5
+capsicum,all-purpose flour,0.5
+capsicum,red chili powder,0.5
+chickpea,tamarind pulp,0.5
+chickpea,all-purpose flour,0.5
+chickpea,sooji,0.5
+chickpea,vegetable oil,0.5
+chickpea,black salt,0.5
+chickpea,chat masala,0.5
+chickpea,jaggery,0.5
+chickpea,baking soda,0.5
+chickpea,lemon juice,0.5
+chickpea,mint leaves,0.5
+sooji,tamarind pulp,0.5
+sooji,chickpea,0.5
+sooji,black salt,0.5
+sooji,chat masala,0.5
+sooji,jaggery,0.5
+sooji,baking soda,0.5
+sooji,lemon juice,0.5
+sooji,mint leaves,0.5
+green bean,rice,0.5
+green bean,egg,0.5
+green bean,black pepper,0.5
+green bean,green pea,0.5
+green bean,mustard oil,0.5
+green bean,capsicum,0.5
+green bean,vinegar,0.5
+capsicum,rice,0.5
+capsicum,green bean,0.5
+capsicum,carrot,0.5
+capsicum,lemon juice,0.5
+capsicum,spring onion,0.5
+capsicum,black pepper,0.5
+capsicum,green pea,0.5
+butter,milk,0.5
+buff meat with bone,noodle,0.5
+buff meat with bone,potato,0.5
+radish,timur pepper,0.5
+radish,buff meat with bone,0.5
+radish,potato,0.5
+black lentils,tomato,0.5
+black lentils,red chili powder,0.5
+black lentils,coriander powder,0.5
+black lentils,rice flour,0.5
+black lentils,cumin powder,0.5
+black lentils,ghee,0.5
+pumpkin,red chili powder,0.5
+pumpkin,eggplant,0.5
+pumpkin,rice flour,0.5
+pumpkin,gram flour,0.5
+pumpkin,vegetable oil,0.5
+pumpkin,potato,0.5
+grated coconut,sugar,0.5
+radish,red chili powder,0.5
+radish,fenugreek seeds,0.5
+sesame powder,cucumber,0.5
+buff tripe,coriander powder,0.5
+buff tripe,bone marrow,0.5
+buff meat with bone,spring onion,0.5
+buff meat with bone,all-purpose flour,0.5
+buff meat with bone,carrot,0.5
+buff meat with bone,soy sauce,0.5
+chopped pistachio,khoya,0.5
+chopped pistachio,ghee,0.5
+khoya,chopped pistachio,0.5
+sesame powder,ginger,0.5
+sesame powder,gundruk,0.5
+sesame powder,fresh coriander,0.5
+sesame powder,tomato,0.5
+sesame powder,onion,0.5
+soybean,cumin powder,0.5
+soybean,green leafy vegetables,0.5
+sukuti,garam masala,0.5
+sukuti,coriander powder,0.5
+sukuti,cumin powder,0.5
+sukuti,potato,0.5
+coconut,khoya,0.5
+coconut,pistachio,0.5
+coconut,sugar,0.5
+coconut,chopped nuts,0.5
+coconut,cashew,0.5
+coconut,saffron strands,0.5
+coconut,almond,0.5
+mustard oil,lemon juice,0.493
+red chili powder,coriander powder,0.489
+red chili powder,lemon juice,0.489
+ghee,sugar,0.48
+green chili,lemon juice,0.466
+tomato,lemon juice,0.462
+vegetable oil,fresh coriander,0.462
+vegetable oil,garlic,0.462
+vegetable oil,ginger,0.462
+vegetable oil,green chili,0.462
+all-purpose flour,ghee,0.45
+cardamom powder,vegetable oil,0.45
+all-purpose flour,fresh coriander,0.45
+rice flour,ghee,0.444
+rice flour,vegetable oil,0.444
+rice flour,red chili powder,0.444
+garlic,lemon juice,0.442
+ghee,vegetable oil,0.44
+turmeric powder,coriander powder,0.429
+cumin powder,coriander powder,0.429
+cabbage,mustard oil,0.429
+turmeric powder,lemon juice,0.429
+cabbage,tomato,0.429
+cabbage,black pepper,0.429
+gram flour,ginger,0.429
+gram flour,rice flour,0.429
+gram flour,potato,0.429
+gram flour,garlic,0.429
+fresh coriander,lemon juice,0.425
+vegetable oil,ghee,0.423
+lemon juice,fenugreek seeds,0.421
+mustard oil,coriander powder,0.418
+cumin seeds,bay leaf,0.417
+soy sauce,tomato,0.417
+soy sauce,ground chicken,0.417
+soy sauce,ground buff,0.417
+ginger,coriander powder,0.411
+ginger,lemon juice,0.411
+onion,coriander powder,0.405
+onion,lemon juice,0.405
+rice,mustard oil,0.4
+rice,ginger,0.4
+rice,turmeric powder,0.4
+rice,fresh coriander,0.4
+rice,ghee,0.4
+rice,onion,0.4
+rice,salt,0.4
+rice,garlic,0.4
+green pea,coriander powder,0.4
+carrot,cabbage,0.4
+carrot,green bean,0.4
+carrot,flat wheat noodles,0.4
+carrot,coriander powder,0.4
+spring onion,carrot,0.4
+spring onion,tomato,0.4
+ground chicken,mustard oil,0.4
+ground chicken,turmeric powder,0.4
+ground chicken,green chili,0.4
+ground chicken,tomato,0.4
+jaggery,sesame seeds,0.4
+cardamom powder,saffron strands,0.4
+all-purpose flour,sugar,0.4
+all-purpose flour,cardamom powder,0.4
+cardamom powder,all-purpose flour,0.4
+rice,sugar,0.4
+jaggery,all-purpose flour,0.4
+spring onion,black pepper,0.4
+spring onion,ground chicken,0.4
+black pepper,turmeric powder,0.4
+black pepper,vegetable oil,0.4
+cucumber,green pea,0.4
+green pea,roasted peanuts,0.4
+green pea,cucumber,0.4
+green pea,chat masala,0.4
+carrot,green pea,0.4
+green pea,carrot,0.4
+rice,yeast,0.4
+fresh coriander,coriander powder,0.397
+garlic,coriander powder,0.39
+vegetable oil,turmeric powder,0.385
+green chili,coriander powder,0.384
+salt,lemon juice,0.383
+cumin powder,lemon juice,0.381
+garam masala,cumin seeds,0.375
+garam masala,potato,0.375
+yogurt,fresh coriander,0.375
+yogurt,garlic,0.375
+yogurt,cumin powder,0.375
+yogurt,onion,0.375
+yogurt,garam masala,0.375
+yogurt,ginger,0.375
+yogurt,green chili,0.375
+yogurt,red chili powder,0.375
+yogurt,turmeric powder,0.375
+bay leaf,cinnamon stick,0.375
+bay leaf,cloves,0.375
+saffron strands,chopped pistachio,0.375
+saffron strands,yogurt,0.375
+saffron strands,whole milk,0.375
+yogurt,saffron strands,0.375
+garam masala,vegetable oil,0.375
+garam masala,all-purpose flour,0.375
+saffron strands,chopped nuts,0.375
+saffron strands,almond,0.375
+coriander powder,cumin seeds,0.367
+coriander powder,potato,0.367
+ghee,all-purpose flour,0.36
+all-purpose flour,green chili,0.35
+all-purpose flour,soy sauce,0.35
+sugar,salt,0.348
+sugar,saffron strands,0.348
+sugar,all-purpose flour,0.348
+sugar,vegetable oil,0.348
+vegetable oil,cardamom powder,0.346
+vegetable oil,red chili powder,0.346
+cumin powder,potato,0.333
+coriander powder,garam masala,0.333
+egg,coriander powder,0.333
+egg,red chili powder,0.333
+egg,tomato,0.333
+cinnamon stick,green cardamom,0.333
+cinnamon stick,chicken with bone,0.333
+cloves,green cardamom,0.333
+cloves,chicken with bone,0.333
+cinnamon stick,black cardamom,0.333
+cinnamon stick,goat meat,0.333
+cloves,black cardamom,0.333
+cloves,goat meat,0.333
+gundruk,cumin powder,0.333
+gundruk,potato,0.333
+corn flour,finger millet flour,0.333
+corn flour,ghee,0.333
+corn flour,buckwheat flour,0.333
+soy sauce,carrot,0.333
+rice flour,mustard oil,0.333
+soy sauce,egg,0.333
+timur pepper,fenugreek seeds,0.333
+ground buff,mustard oil,0.333
+ground buff,turmeric powder,0.333
+ground buff,green chili,0.333
+rice flour,cardamom powder,0.333
+milk,rice flour,0.333
+milk,baking powder,0.333
+baking powder,rice flour,0.333
+baking powder,ripe banana,0.333
+whole wheat flour,cumin seeds,0.333
+whole wheat flour,sooji,0.333
+whole wheat flour,coriander powder,0.333
+whole wheat flour,tomato,0.333
+chopped nuts,whole milk,0.333
+whole milk,chopped nuts,0.333
+whole milk,ghee,0.333
+pistachio,yogurt,0.333
+chopped nuts,khoya,0.333
+pistachio,gram flour,0.333
+fennel seeds,chopped nuts,0.333
+fennel seeds,ripe banana,0.333
+fennel seeds,whole milk,0.333
+fennel seeds,coconut,0.333
+fennel seeds,jaggery,0.333
+fennel seeds,salt,0.333
+fennel seeds,banana,0.333
+fennel seeds,milk,0.333
+sesame oil,garam masala,0.333
+ground buff,garam masala,0.333
+soy sauce,black pepper,0.333
+corn flour,ground buff,0.333
+corn flour,cabbage,0.333
+corn flour,cumin powder,0.333
+corn flour,onion,0.333
+corn flour,garlic paste,0.333
+corn flour,ground chicken,0.333
+corn flour,all-purpose flour,0.333
+corn flour,tomato,0.333
+sesame oil,corn flour,0.333
+sesame oil,green chili,0.333
+sesame oil,mustard oil,0.333
+chat masala,green pea,0.333
+chat masala,timur pepper,0.333
+corn flour,timur pepper,0.333
+corn flour,red chili powder,0.333
+corn flour,mung bean flour,0.333
+corn flour,white sesame seeds,0.333
+corn flour,vinegar,0.333
+vinegar,sesame oil,0.333
+vinegar,timur pepper,0.333
+vinegar,corn flour,0.333
+vinegar,mung bean flour,0.333
+vinegar,white sesame seeds,0.333
+rice flour,gram flour,0.333
+baking soda,rice flour,0.333
+baking soda,lemon juice,0.333
+egg,vegetable oil,0.333
+egg,all-purpose flour,0.333
+egg,capsicum,0.333
+egg,vinegar,0.333
+whole wheat flour,egg,0.333
+whole wheat flour,green chutney,0.333
+whole wheat flour,soy sauce,0.333
+whole wheat flour,tomato ketchup,0.333
+whole wheat flour,boneless chicken,0.333
+whole wheat flour,capsicum,0.333
+whole wheat flour,vinegar,0.333
+vinegar,green chutney,0.333
+vinegar,tomato ketchup,0.333
+vinegar,whole wheat flour,0.333
+vinegar,garam masala,0.333
+vinegar,vegetable oil,0.333
+vinegar,boneless chicken,0.333
+vinegar,all-purpose flour,0.333
+baking soda,all-purpose flour,0.333
+egg,spring onion,0.333
+vinegar,rice,0.333
+vinegar,green bean,0.333
+vinegar,carrot,0.333
+vinegar,lemon juice,0.333
+vinegar,black pepper,0.333
+vinegar,green pea,0.333
+black tea leaves,black pepper,0.333
+black tea leaves,bay leaf,0.333
+black tea leaves,ginger,0.333
+black tea leaves,cardamom,0.333
+black tea leaves,cloves,0.333
+black tea leaves,cinnamon stick,0.333
+cloves,black pepper,0.333
+cloves,cardamom,0.333
+cloves,black tea leaves,0.333
+cloves,sugar,0.333
+cloves,whole milk,0.333
+cinnamon stick,black pepper,0.333
+cinnamon stick,cardamom,0.333
+cinnamon stick,black tea leaves,0.333
+cinnamon stick,sugar,0.333
+cinnamon stick,whole milk,0.333
+whole milk,black tea leaves,0.333
+yeast,sugar,0.333
+yeast,finger millet,0.333
+milk,butter,0.333
+black tea leaves,salt,0.333
+black tea leaves,milk,0.333
+black tea leaves,butter,0.333
+whole wheat flour,ghee,0.333
+whole wheat flour,yogurt,0.333
+gundruk,sesame powder,0.333
+gundruk,red chili powder,0.333
+pistachio,cashew,0.333
+pistachio,coconut,0.333
+salt,coriander powder,0.319
+potato,vegetable oil,0.318
+mustard oil,fenugreek seeds,0.313
+vegetable oil,sugar,0.308
+green chili,potato,0.301
+turmeric powder,potato,0.3
+coriander powder,lemon juice,0.3
+spring onion,lemon juice,0.3
+cardamom powder,salt,0.3
+all-purpose flour,garam masala,0.3
+all-purpose flour,turmeric powder,0.3
+cardamom powder,chopped nuts,0.3
+all-purpose flour,spring onion,0.3
+red chili powder,garam masala,0.298
+onion,potato,0.297
+lemon juice,timur pepper,0.289
+tomato,potato,0.288
+fresh coriander,potato,0.288
+turmeric powder,fenugreek seeds,0.286
+cabbage,carrot,0.286
+cabbage,flat wheat noodles,0.286
+cabbage,lemon juice,0.286
+cabbage,coriander powder,0.286
+fenugreek seeds,timur pepper,0.286
+gram flour,sugar,0.286
+gram flour,cardamom powder,0.286
+gram flour,lemon juice,0.286
+red chili powder,potato,0.277
+red chili powder,fenugreek seeds,0.277
+garlic,fenugreek seeds,0.273
+potato,garam masala,0.273
+vegetable oil,potato,0.269
+sugar,whole milk,0.261
+ginger,potato,0.26
+green chili,fenugreek seeds,0.26
+red chili powder,timur pepper,0.255
+mustard oil,potato,0.254
+mustard oil,timur pepper,0.254
+dry red chili,split yellow lentils,0.25
+dry red chili,rice,0.25
+cumin seeds,dry red chili,0.25
+cumin seeds,potato,0.25
+dry red chili,cabbage,0.25
+dry red chili,cumin powder,0.25
+dry red chili,fenugreek seeds,0.25
+butter,fresh coriander,0.25
+butter,spinach,0.25
+dry red chili,red split lentils,0.25
+dry red chili,lemon juice,0.25
+dry red chili,split yellow moong lentils,0.25
+garam masala,bay leaf,0.25
+yogurt,cinnamon stick,0.25
+yogurt,cumin seeds,0.25
+yogurt,cloves,0.25
+yogurt,mustard oil,0.25
+yogurt,bay leaf,0.25
+yogurt,coriander powder,0.25
+yogurt,tomato,0.25
+bay leaf,yogurt,0.25
+bay leaf,fenugreek seeds,0.25
+bay leaf,lemon juice,0.25
+bay leaf,timur pepper,0.25
+tomato,timur pepper,0.25
+yogurt,ghee,0.25
+soy sauce,lemon juice,0.25
+soy sauce,coriander powder,0.25
+boneless chicken,cabbage,0.25
+boneless chicken,carrot,0.25
+boneless chicken,chicken broth,0.25
+boneless chicken,flat wheat noodles,0.25
+boneless chicken,spring onion,0.25
+boneless chicken,coriander powder,0.25
+boneless chicken,fenugreek seeds,0.25
+chopped pistachio,whole milk,0.25
+yogurt,chopped pistachio,0.25
+all-purpose flour,mustard oil,0.25
+khoya,yogurt,0.25
+saffron strands,pistachio,0.25
+almond,yogurt,0.25
+almond,gram flour,0.25
+all-purpose flour,sesame oil,0.25
+all-purpose flour,ground buff,0.25
+soy sauce,garam masala,0.25
+garam masala,lemon juice,0.25
+boneless chicken,boneless buff,0.25
+roasted peanuts,wai wai noodles,0.25
+roasted peanuts,timur pepper,0.25
+roasted peanuts,pomegranate seeds,0.25
+roasted peanuts,corn,0.25
+roasted peanuts,boiled potato,0.25
+roasted peanuts,carrot,0.25
+roasted peanuts,seviyan,0.25
+roasted peanuts,cumin powder,0.25
+roasted peanuts,beaten rice,0.25
+roasted peanuts,puffed rice,0.25
+soy sauce,vinegar,0.25
+yogurt,all-purpose flour,0.25
+yogurt,vegetable oil,0.25
+saffron strands,all-purpose flour,0.25
+saffron strands,vegetable oil,0.25
+saffron strands,lemon juice,0.25
+boneless chicken,egg,0.25
+boneless chicken,green chutney,0.25
+boneless chicken,tomato ketchup,0.25
+boneless chicken,whole wheat flour,0.25
+boneless chicken,vegetable oil,0.25
+boneless chicken,all-purpose flour,0.25
+boneless chicken,capsicum,0.25
+boneless chicken,vinegar,0.25
+chopped pistachio,salt,0.25
+butter,black tea leaves,0.25
+radish,noodle,0.25
+butter,roasted wheat flour,0.25
+butter,sugar,0.25
+butter,barley flour,0.25
+radish,lemon juice,0.25
+radish,spring onion,0.25
+radish,all-purpose flour,0.25
+radish,carrot,0.25
+radish,soy sauce,0.25
+chopped pistachio,all-purpose flour,0.25
+chopped pistachio,vegetable oil,0.25
+chopped pistachio,baking soda,0.25
+khoya,all-purpose flour,0.25
+khoya,vegetable oil,0.25
+khoya,baking soda,0.25
+chopped pistachio,almond,0.25
+almond,chopped pistachio,0.25
+radish,coriander powder,0.25
+butter,mustard greens,0.25
+butter,cumin powder,0.25
+butter,lemon juice,0.25
+khoya,cashew,0.25
+khoya,coconut,0.25
+almond,cashew,0.25
+almond,coconut,0.25
+garlic,potato,0.247
+fresh coriander,fenugreek seeds,0.247
+cumin powder,garam masala,0.238
+fenugreek seeds,coriander powder,0.238
+fenugreek seeds,potato,0.238
+cumin powder,vegetable oil,0.238
+lemon juice,coriander powder,0.237
+salt,potato,0.234
+garlic,timur pepper,0.234
+ginger,timur pepper,0.233
+fresh coriander,timur pepper,0.233
+green chili,timur pepper,0.233
+tomato,fenugreek seeds,0.231
+vegetable oil,soy sauce,0.231
+vegetable oil,garam masala,0.231
+vegetable oil,gram flour,0.231
+vegetable oil,baking soda,0.231
+potato,fenugreek seeds,0.227
+potato,lemon juice,0.227
+salt,fenugreek seeds,0.223
+cumin powder,fenugreek seeds,0.222
+cumin powder,timur pepper,0.222
+rice flour,coriander powder,0.222
+rice flour,tomato,0.222
+rice flour,grated coconut,0.222
+rice flour,milk,0.222
+rice flour,sugar,0.222
+rice flour,potato,0.222
+rice flour,baking soda,0.222
+ginger,garam masala,0.219
+ginger,fenugreek seeds,0.219
+sugar,chopped nuts,0.217
+onion,fenugreek seeds,0.216
+onion,garam masala,0.216
+turmeric powder,garam masala,0.214
+turmeric powder,timur pepper,0.214
+salt,vegetable oil,0.213
+tomato,cumin seeds,0.212
+garlic,garam masala,0.208
+fresh coriander,garam masala,0.205
+onion,timur pepper,0.203
+onion,vegetable oil,0.203
+rice,split yellow lentils,0.2
+rice,dry red chili,0.2
+rice,coriander powder,0.2
+rice,asafoetida,0.2
+rice,cumin seeds,0.2
+ghee,ginger,0.2
+ghee,turmeric powder,0.2
+ghee,fresh coriander,0.2
+ghee,onion,0.2
+ghee,garlic,0.2
+green pea,cauliflower,0.2
+coriander powder,bay leaf,0.2
+carrot,vegetable broth,0.2
+carrot,vegetable oil,0.2
+spring onion,green bean,0.2
+spring onion,flat wheat noodles,0.2
+spring onion,coriander powder,0.2
+carrot,chicken broth,0.2
+carrot,boneless chicken,0.2
+ground chicken,egg,0.2
+ground chicken,coriander powder,0.2
+ground chicken,rice flour,0.2
+cardamom powder,jaggery,0.2
+cardamom powder,milk,0.2
+jaggery,rice flour,0.2
+jaggery,grated coconut,0.2
+jaggery,milk,0.2
+cardamom powder,chopped pistachio,0.2
+cardamom powder,yogurt,0.2
+cardamom powder,whole milk,0.2
+all-purpose flour,potato,0.2
+all-purpose flour,red chili powder,0.2
+rice,raisins,0.2
+rice,saffron strands,0.2
+rice,chopped nuts,0.2
+rice,whole milk,0.2
+rice,cardamom powder,0.2
+ghee,chopped nuts,0.2
+cardamom powder,khoya,0.2
+cardamom powder,almond,0.2
+jaggery,raw rice,0.2
+jaggery,poppy seeds,0.2
+jaggery,wheat flour,0.2
+jaggery,coconut,0.2
+jaggery,fennel seeds,0.2
+jaggery,chopped nuts,0.2
+spring onion,garam masala,0.2
+all-purpose flour,cabbage,0.2
+all-purpose flour,ground chicken,0.2
+black pepper,garam masala,0.2
+ground chicken,garam masala,0.2
+spring onion,corn flour,0.2
+ground chicken,garlic paste,0.2
+ground chicken,corn flour,0.2
+cucumber,wai wai noodles,0.2
+green pea,wai wai noodles,0.2
+cucumber,timur pepper,0.2
+cucumber,pomegranate seeds,0.2
+cucumber,corn,0.2
+carrot,roasted peanuts,0.2
+carrot,boiled potato,0.2
+carrot,cucumber,0.2
+carrot,seviyan,0.2
+carrot,beaten rice,0.2
+carrot,chat masala,0.2
+carrot,red chili powder,0.2
+carrot,puffed rice,0.2
+cucumber,boiled potato,0.2
+cucumber,carrot,0.2
+cucumber,seviyan,0.2
+cucumber,cumin powder,0.2
+cucumber,beaten rice,0.2
+cucumber,puffed rice,0.2
+green pea,boiled potato,0.2
+green pea,seviyan,0.2
+green pea,beaten rice,0.2
+green pea,puffed rice,0.2
+spring onion,timur pepper,0.2
+spring onion,vinegar,0.2
+green pea,garam masala,0.2
+green pea,all-purpose flour,0.2
+green pea,vegetable oil,0.2
+green pea,potato,0.2
+jaggery,tamarind pulp,0.2
+jaggery,chickpea,0.2
+jaggery,sooji,0.2
+jaggery,fresh coriander,0.2
+jaggery,green chili,0.2
+jaggery,black salt,0.2
+jaggery,cumin powder,0.2
+jaggery,chat masala,0.2
+jaggery,potato,0.2
+jaggery,baking soda,0.2
+jaggery,onion,0.2
+jaggery,lemon juice,0.2
+jaggery,mint leaves,0.2
+rice,egg,0.2
+rice,green bean,0.2
+rice,carrot,0.2
+rice,soy sauce,0.2
+rice,cumin powder,0.2
+rice,lemon juice,0.2
+rice,spring onion,0.2
+rice,black pepper,0.2
+rice,green chili,0.2
+rice,green pea,0.2
+rice,capsicum,0.2
+rice,vinegar,0.2
+carrot,rice,0.2
+carrot,egg,0.2
+carrot,black pepper,0.2
+carrot,capsicum,0.2
+carrot,vinegar,0.2
+spring onion,egg,0.2
+black pepper,rice,0.2
+black pepper,egg,0.2
+black pepper,green bean,0.2
+black pepper,carrot,0.2
+black pepper,lemon juice,0.2
+black pepper,green chili,0.2
+black pepper,green pea,0.2
+black pepper,mustard oil,0.2
+black pepper,capsicum,0.2
+black pepper,vinegar,0.2
+green pea,rice,0.2
+green pea,egg,0.2
+green pea,green bean,0.2
+green pea,soy sauce,0.2
+green pea,spring onion,0.2
+green pea,black pepper,0.2
+green pea,capsicum,0.2
+green pea,vinegar,0.2
+black pepper,bay leaf,0.2
+black pepper,cardamom,0.2
+black pepper,black tea leaves,0.2
+black pepper,sugar,0.2
+black pepper,cloves,0.2
+black pepper,cinnamon stick,0.2
+black pepper,whole milk,0.2
+cucumber,sesame powder,0.2
+cucumber,turmeric powder,0.2
+cucumber,fenugreek seeds,0.2
+carrot,timur pepper,0.2
+carrot,all-purpose flour,0.2
+carrot,buff meat with bone,0.2
+carrot,radish,0.2
+green chili,garam masala,0.192
+vegetable oil,spring onion,0.192
+red chili powder,cumin seeds,0.191
+salt,timur pepper,0.191
+red chili powder,vegetable oil,0.191
+garam masala,egg,0.188
+garam masala,yogurt,0.188
+garam masala,whole wheat flour,0.188
+garam masala,soy sauce,0.188
+potato,all-purpose flour,0.182
+mustard oil,garam masala,0.179
+cumin powder,soy sauce,0.175
+cumin powder,all-purpose flour,0.175
+sugar,chopped pistachio,0.174
+sugar,yogurt,0.174
+sugar,milk,0.174
+sugar,khoya,0.174
+sugar,almond,0.174
+tomato,garam masala,0.173
+turmeric powder,cumin seeds,0.171
+salt,garam masala,0.17
+cumin seeds,asafoetida,0.167
+cumin seeds,ghee,0.167
+cumin seeds,lemon juice,0.167
+egg,bay leaf,0.167
+egg,cumin seeds,0.167
+cumin seeds,cinnamon stick,0.167
+cumin seeds,cloves,0.167
+cumin seeds,yogurt,0.167
+coriander powder,fenugreek seeds,0.167
+timur pepper,coriander powder,0.167
+soy sauce,green bean,0.167
+soy sauce,flat wheat noodles,0.167
+soy sauce,boneless chicken,0.167
+egg,rice flour,0.167
+egg,ground chicken,0.167
+egg,black lentils,0.167
+ground buff,timur pepper,0.167
+ground buff,soybean powder,0.167
+ground buff,fenugreek seeds,0.167
+ground buff,lemon juice,0.167
+milk,grated coconut,0.167
+milk,sesame seeds,0.167
+milk,jaggery,0.167
+whole milk,chopped pistachio,0.167
+whole milk,yogurt,0.167
+milk,ripe banana,0.167
+chopped nuts,rice,0.167
+chopped nuts,raisins,0.167
+whole milk,rice,0.167
+whole milk,raisins,0.167
+chopped nuts,yogurt,0.167
+chopped nuts,gram flour,0.167
+chopped nuts,all-purpose flour,0.167
+chopped nuts,fennel seeds,0.167
+chopped nuts,ripe banana,0.167
+chopped nuts,vegetable oil,0.167
+whole milk,all-purpose flour,0.167
+whole milk,fennel seeds,0.167
+whole milk,ripe banana,0.167
+whole milk,vegetable oil,0.167
+chopped nuts,sesame seeds,0.167
+chopped nuts,jaggery,0.167
+milk,wheat flour,0.167
+milk,banana,0.167
+milk,fennel seeds,0.167
+sesame oil,turmeric powder,0.167
+ground buff,garlic paste,0.167
+ground buff,corn flour,0.167
+ground buff,tomato,0.167
+soy sauce,corn flour,0.167
+sesame oil,garlic paste,0.167
+sesame oil,tomato,0.167
+chat masala,wai wai noodles,0.167
+chat masala,turmeric powder,0.167
+chat masala,baby potato,0.167
+chat masala,pomegranate seeds,0.167
+chat masala,corn,0.167
+chat masala,boiled potato,0.167
+chat masala,carrot,0.167
+chat masala,seviyan,0.167
+chat masala,beaten rice,0.167
+chat masala,puffed rice,0.167
+sesame oil,timur pepper,0.167
+sesame oil,red chili powder,0.167
+sesame oil,mung bean flour,0.167
+sesame oil,white sesame seeds,0.167
+sesame oil,vinegar,0.167
+soy sauce,timur pepper,0.167
+soy sauce,red chili powder,0.167
+baking soda,garam masala,0.167
+baking soda,spinach,0.167
+egg,green chutney,0.167
+egg,tomato ketchup,0.167
+egg,whole wheat flour,0.167
+egg,boneless chicken,0.167
+soy sauce,capsicum,0.167
+chat masala,tamarind pulp,0.167
+chat masala,chickpea,0.167
+chat masala,all-purpose flour,0.167
+chat masala,sooji,0.167
+chat masala,vegetable oil,0.167
+chat masala,black salt,0.167
+chat masala,jaggery,0.167
+chat masala,potato,0.167
+chat masala,baking soda,0.167
+chat masala,mint leaves,0.167
+baking soda,tamarind pulp,0.167
+baking soda,chickpea,0.167
+baking soda,sooji,0.167
+baking soda,black salt,0.167
+baking soda,chat masala,0.167
+baking soda,jaggery,0.167
+baking soda,mint leaves,0.167
+egg,rice,0.167
+egg,green bean,0.167
+egg,carrot,0.167
+egg,lemon juice,0.167
+egg,black pepper,0.167
+egg,green pea,0.167
+whole milk,black pepper,0.167
+whole milk,bay leaf,0.167
+whole milk,ginger,0.167
+whole milk,cardamom,0.167
+whole milk,cloves,0.167
+whole milk,cinnamon stick,0.167
+milk,black tea leaves,0.167
+timur pepper,potato,0.167
+milk,roasted wheat flour,0.167
+milk,barley flour,0.167
+sesame oil,egg,0.167
+egg,sesame oil,0.167
+egg,ground buff,0.167
+ground buff,egg,0.167
+baking soda,chopped pistachio,0.167
+baking soda,khoya,0.167
+baking soda,sugar,0.167
+baking soda,saffron strands,0.167
+baking soda,ghee,0.167
+baking soda,cardamom powder,0.167
+whole milk,lemon juice,0.167
+baking soda,pumpkin flowers,0.167
+chopped nuts,cashew,0.167
+chopped nuts,coconut,0.167
+mustard oil,cumin seeds,0.164
+ginger,cumin seeds,0.164
+fresh coriander,cumin seeds,0.164
+fresh coriander,vegetable oil,0.164
+ginger,soy sauce,0.164
+ginger,vegetable oil,0.164
+green chili,vegetable oil,0.164
+onion,cumin seeds,0.162
+salt,ghee,0.16
+ghee,green chili,0.16
+ghee,rice flour,0.16
+ghee,jaggery,0.16
+ghee,milk,0.16
+salt,all-purpose flour,0.16
+ghee,saffron strands,0.16
+lemon juice,chat masala,0.158
+garlic,cumin seeds,0.156
+garlic,soy sauce,0.156
+garlic,vegetable oil,0.156
+vegetable oil,cabbage,0.154
+vegetable oil,lemon juice,0.154
+vegetable oil,rice flour,0.154
+vegetable oil,mustard oil,0.154
+vegetable oil,sesame oil,0.154
+vegetable oil,ground buff,0.154
+green chili,cumin seeds,0.151
+cardamom powder,rice flour,0.15
+all-purpose flour,baking powder,0.15
+all-purpose flour,milk,0.15
+all-purpose flour,whole wheat flour,0.15
+all-purpose flour,tomato,0.15
+cardamom powder,pistachio,0.15
+all-purpose flour,fennel seeds,0.15
+cardamom powder,fennel seeds,0.15
+all-purpose flour,black pepper,0.15
+red chili powder,bay leaf,0.149
+onion,soy sauce,0.149
+onion,all-purpose flour,0.149
+cabbage,dry red chili,0.143
+cabbage,fenugreek seeds,0.143
+cabbage,green bean,0.143
+cabbage,vegetable broth,0.143
+cumin powder,spring onion,0.143
+turmeric powder,vegetable oil,0.143
+cabbage,chicken broth,0.143
+cabbage,boneless chicken,0.143
+gram flour,pistachio,0.143
+gram flour,chopped nuts,0.143
+gram flour,almond,0.143
+gram flour,ghee,0.143
+cabbage,garam masala,0.143
+cabbage,garlic paste,0.143
+cabbage,corn flour,0.143
+gram flour,garam masala,0.143
+gram flour,spinach,0.143
+gram flour,all-purpose flour,0.143
+gram flour,yogurt,0.143
+gram flour,saffron strands,0.143
+gram flour,pumpkin,0.143
+gram flour,eggplant,0.143
+gram flour,pumpkin flowers,0.143
+fresh coriander,soy sauce,0.137
+ginger,spring onion,0.137
+ginger,all-purpose flour,0.137
+potato,cumin seeds,0.136
+potato,gram flour,0.136
+potato,baking soda,0.136
+potato,timur pepper,0.136
+tomato,bay leaf,0.135
+lemon juice,potato,0.132
+lemon juice,cucumber,0.132
+garlic,spring onion,0.13
+sugar,baking powder,0.13
+garlic,all-purpose flour,0.13
+sugar,pistachio,0.13
+sugar,lemon juice,0.13
+salt,cumin seeds,0.128
+salt,soy sauce,0.128
+cumin powder,cumin seeds,0.127
+bay leaf,chickpea,0.125
+bay leaf,potato,0.125
+bay leaf,egg,0.125
+garam masala,cinnamon stick,0.125
+garam masala,cloves,0.125
+yogurt,green cardamom,0.125
+yogurt,chicken with bone,0.125
+bay leaf,green cardamom,0.125
+bay leaf,chicken with bone,0.125
+yogurt,black cardamom,0.125
+yogurt,goat meat,0.125
+bay leaf,black cardamom,0.125
+bay leaf,goat meat,0.125
+bay leaf,fish steak,0.125
+bay leaf,mixed sprouted beans,0.125
+bay leaf,ghee,0.125
+yogurt,finger millet flour,0.125
+yogurt,pickle,0.125
+yogurt,buckwheat flour,0.125
+bay leaf,buff tripe,0.125
+bay leaf,buff intestine,0.125
+yogurt,whole milk,0.125
+saffron strands,rice,0.125
+saffron strands,raisins,0.125
+yogurt,khoya,0.125
+yogurt,pistachio,0.125
+yogurt,chopped nuts,0.125
+yogurt,almond,0.125
+garam masala,sesame oil,0.125
+garam masala,spring onion,0.125
+garam masala,ground buff,0.125
+garam masala,timur pepper,0.125
+garam masala,boneless chicken,0.125
+yogurt,gram flour,0.125
+yogurt,lemon juice,0.125
+saffron strands,gram flour,0.125
+bay leaf,black pepper,0.125
+bay leaf,cardamom,0.125
+bay leaf,black tea leaves,0.125
+bay leaf,sugar,0.125
+bay leaf,whole milk,0.125
+yogurt,potato,0.125
+yogurt,whole wheat flour,0.125
+saffron strands,baking soda,0.125
+saffron strands,cashew,0.125
+saffron strands,coconut,0.125
+fresh coriander,all-purpose flour,0.123
+onion,spring onion,0.122
+ghee,coriander powder,0.12
+ghee,tomato,0.12
+ghee,red chili powder,0.12
+ghee,cumin powder,0.12
+ghee,baking powder,0.12
+ghee,almond,0.12
+ghee,fennel seeds,0.12
+ghee,khoya,0.12
+vegetable oil,coriander powder,0.115
+vegetable oil,tomato,0.115
+vegetable oil,baking powder,0.115
+vegetable oil,milk,0.115
+vegetable oil,whole wheat flour,0.115
+vegetable oil,jaggery,0.115
+vegetable oil,fennel seeds,0.115
+vegetable oil,ground chicken,0.115
+cumin powder,cabbage,0.111
+cumin powder,bay leaf,0.111
+timur pepper,bay leaf,0.111
+rice flour,egg,0.111
+rice flour,soy sauce,0.111
+rice flour,ground chicken,0.111
+timur pepper,boneless chicken,0.111
+timur pepper,boneless buff,0.111
+rice flour,sesame seeds,0.111
+rice flour,jaggery,0.111
+rice flour,baking powder,0.111
+rice flour,all-purpose flour,0.111
+rice flour,ripe banana,0.111
+timur pepper,garam masala,0.111
+timur pepper,soybean,0.111
+timur pepper,chat masala,0.111
+timur pepper,spring onion,0.111
+timur pepper,soy sauce,0.111
+rice flour,garam masala,0.111
+rice flour,lemon juice,0.111
+timur pepper,buff meat with bone,0.111
+timur pepper,radish,0.111
+rice flour,black lentils,0.111
+rice flour,black lentil paste,0.111
+rice flour,pumpkin,0.111
+rice flour,eggplant,0.111
+rice flour,pumpkin flowers,0.111
+ginger,bay leaf,0.11
+fresh coriander,spring onion,0.11
+green chili,soy sauce,0.11
+salt,spring onion,0.106
+red chili powder,cucumber,0.106
+red chili powder,chat masala,0.106
+red chili powder,gram flour,0.106
+lemon juice,carrot,0.105
+lemon juice,vegetable oil,0.105
+lemon juice,garam masala,0.105
+lemon juice,roasted peanuts,0.105
+mustard oil,soy sauce,0.104
+coriander powder,ghee,0.1
+turmeric powder,bay leaf,0.1
+coriander powder,timur pepper,0.1
+spring onion,vegetable broth,0.1
+coriander powder,soy sauce,0.1
+coriander powder,vegetable oil,0.1
+turmeric powder,soy sauce,0.1
+spring onion,chicken broth,0.1
+spring onion,boneless chicken,0.1
+cardamom powder,grated coconut,0.1
+cardamom powder,sesame seeds,0.1
+cardamom powder,baking powder,0.1
+all-purpose flour,ripe banana,0.1
+cardamom powder,ripe banana,0.1
+all-purpose flour,sooji,0.1
+all-purpose flour,coriander powder,0.1
+cardamom powder,gram flour,0.1
+all-purpose flour,wheat flour,0.1
+all-purpose flour,jaggery,0.1
+cardamom powder,wheat flour,0.1
+cardamom powder,coconut,0.1
+spring onion,garlic paste,0.1
+spring onion,red chili powder,0.1
+spring onion,mung bean flour,0.1
+spring onion,white sesame seeds,0.1
+all-purpose flour,yogurt,0.1
+all-purpose flour,saffron strands,0.1
+all-purpose flour,lemon juice,0.1
+cardamom powder,lemon juice,0.1
+all-purpose flour,egg,0.1
+all-purpose flour,baking soda,0.1
+spring onion,rice,0.1
+spring onion,green pea,0.1
+spring onion,capsicum,0.1
+spring onion,buff meat with bone,0.1
+spring onion,radish,0.1
+fresh coriander,bay leaf,0.096
+green chili,bay leaf,0.096
+tomato,soy sauce,0.096
+salt,rice flour,0.096
+green chili,all-purpose flour,0.096
+onion,cabbage,0.095
+fenugreek seeds,sugar,0.095
+onion,bay leaf,0.095
+fenugreek seeds,bay leaf,0.095
+fenugreek seeds,gundruk,0.095
+cumin powder,rice flour,0.095
+cumin powder,ground buff,0.095
+fenugreek seeds,buff tripe,0.095
+fenugreek seeds,radish,0.095
+fenugreek seeds,sesame powder,0.095
+garlic,cabbage,0.091
+potato,chickpea,0.091
+garlic,bay leaf,0.091
+potato,whole wheat flour,0.091
+potato,sooji,0.091
+potato,rice flour,0.091
+potato,radish,0.091
+mustard oil,bay leaf,0.09
+sugar,mustard oil,0.087
+sugar,ginger,0.087
+sugar,cumin powder,0.087
+sugar,fenugreek seeds,0.087
+sugar,garlic,0.087
+sugar,rice flour,0.087
+sugar,ripe banana,0.087
+sugar,rice,0.087
+sugar,gram flour,0.087
+sugar,fennel seeds,0.087
+sugar,black tea leaves,0.087
+turmeric powder,rice flour,0.086
+turmeric powder,all-purpose flour,0.086
+red chili powder,green pea,0.085
+salt,sugar,0.085
+red chili powder,all-purpose flour,0.085
+red chili powder,roasted peanuts,0.085
+red chili powder,rice flour,0.085
+red chili powder,baking soda,0.085
+cumin seeds,split yellow lentils,0.083
+cumin seeds,rice,0.083
+cumin seeds,red split lentils,0.083
+cumin seeds,split yellow moong lentils,0.083
+cumin seeds,whole black lentils,0.083
+cumin seeds,black eyed peas,0.083
+cumin seeds,chickpea,0.083
+cumin seeds,egg,0.083
+cumin seeds,green cardamom,0.083
+cumin seeds,chicken with bone,0.083
+cumin seeds,black cardamom,0.083
+cumin seeds,goat meat,0.083
+cumin seeds,fish steak,0.083
+cumin seeds,fenugreek seeds,0.083
+soy sauce,vegetable broth,0.083
+soy sauce,chicken broth,0.083
+soy sauce,rice flour,0.083
+cumin seeds,whole wheat flour,0.083
+cumin seeds,sooji,0.083
+cumin seeds,vegetable oil,0.083
+cumin seeds,all-purpose flour,0.083
+soy sauce,garlic paste,0.083
+soy sauce,mung bean flour,0.083
+soy sauce,white sesame seeds,0.083
+soy sauce,green chutney,0.083
+soy sauce,tomato ketchup,0.083
+soy sauce,whole wheat flour,0.083
+soy sauce,rice,0.083
+soy sauce,green pea,0.083
+soy sauce,buff meat with bone,0.083
+soy sauce,radish,0.083
+fresh coriander,cabbage,0.082
+ginger,egg,0.082
+ginger,cabbage,0.082
+green chili,spring onion,0.082
+green chili,rice flour,0.082
+ginger,ground buff,0.082
+ginger,sesame oil,0.082
+fresh coriander,chat masala,0.082
+green chili,chat masala,0.082
+onion,egg,0.081
+onion,rice flour,0.081
+onion,ground buff,0.081
+ghee,dry red chili,0.08
+ghee,mustard oil,0.08
+ghee,rice,0.08
+ghee,asafoetida,0.08
+ghee,cumin seeds,0.08
+ghee,yogurt,0.08
+ghee,finger millet flour,0.08
+ghee,buckwheat flour,0.08
+ghee,grated coconut,0.08
+ghee,sesame seeds,0.08
+ghee,ripe banana,0.08
+ghee,whole milk,0.08
+ghee,pistachio,0.08
+ghee,wheat flour,0.08
+ghee,coconut,0.08
+ghee,yam,0.08
+ghee,chopped pistachio,0.08
+cumin powder,egg,0.079
+lemon juice,gundruk,0.079
+cumin powder,carrot,0.079
+lemon juice,soy sauce,0.079
+lemon juice,spring onion,0.079
+lemon juice,boneless chicken,0.079
+cumin powder,ground chicken,0.079
+cumin powder,sesame oil,0.079
+lemon juice,green pea,0.079
+cumin powder,gram flour,0.079
+cumin powder,baking soda,0.079
+lemon juice,sugar,0.079
+garlic,egg,0.078
+garlic,ground buff,0.078
+garlic,sesame oil,0.078
+vegetable oil,corn flour,0.077
+tomato,carrot,0.077
+tomato,spring onion,0.077
+vegetable oil,ripe banana,0.077
+vegetable oil,sooji,0.077
+vegetable oil,wheat flour,0.077
+vegetable oil,black pepper,0.077
+tomato,roasted peanuts,0.077
+tomato,cucumber,0.077
+tomato,chat masala,0.077
+vegetable oil,yogurt,0.077
+vegetable oil,saffron strands,0.077
+vegetable oil,egg,0.077
+mustard oil,green pea,0.075
+mustard oil,egg,0.075
+mustard oil,spring onion,0.075
+mustard oil,all-purpose flour,0.075
+mustard oil,cucumber,0.075
+mustard oil,chat masala,0.075
+salt,cabbage,0.074
+salt,bay leaf,0.074
+turmeric powder,ghee,0.071
+turmeric powder,egg,0.071
+turmeric powder,spring onion,0.071
+turmeric powder,gram flour,0.071
+ginger,ghee,0.068
+fresh coriander,ghee,0.068
+onion,ghee,0.068
+ginger,green pea,0.068
+fresh coriander,green pea,0.068
+onion,green pea,0.068
+fresh coriander,egg,0.068
+green chili,egg,0.068
+fresh coriander,carrot,0.068
+onion,carrot,0.068
+ginger,carrot,0.068
+green chili,carrot,0.068
+ginger,rice flour,0.068
+ginger,ground chicken,0.068
+fresh coriander,rice flour,0.068
+onion,ground chicken,0.068
+ginger,black pepper,0.068
+onion,sesame oil,0.068
+green chili,cucumber,0.068
+onion,chat masala,0.068
+green chili,gram flour,0.068
+green chili,baking soda,0.068
+onion,gram flour,0.068
+onion,baking soda,0.068
+coriander powder,dry red chili,0.067
+coriander powder,green pea,0.067
+coriander powder,egg,0.067
+coriander powder,cinnamon stick,0.067
+coriander powder,cloves,0.067
+coriander powder,yogurt,0.067
+coriander powder,cabbage,0.067
+coriander powder,carrot,0.067
+coriander powder,flat wheat noodles,0.067
+coriander powder,spring onion,0.067
+coriander powder,rice flour,0.067
+coriander powder,all-purpose flour,0.067
+garlic,ghee,0.065
+garlic,green pea,0.065
+garlic,carrot,0.065
+garlic,rice flour,0.065
+garlic,ground chicken,0.065
+salt,egg,0.064
+red chili powder,yogurt,0.064
+red chili powder,ghee,0.064
+red chili powder,boneless chicken,0.064
+salt,ground buff,0.064
+salt,cardamom powder,0.064
+red chili powder,whole wheat flour,0.064
+salt,sesame oil,0.064
+salt,chat masala,0.064
+cumin powder,green pea,0.063
+cumin powder,boneless chicken,0.063
+cumin powder,black pepper,0.063
+garam masala,whole black lentils,0.062
+garam masala,chickpea,0.062
+garam masala,green cardamom,0.062
+garam masala,chicken with bone,0.062
+garam masala,black cardamom,0.062
+garam masala,goat meat,0.062
+garam masala,sooji,0.062
+garam masala,black pepper,0.062
+garam masala,cabbage,0.062
+garam masala,ground chicken,0.062
+garam masala,boneless buff,0.062
+garam masala,rice flour,0.062
+garam masala,gram flour,0.062
+garam masala,baking soda,0.062
+garam masala,green pea,0.062
+garam masala,green chutney,0.062
+garam masala,tomato ketchup,0.062
+garam masala,capsicum,0.062
+garam masala,vinegar,0.062
+garam masala,ghee,0.062
+garam masala,dried yellow peas,0.062
+garam masala,goat liver,0.062
+garam masala,sukuti,0.062
+mustard oil,carrot,0.06
+mustard oil,boneless chicken,0.06
+mustard oil,vegetable oil,0.06
+mustard oil,roasted peanuts,0.06
+mustard oil,radish,0.06
+tomato,green pea,0.058
+tomato,ghee,0.058
+tomato,cabbage,0.058
+tomato,vegetable oil,0.058
+tomato,all-purpose flour,0.058
+tomato,radish,0.058
+turmeric powder,dry red chili,0.057
+turmeric powder,cabbage,0.057
+turmeric powder,carrot,0.057
+turmeric powder,boneless chicken,0.057
+turmeric powder,baking soda,0.057
+turmeric powder,radish,0.057
+timur pepper,mixed sprouted beans,0.056
+timur pepper,ghee,0.056
+timur pepper,ground buff,0.056
+timur pepper,soybean powder,0.056
+timur pepper,buff tripe,0.056
+timur pepper,buff intestine,0.056
+timur pepper,sukuti,0.056
+timur pepper,roasted soybean powder,0.056
+timur pepper,baby potato,0.056
+timur pepper,roasted peanuts,0.056
+timur pepper,cucumber,0.056
+timur pepper,sesame oil,0.056
+timur pepper,corn flour,0.056
+timur pepper,mung bean flour,0.056
+timur pepper,white sesame seeds,0.056
+timur pepper,vinegar,0.056
+timur pepper,noodle,0.056
+timur pepper,maize flour,0.056
+timur pepper,sugar,0.056
+timur pepper,lapsi,0.056
+timur pepper,all-purpose flour,0.056
+timur pepper,carrot,0.056
+timur pepper,fiddlehead fern,0.056
+timur pepper,goat liver,0.056
+timur pepper,green leafy vegetables,0.056
+fresh coriander,dry red chili,0.055
+green chili,cabbage,0.055
+green chili,ghee,0.055
+fresh coriander,boneless chicken,0.055
+ginger,boneless chicken,0.055
+green chili,boneless chicken,0.055
+fresh coriander,ground chicken,0.055
+fresh coriander,ground buff,0.055
+fresh coriander,sesame oil,0.055
+ginger,chat masala,0.055
+fresh coriander,roasted peanuts,0.055
+fresh coriander,cucumber,0.055
+green chili,roasted peanuts,0.055
+green chili,green pea,0.055
+fresh coriander,gram flour,0.055
+fresh coriander,baking soda,0.055
+fresh coriander,radish,0.055
+green chili,radish,0.055
+onion,dry red chili,0.054
+onion,boneless chicken,0.054
+onion,black pepper,0.054
+onion,roasted peanuts,0.054
+onion,cucumber,0.054
+salt,green pea,0.053
+lemon juice,cumin seeds,0.053
+salt,yogurt,0.053
+lemon juice,bay leaf,0.053
+lemon juice,cabbage,0.053
+lemon juice,green bean,0.053
+lemon juice,flat wheat noodles,0.053
+salt,carrot,0.053
+salt,ground chicken,0.053
+lemon juice,boneless buff,0.053
+lemon juice,buff tripe,0.053
+salt,cucumber,0.053
+salt,gram flour,0.053
+salt,baking soda,0.053
+lemon juice,gram flour,0.053
+lemon juice,baking soda,0.053
+lemon juice,all-purpose flour,0.053
+lemon juice,saffron strands,0.053
+lemon juice,cardamom powder,0.053
+lemon juice,sesame powder,0.053
+garlic,dry red chili,0.052
+garlic,boneless chicken,0.052
+garlic,black pepper,0.052
+garlic,cucumber,0.052
+garlic,chat masala,0.052
+garlic,radish,0.052
+all-purpose flour,rice flour,0.05
+all-purpose flour,cumin seeds,0.05
+cardamom powder,rice,0.05
+cardamom powder,raisins,0.05
+cardamom powder,raw rice,0.05
+cardamom powder,poppy seeds,0.05
+all-purpose flour,chopped nuts,0.05
+all-purpose flour,whole milk,0.05
+all-purpose flour,coconut,0.05
+all-purpose flour,banana,0.05
+cardamom powder,banana,0.05
+all-purpose flour,garlic paste,0.05
+all-purpose flour,corn flour,0.05
+all-purpose flour,green pea,0.05
+all-purpose flour,gram flour,0.05
+all-purpose flour,green chutney,0.05
+all-purpose flour,tomato ketchup,0.05
+all-purpose flour,boneless chicken,0.05
+all-purpose flour,capsicum,0.05
+all-purpose flour,vinegar,0.05
+all-purpose flour,tamarind pulp,0.05
+all-purpose flour,chickpea,0.05
+all-purpose flour,black salt,0.05
+all-purpose flour,chat masala,0.05
+all-purpose flour,mint leaves,0.05
+all-purpose flour,timur pepper,0.05
+all-purpose flour,carrot,0.05
+all-purpose flour,buff meat with bone,0.05
+all-purpose flour,radish,0.05
+all-purpose flour,chopped pistachio,0.05
+all-purpose flour,khoya,0.05
+cardamom powder,baking soda,0.05
+cardamom powder,cashew,0.05

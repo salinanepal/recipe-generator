@@ -75,7 +75,7 @@ def load_recipe_documents():
             ).strip()
 
             recipe_cuisine = row.get(
-                "recipe_cuisine",
+                "cuisine",
                 ""
             ).strip()
 

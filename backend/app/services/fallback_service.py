@@ -49,7 +49,7 @@ def generate_recipe_from_dataset(processed_ingredients, servings=2):
         "cooking_time": 20,
         "servings": servings,
         "ingredients": [
-            {"name": ing, "quantity": "to taste"}
+            {"name": ing, "quantity": ""}
             for ing in recipe_ingredients
         ],
         "instructions": instructions,

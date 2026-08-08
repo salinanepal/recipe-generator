@@ -1,6 +1,5 @@
 from collections import Counter
 
-
 # -------------------------------------------------------
 # Category Weights
 # -------------------------------------------------------
@@ -14,6 +13,34 @@ CATEGORY_WEIGHTS = {
     "Spice": 0.60,
     "Oil/Fat": 0.50,
     "Unknown": 0.40,
+}
+
+# -------------------------------------------------------
+# Pantry Ingredients (low recommendation priority)
+# -------------------------------------------------------
+
+PANTRY_INGREDIENTS = {
+    "salt",
+    "black salt",
+    "water",
+    "hot water",
+    "ice cubes",
+    "vegetable oil",
+    "mustard oil",
+    "sesame oil",
+    "ghee",
+    "butter",
+    "oil",
+    "vinegar",
+    "soy sauce",
+    "sugar",
+    "brown sugar",
+    "white sugar",
+    "honey",
+    "corn syrup",
+    "baking soda",
+    "baking powder",
+    "yeast",
 }
 
 
@@ -135,16 +162,17 @@ def calculate_ranking_scores(
             )
         )
 
-        ranking_score = round(
-
-            (
-                0.50 * category_weight
-                + 0.30 * frequency_score
-                + 0.20 * compatibility_score
-            ),
-
-            2,
+        ranking_score = (
+        0.50 * category_weight
+        + 0.30 * frequency_score
+        + 0.20 * compatibility_score
         )
+
+        # Pantry ingredients should not dominate ranking
+        if ingredient in PANTRY_INGREDIENTS:
+            ranking_score *= 0.4
+
+        ranking_score = round(ranking_score, 2)
 
         ranked_ingredients.append(
 

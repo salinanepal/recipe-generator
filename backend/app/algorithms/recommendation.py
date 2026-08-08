@@ -60,6 +60,30 @@ def recommend_optional_ingredients(
     were not supplied by the user.
     """
 
+    PANTRY_INGREDIENTS = {
+    "salt",
+    "black salt",
+    "water",
+    "hot water",
+    "ice cubes",
+    "vegetable oil",
+    "mustard oil",
+    "sesame oil",
+    "ghee",
+    "butter",
+    "oil",
+    "vinegar",
+    "soy sauce",
+    "sugar",
+    "brown sugar",
+    "white sugar",
+    "honey",
+    "corn syrup",
+    "baking soda",
+    "baking powder",
+    "yeast",
+}
+
     top_recipes = similarity_result[
         "recipe_similarities"
     ][:top_n]
@@ -79,6 +103,9 @@ def recommend_optional_ingredients(
             ingredient = ingredient.lower()
 
             if ingredient in user_ingredients:
+                continue
+
+            if ingredient in PANTRY_INGREDIENTS:
                 continue
 
             ingredient_counter[
@@ -104,28 +131,29 @@ def recommend_optional_ingredients(
 # Select Priority Ingredients
 # -------------------------------------------------------
 
-def select_priority_ingredients(
-    ranking_result,
-    top_n=5,
-):
-    """
-    Select the highest ranked
-    user ingredients.
-    """
+PANTRY_INGREDIENTS = {
+    "salt", "black salt", "water", "hot water", "ice cubes",
+    "vegetable oil", "mustard oil", "sesame oil", "ghee", "butter",
+    "oil", "vinegar", "soy sauce", "sugar", "brown sugar",
+    "white sugar", "honey", "corn syrup", "baking soda",
+    "baking powder", "yeast"
+}
 
-    ranked_ingredients = (
-        ranking_result[
-            "ranked_ingredients"
-        ]
-    )
+def select_priority_ingredients(ranking_result, top_n=5):
+    ranked_ingredients = ranking_result["ranked_ingredients"]
 
     priority_ingredients = []
 
-    for ingredient in ranked_ingredients[:top_n]:
+    for item in ranked_ingredients:
+        ingredient = item["ingredient"]
 
-        priority_ingredients.append(
-            ingredient["ingredient"]
-        )
+        if ingredient in PANTRY_INGREDIENTS:
+            continue
+
+        priority_ingredients.append(ingredient)
+
+        if len(priority_ingredients) == top_n:
+            break
 
     return priority_ingredients
 

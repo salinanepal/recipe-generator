@@ -1,9 +1,7 @@
 import math
 
 
-# -------------------------------------------------------
 # Dot Product
-# -------------------------------------------------------
 
 def dot_product(
     vector1,
@@ -24,9 +22,7 @@ def dot_product(
     return total
 
 
-# -------------------------------------------------------
 # Vector Magnitude
-# -------------------------------------------------------
 
 def vector_magnitude(vector):
     """
@@ -41,9 +37,7 @@ def vector_magnitude(vector):
     return math.sqrt(total)
 
 
-# -------------------------------------------------------
 # Cosine Similarity
-# -------------------------------------------------------
 
 def calculate_cosine_similarity(
     vector1,
@@ -76,9 +70,7 @@ def calculate_cosine_similarity(
     return numerator / denominator
 
 
-# -------------------------------------------------------
 # Calculate Recipe Similarities
-# -------------------------------------------------------
 
 def calculate_recipe_similarities(
     tfidf_result,
@@ -96,10 +88,6 @@ def calculate_recipe_similarities(
         "recipe_ingredients"
     ]
 
-    recipe_types = tfidf_result[
-        "recipe_types"
-    ]
-
     recipe_cuisines = tfidf_result[
         "recipe_cuisines"
     ]
@@ -112,7 +100,6 @@ def calculate_recipe_similarities(
         "user_vector"
     ]
 
-    # Convert sparse matrix to dense array
     user_vector = (
         user_vector.toarray()[0]
     )
@@ -137,35 +124,33 @@ def calculate_recipe_similarities(
         recipe_similarities.append(
             {
                 "recipe_name":
-                   recipe_names[index],
-
-                "recipe_type":
-                   recipe_types[index],
+                    recipe_names[index],
 
                 "cuisine":
-                   recipe_cuisines[index],
+                    recipe_cuisines[index],
 
                 "ingredients":
-                   recipe_ingredients[index],
+                    recipe_ingredients[index],
 
                 "similarity_score":
-                   round(score, 4)
+                    round(score, 4)
             }
         )
-    
+
     recipe_similarities.sort(
-        key=lambda recipe: recipe["similarity_score"],
-        reverse=True,   
+        key=lambda recipe: recipe[
+            "similarity_score"
+        ],
+        reverse=True,
     )
 
     return {
-        "recipe_similarities": recipe_similarities, 
+        "recipe_similarities":
+            recipe_similarities,
     }
 
 
-# -------------------------------------------------------
 # Test
-# -------------------------------------------------------
 
 if __name__ == "__main__":
 
@@ -179,10 +164,8 @@ if __name__ == "__main__":
         "onion",
     ]
 
-    tfidf_result = (
-        build_tfidf_vectors(
-            test_ingredients
-        )
+    tfidf_result = build_tfidf_vectors(
+        test_ingredients
     )
 
     similarity_result = (
@@ -192,8 +175,8 @@ if __name__ == "__main__":
     )
 
     print(
-    f"\nTotal Recipes: "
-    f"{len(similarity_result['recipe_similarities'])}"
+        f"\nTotal Recipes: "
+        f"{len(similarity_result['recipe_similarities'])}"
     )
 
     if not similarity_result[
@@ -201,8 +184,7 @@ if __name__ == "__main__":
     ]:
 
         print(
-            "\nNo recipes found in "
-            "recipes.csv."
+            "\nNo recipes found in recipes.csv."
         )
 
     else:
@@ -217,7 +199,6 @@ if __name__ == "__main__":
 
             print(
                 f"{recipe['recipe_name']} | "
-                f"{recipe['recipe_type']} | "
                 f"{recipe['cuisine']} | "
                 f"{recipe['similarity_score']:.4f}"
-            ) 
+            )

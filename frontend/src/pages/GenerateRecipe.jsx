@@ -1,22 +1,26 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
-import { generateRecipe, addFavorite } from "../services/recipeService";
+import {
+  recommendRecipes,
+  generateSelectedRecipe,
+  addFavorite,
+} from "../services/recipeService";
 
 export default function GenerateRecipe() {
   const [input, setInput] = useState("");
   const [ingredients, setIngredients] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
   const [recipe, setRecipe] = useState(null);
-  
-  const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState("");
-  
-  const [cuisine, setCuisine] = useState("");
-  const [mealType, setMealType] = useState("");
+
   const [servings, setServings] = useState(2);
 
   const { user } = useAuth();
   const [saved, setSaved] = useState(false);
+  const [recommendLoading, setRecommendLoading] = useState(false);
+  const [generateLoading, setGenerateLoading] = useState(false);
 
   const addIngredient = () => {
     const trimmed = input.trim();
@@ -35,54 +39,84 @@ export default function GenerateRecipe() {
     setIngredients((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleGenerate = async () => {
-    if (ingredients.length === 0) {
-      setError("Please add at least one ingredient.");
-      return;
-    }
-  
-    try {
-      setLoading(true);
-      setError("");
-  
-      const data = await generateRecipe({
-        ingredients,
-        cuisine: cuisine || null,
-        meal_type: mealType || null,
-        servings,
-      });
+  const handleRecommend = async () => {
+  if (ingredients.length === 0) {
+    setError("Please add at least one ingredient.");
+    return;
+  }
 
-      const normalized = {
-  ...data,
-  title: data.title || data.recipe_name,
-  ingredients:
-    typeof data.ingredients === "string"
-      ? JSON.parse(data.ingredients)
-      : data.ingredients,
-  instructions:
-    typeof data.instructions === "string"
-      ? JSON.parse(data.instructions)
-      : data.instructions,
-  cooking_tips:
-    typeof data.cooking_tips === "string"
-      ? JSON.parse(data.cooking_tips)
-      : data.cooking_tips,
+  try {
+    setRecommendLoading(true);
+    setError("");
+
+    const data = await recommendRecipes({
+      ingredients,
+      servings,
+    });
+
+    setRecommendations(data.recommendations || []);
+    setRecipe(null);
+    setSaved(false);
+
+  } catch (err) {
+    console.error(err);
+
+    setError(
+      err.response?.data?.detail ||
+      "Failed to get recommendations."
+    );
+
+  } finally {
+    setRecommendLoading(false);
+  }
 };
 
-      setRecipe(normalized);
-      setSaved(false);
+const handleSelectRecipe = async (recipeName) => {
+  try {
+    setGenerateLoading(true);
+    setError("");
 
-    } catch (err) {
-      console.error(err);
-  
-      setError(
-        err.response?.data?.detail ||
-        "Failed to generate recipe."
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
+    const data = await generateSelectedRecipe({
+      recipe_name: recipeName,
+      ingredients,
+      servings,
+    });
+
+    const normalized = {
+      ...data,
+      title: data.title || data.recipe_name,
+
+      ingredients:
+        typeof data.ingredients === "string"
+          ? JSON.parse(data.ingredients)
+          : data.ingredients,
+
+      instructions:
+        typeof data.instructions === "string"
+          ? JSON.parse(data.instructions)
+          : data.instructions,
+
+      cooking_tips:
+        typeof data.cooking_tips === "string"
+          ? JSON.parse(data.cooking_tips)
+          : data.cooking_tips,
+    };
+
+    setRecipe(normalized);
+    setSaved(false);
+
+  } catch (err) {
+    console.error(err);
+
+    setError(
+      err.response?.data?.detail ||
+      "Failed to generate recipe."
+    );
+
+  } finally {
+    setGenerateLoading(false);
+  }
+};
 
 const handleAddFavorite = async () => {
   // Guest user
@@ -169,44 +203,8 @@ const handleAddFavorite = async () => {
               ))}
             </div>
           )}
-          <div className="mt-6">
-  <label className="form-label">Cuisine</label>
 
-  <select
-    value={cuisine}
-    onChange={(e) => setCuisine(e.target.value)}
-    className="input-field mt-2"
-  >
-    <option value="">Any Cuisine</option>
-    <option value="Nepali">Nepali</option>
-    <option value="Indian">Indian</option>
-    <option value="Chinese">Chinese</option>
-    <option value="Italian">Italian</option>
-    <option value="Japanese">Japanese</option>
-    <option value="Mexican">Mexican</option>
-    <option value="Thai">Thai</option>
-    <option value="American">American</option>
-  </select>
-</div>
-
-<div className="mt-6">
-  <label className="form-label">Meal Type</label>
-
-  <select
-    value={mealType}
-    onChange={(e) => setMealType(e.target.value)}
-    className="input-field mt-2"
-  >
-    <option value="">Any Meal</option>
-    <option value="Breakfast">Breakfast</option>
-    <option value="Lunch">Lunch</option>
-    <option value="Dinner">Dinner</option>
-    <option value="Snack">Snack</option>
-    <option value="Dessert">Dessert</option>
-  </select>
-</div>
-
-<div className="mt-6">
+  <div className="mt-6">
   <label className="form-label">Servings</label>
 
   <input
@@ -214,19 +212,55 @@ const handleAddFavorite = async () => {
     min="1"
     max="10"
     value={servings}
-    onChange={(e) => setServings(Number(e.target.value))}
+    onChange={(e) =>
+      setServings(Number(e.target.value))
+    }
     className="input-field mt-2"
   />
 </div>
 
 <button
   type="button"
-  onClick={handleGenerate}
-  disabled={loading}
+  onClick={handleRecommend}
+  disabled={recommendLoading}
   className="btn-primary mt-6 w-full sm:w-auto"
 >
-  {loading ? "Generating..." : "Generate Recipe"}
+  {recommendLoading
+    ? "Finding recipes..."
+    : "Get Recommendations"}
 </button>
+
+{recommendations.length > 0 && (
+  <div className="mt-8">
+    <h2 className="font-display text-2xl">
+      Recommended Nepali Recipes
+    </h2>
+
+    <div className="mt-4 space-y-3">
+      {recommendations.map((item, index) => (
+        <button
+          key={index}
+          type="button"
+          onClick={() =>
+            handleSelectRecipe(item.recipe_name)
+          }
+          className="w-full rounded-lg border border-clay bg-paper p-4 text-left hover:border-basil transition-colors"
+        >
+          <div className="font-semibold text-lg">
+            {item.recipe_name}
+          </div>
+        </button>
+      ))}
+    </div>
+  </div>
+)}
+
+{generateLoading && (
+  <p className="mt-4 text-basil font-medium">
+    Generating recipe...
+  </p>
+)}
+
 {recipe && (
   <>
     {recipe.analysis && (
@@ -298,7 +332,7 @@ const handleAddFavorite = async () => {
       </h2>
 
       <p className="mt-2 text-sm text-ink/60">
-        {recipe.cuisine} · {recipe.recipe_type}
+        {recipe.cuisine}
       </p>
 
       <div className="mt-6">

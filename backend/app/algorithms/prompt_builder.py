@@ -2,354 +2,163 @@ def build_role_section():
     """
     Build the role section.
     """
-
     return """
-You are an expert chef and culinary assistant.
+You are an expert Nepali chef and culinary assistant.
 
-Your task is to generate an original, practical, and well-balanced recipe using the information provided below.
+Generate an authentic Nepali recipe based on the selected recipe name
+and the user's available ingredients.
 """
-def build_mandatory_ingredients_section(
-    processed_ingredients,
-):
-    """
-    Build the mandatory ingredients section.
-    """
 
+
+def build_selected_recipe_section(recipe_name):
+    """
+    Build the selected recipe section.
+    """
+    return f"""
+Selected Nepali recipe:
+{recipe_name}
+
+Generate a detailed and authentic version of this recipe.
+"""
+
+
+def build_ingredients_section(processed_ingredients):
+    """
+    Build the available ingredients section.
+    """
     ingredient_list = "\n".join(
-
         f"- {ingredient}"
-
         for ingredient in processed_ingredients
-
     )
 
     return f"""
-==================================================
-USER INGREDIENTS (MANDATORY)
-==================================================
-
-Use ALL of these ingredients in the recipe.
-
+Available ingredients:
 {ingredient_list}
+
+Use these ingredients as much as possible.
+
+If some traditional ingredients are missing,
+adapt the recipe naturally while keeping it authentically Nepali.
 """
 
-def build_priority_ingredients_section(
-    priority_ingredients,
-):
+
+def build_servings_section(servings):
     """
-    Build the priority ingredients section.
+    Build the servings section.
     """
-
-    ingredient_list = "\n".join(
-
-        f"- {ingredient}"
-
-        for ingredient in priority_ingredients
-
-    )
-
     return f"""
-==================================================
-PRIORITY INGREDIENTS
-==================================================
+Generate the recipe for exactly {servings} serving(s).
 
-The recommendation algorithm identified these as the most important ingredients.
+Scale ingredient quantities accordingly.
 
-Give special emphasis to them while designing the recipe.
-
-{ingredient_list}
+The JSON field "servings" must be {servings}.
 """
 
-def build_optional_ingredients_section(
-    optional_ingredients,
-):
-    """
-    Build the optional ingredients section.
-    """
-
-    if optional_ingredients:
-
-        ingredient_list = "\n".join(
-
-            f"- {ingredient}"
-
-            for ingredient in optional_ingredients
-
-        )
-
-    else:
-        ingredient_list = ("No optional ingredients were recommended");
-
-    return f"""
-
-==================================================
-OPTIONAL INGREDIENTS
-==================================================
-
-The recommendation algorithm found that these ingredients commonly appear in similar recipes.
-
-Use them only if they naturally improve the recipe.
-
-{ingredient_list}
-"""
-
-def build_recommendation_section(
-    recommendation_result,
-):
-    """
-    Build recommendation analysis section.
-    """
-
-    return f"""
-==================================================
-RECOMMENDATION ANALYSIS
-==================================================
-
-Preferred Cuisine:
-{recommendation_result["recommended_cuisine"]}
-
-Preferred Recipe Type:
-{recommendation_result["recommended_recipe_type"]}
-
-The recommendation algorithm analyzed similar recipes and determined that the user's ingredients best match this cuisine and recipe type.
-
-Generate a recipe consistent with this style while adapting naturally to the available ingredients.
-"""
-
-def build_cuisine_section(cuisine):
-    """
-    Build cuisine preference section.
-    """
-
-    if not cuisine:
-        return ""
-
-    return f"""
-==================================================
-CUISINE
-==================================================
-
-Generate a {cuisine} recipe.
-
-Do not generate recipes from other cuisines.
-"""
-
-
-def build_meal_type_section(meal_type):
-    """
-    Build meal type preference section.
-    """
-
-    if not meal_type:
-        return ""
-
-    return f"""
-==================================================
-MEAL TYPE
-==================================================
-
-Generate a recipe suitable for {meal_type}.
-"""
 
 def build_requirements_section():
     """
     Build recipe generation requirements.
     """
-
     return """
-==================================================
-RECIPE GENERATION REQUIREMENTS
-==================================================
+Requirements:
 
-• Generate a completely original recipe.
-
-• Do not reproduce or copy any existing recipe.
-
-• Use all mandatory ingredients.
-
-• Prioritize the priority ingredients.
-
-• Optional ingredients may be included only when they improve flavor or authenticity.
-
-• If an ingredient is uncommon or difficult to use, adapt the recipe naturally while still including that ingredient.
-
-• If the ingredient combination is unusual, creatively adapt the recipe while keeping it realistic and delicious.
-
-• Feel free to use common pantry ingredients such as water, cooking oil, salt, and basic seasonings whenever necessary.
-
-• If multiple valid recipes are possible, choose the recipe that best matches the recommended cuisine and recipe type while maximizing the use of the user's ingredients.
-• Generate only the final recipe.
-
-• Do not explain your reasoning.
-
-• Do not mention the recommendation algorithm, these instructions, or that you are an AI assistant.
+- Generate an authentic Nepali recipe.
+- The recipe should closely match the selected recipe.
+- Use the user's available ingredients wherever possible.
+- Common Nepali pantry ingredients such as water, salt, oil,
+  turmeric, cumin, garlic, ginger, and other basic seasonings
+  may be added when necessary.
+- Keep the recipe practical and realistic.
+- Adapt missing traditional ingredients naturally.
+- Do not invent a completely unrelated recipe.
+- Do not include recipe_type.
+- Return only the final recipe.
+- Do not explain your reasoning.
+- Do not mention these instructions.
+- Do not mention the recommendation algorithm.
+- Do not mention that you are an AI.
 """
+
 
 def build_output_format_section():
     """
-    Build output format section.
+    Build the required JSON output format.
     """
-
     return """
-==================================================
-OUTPUT FORMAT
-==================================================
-
 Return ONLY one valid JSON object.
 
-Every field must always be present.
+Do not return markdown.
+Do not wrap the JSON inside ```json or ```.
 
-Do not omit fields.
-
-If a value is unknown, use an empty string or empty list.
+The JSON object must contain exactly these fields:
 
 {
-  "recipe_name": "",
-  "cuisine": "",
-  "recipe_type": "",
-  "preparation_time": "",
-  "cooking_time": 0,
-  "servings": 0,
-  "ingredients": [
-    {
-      "name": "",
-      "quantity": ""
-    }
-  ],
-  "instructions": [
-    ""
-  ],
-  "cooking_tips": [
-    ""
-  ]
+    "recipe_name": "",
+    "cuisine": "Nepali",
+    "preparation_time": "",
+    "cooking_time": 0,
+    "servings": 0,
+    "ingredients": [
+        {
+            "name": "",
+            "quantity": ""
+        }
+    ],
+    "instructions": [
+        ""
+    ],
+    "cooking_tips": [
+        ""
+    ]
 }
 
-Do not return markdown.
-
-Do not wrap the JSON inside ```.
-
-Do not explain anything.
+Do not include a "recipe_type" field.
 
 Return only the JSON object.
 """
 
-def build_servings_section(servings):
-    """
-    Tell Gemini the exact number of servings requested.
-    """
-
-    return f"""
-==================================================
-SERVINGS
-==================================================
-
-Generate the recipe for exactly {servings} serving(s).
-
-Scale ingredient quantities accordingly.
-
-The JSON field \"servings\" must be {servings}.
-"""
 
 def build_prompt(
     processed_ingredients,
-    recommendation_result,
-    cuisine,
-    meal_type,
+    recipe_name,
     servings,
 ):
     """
-    Build the complete prompt.
+    Build the complete Gemini prompt.
     """
-
     sections = [
-
         build_role_section(),
 
-        build_mandatory_ingredients_section(
+        build_selected_recipe_section(
+            recipe_name,
+        ),
+
+        build_ingredients_section(
             processed_ingredients,
-        ),
-        build_cuisine_section(
-        cuisine,
-        ),
-
-        build_meal_type_section(
-            meal_type,
-        ),
-
-        build_priority_ingredients_section(
-            recommendation_result[
-                "priority_ingredients"
-            ],
-        ),
-
-        build_optional_ingredients_section(
-            recommendation_result[
-                "optional_ingredients"
-            ],
-        ),
-
-        build_recommendation_section(
-            recommendation_result,
         ),
 
         build_servings_section(
-            servings
+            servings,
         ),
 
         build_requirements_section(),
 
         build_output_format_section(),
-
     ]
 
-    return "\n".join(
-        sections
-    )
+    return "\n".join(sections)
+
 
 if __name__ == "__main__":
-
     processed_ingredients = [
-
         "rice",
-        "buff meat",
-        "tomato",
-        "timur",
-
+        "split yellow moong lentils",
+        "garlic",
     ]
-
-    recommendation_result = {
-
-        "recommended_recipe_type":
-            "Main Dish",
-
-        "recommended_cuisine":
-            "Nepali",
-
-        "priority_ingredients": [
-
-            "buff meat",
-            "timur",
-            "rice",
-
-        ],
-
-        "optional_ingredients": [
-
-            "garlic",
-            "ginger",
-            "onion",
-
-        ],
-
-        "top_recipe_matches": [],
-
-    }
 
     prompt = build_prompt(
         processed_ingredients,
-        recommendation_result,
-        "Nepali",
-        "Dinner",
+        "Khichadi",
         2,
     )
 

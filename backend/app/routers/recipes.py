@@ -1,11 +1,15 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.core.security import get_current_user
 
 from app.core.database import get_db
-from app.schemas.recipe import RecipeGenerateRequest
+from app.core.security import get_current_user
+from app.schemas.recipe import (
+    RecipeGenerateRequest,
+    RecipeSelectionRequest,
+)
 from app.services.recipe_service import (
-    generate_recipe_with_ai,
+    recommend_recipes,
+    generate_selected_recipe,
     get_recipe_by_id,
     get_all_recipes,
 )
@@ -16,21 +20,27 @@ router = APIRouter(
     tags=["Recipes"],
 )
 
-@router.post("/generate")
-def generate_recipe(
+# Recommend top 3 recipes
+@router.post("/recommend")
+def recommend(
     request: RecipeGenerateRequest,
+    db: Session = Depends(get_db),
+):
+    return recommend_recipes(db, request)
+
+# Generate recipe after user selects one recommendation
+@router.post("/generate-selected")
+def generate_selected(
+    request: RecipeSelectionRequest,
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user),
 ):
     try:
-        recipe = generate_recipe_with_ai(
+        return generate_selected_recipe(
             db=db,
             request=request,
             user_id=current_user.id if current_user else None,
         )
-
-        return recipe
-
     except RecipeGenerationError as e:
         raise HTTPException(
             status_code=500,
@@ -40,7 +50,6 @@ def generate_recipe(
 @router.get("/")
 def list_recipes(db: Session = Depends(get_db)):
     return get_all_recipes(db)
-
 
 @router.get("/{recipe_id}")
 def get_recipe(recipe_id: int, db: Session = Depends(get_db)):

@@ -4,28 +4,13 @@ from pathlib import Path
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-
-# -------------------------------------------------------
-# File Paths
-# -------------------------------------------------------
-
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-RECIPES_FILE = (
-    BASE_DIR / "data" / "recipes.csv"
-)
-
-
-# -------------------------------------------------------
-# Cache
-# -------------------------------------------------------
+RECIPES_FILE = BASE_DIR / "data" / "recipes.csv"
 
 _RECIPE_CACHE = None
 
 
-# -------------------------------------------------------
 # Load Recipe Documents
-# -------------------------------------------------------
 
 def load_recipe_documents():
     """
@@ -44,13 +29,8 @@ def load_recipe_documents():
         )
 
     recipe_names = []
-
     recipe_documents = []
-
     recipe_ingredients = []
-
-    recipe_types = []
-
     recipe_cuisines = []
 
     with open(
@@ -69,14 +49,9 @@ def load_recipe_documents():
                 "",
             ).strip()
 
-            recipe_type = row.get(
-                "recipe_type",  
-                ""
-            ).strip()
-
             recipe_cuisine = row.get(
                 "cuisine",
-                ""
+                "",
             ).strip()
 
             ingredients = row.get(
@@ -93,13 +68,9 @@ def load_recipe_documents():
                 SyntaxError,
             ):
                 ingredients = []
-            
+
             recipe_ingredients.append(
                 ingredients
-            )
-
-            recipe_types.append(
-                recipe_type
             )
 
             recipe_cuisines.append(
@@ -120,29 +91,16 @@ def load_recipe_documents():
             )
 
     _RECIPE_CACHE = {
-        "recipe_names":
-            recipe_names,
-
-        "recipe_documents":
-            recipe_documents,
-        
-        "recipe_ingredients":
-            recipe_ingredients,
-        
-        "recipe_types":
-            recipe_types,
-
-        "recipe_cuisines":
-            recipe_cuisines, 
-            
+        "recipe_names": recipe_names,
+        "recipe_documents": recipe_documents,
+        "recipe_ingredients": recipe_ingredients,
+        "recipe_cuisines": recipe_cuisines,
     }
 
     return _RECIPE_CACHE
 
 
-# -------------------------------------------------------
 # Build TF-IDF Vectors
-# -------------------------------------------------------
 
 def build_tfidf_vectors(
     processed_ingredients,
@@ -152,9 +110,7 @@ def build_tfidf_vectors(
     and the user's ingredients.
     """
 
-    recipe_data = (
-        load_recipe_documents()
-    )
+    recipe_data = load_recipe_documents()
 
     recipe_names = recipe_data[
         "recipe_names"
@@ -166,10 +122,6 @@ def build_tfidf_vectors(
 
     recipe_ingredients = recipe_data[
         "recipe_ingredients"
-    ]
-
-    recipe_types = recipe_data[
-        "recipe_types"
     ]
 
     recipe_cuisines = recipe_data[
@@ -196,43 +148,23 @@ def build_tfidf_vectors(
     user_vector = tfidf_matrix[-1]
 
     return {
-
-        "recipe_names":
-            recipe_names,
-        
-        "recipe_ingredients":
-            recipe_ingredients,
-
-        "recipe_types":
-            recipe_types,
-
-        "recipe_cuisines":
-            recipe_cuisines,
-
-        "recipe_vectors":
-            recipe_vectors,
-
-        "user_vector":
-            user_vector,
-
-        "feature_names":
-            vectorizer.get_feature_names_out(),
-
+        "recipe_names": recipe_names,
+        "recipe_ingredients": recipe_ingredients,
+        "recipe_cuisines": recipe_cuisines,
+        "recipe_vectors": recipe_vectors,
+        "user_vector": user_vector,
+        "feature_names": vectorizer.get_feature_names_out(),
     }
 
 
-# -------------------------------------------------------
 # Test
-# -------------------------------------------------------
 
 if __name__ == "__main__":
 
     test_ingredients = [
-
         "tomato",
         "garlic",
         "onion",
-
     ]
 
     result = build_tfidf_vectors(
@@ -240,7 +172,6 @@ if __name__ == "__main__":
     )
 
     print("\nRecipe Count:")
-
     print(
         len(
             result["recipe_names"]
@@ -248,7 +179,6 @@ if __name__ == "__main__":
     )
 
     print("\nVocabulary Size:")
-
     print(
         len(
             result["feature_names"]
@@ -256,7 +186,6 @@ if __name__ == "__main__":
     )
 
     print("\nUser Vector Shape:")
-
     print(
         result[
             "user_vector"
@@ -264,11 +193,8 @@ if __name__ == "__main__":
     )
 
     print("\nRecipe Matrix Shape:")
-
     print(
         result[
             "recipe_vectors"
         ].shape
     )
-
-    

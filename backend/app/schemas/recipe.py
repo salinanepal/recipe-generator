@@ -2,15 +2,16 @@ from pydantic import BaseModel, ConfigDict
 from typing import Optional
 from datetime import datetime
 
-
-
-# Request sent by the frontend
+# Request from frontend to find recommended recipes
 class RecipeGenerateRequest(BaseModel):
     ingredients: list[str]
-    cuisine: Optional[str] = None
-    meal_type: Optional[str] = None
-    servings: Optional[int] = None
+    servings: Optional[int] = 2
 
+# Request when user selects a recommended recipe
+class RecipeSelectionRequest(BaseModel):
+    recipe_name: str
+    ingredients: list[str]
+    servings: Optional[int] = 2
 
 # Response returned by the backend
 class RecipeResponse(BaseModel):
@@ -35,7 +36,6 @@ class RecipeSummary(BaseModel):
 
     model_config = ConfigDict(from_attributes=True)
 
-
 class RecipeDetail(RecipeSummary):
     ingredients: str
     instructions: str
@@ -51,7 +51,6 @@ class FavoriteResponse(BaseModel):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
-
 
 class FavoriteRecipe(BaseModel):
     id: int

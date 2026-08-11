@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex items-center gap-2">
             <ChefHat size={18} className="text-basil" />
-            <span className="font-display text-base text-ink">Recipe Generator</span>
+            <span className="font-display text-base text-ink">Nepali Recipe Generator</span>
           </div>
 
           <nav className="flex gap-5 text-sm text-ink/60">

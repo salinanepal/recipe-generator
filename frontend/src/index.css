@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
 @import "tailwindcss";
 
 @theme {
@@ -14,13 +15,8 @@
 
   --color-clay: #D8CFC0;
 
-  --color-category-protein: #C1502E;
-  --color-category-vegetable: #4C8577;
-  --color-category-grain: #B08947;
-  --color-category-dairy: #7FA8C9;
-  --color-category-spice: #A83232;
-  --color-category-fruit: #C23B5D;
-  --color-category-oilfat: #CC9B3E;
+  --color-danger: #B33A3A;
+  --color-danger-light: #FBEAEA;
 
   --font-display: "Fraunces", serif;
   --font-sans: "Inter", sans-serif;
@@ -32,7 +28,9 @@
     @apply bg-paper text-ink font-sans antialiased;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     @apply font-display text-ink;
   }
 
@@ -42,17 +40,30 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.01ms !important;
       transition-duration: 0.01ms !important;
     }
   }
 }
 
+/* Remove number input spinner arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 @layer components {
   .btn-primary {
     @apply rounded-md bg-basil px-4 py-2 text-sm font-medium text-white
-           hover:bg-basil-dark transition-colors disabled:opacity-50;
+      transition-colors hover:bg-basil-dark disabled:opacity-50;
   }
 
   .card {
@@ -64,8 +75,16 @@
   }
 
   .input-field {
-    @apply mt-1 w-full rounded-md border border-clay bg-white px-3 py-2 text-sm
-           text-ink placeholder:text-ink/40
-           focus:border-basil focus:ring-1 focus:ring-basil transition-colors;
+    @apply mt-1 w-full rounded-md border border-clay bg-white px-3 py-2
+      text-sm text-ink placeholder:text-ink/40
+      transition-colors focus:border-basil focus:ring-1 focus:ring-basil;
+  }
+
+  .error-message {
+    @apply rounded-md bg-danger-light px-3 py-2 text-sm text-danger;
+  }
+
+  .success-message {
+    @apply rounded-md bg-basil-light px-3 py-2 text-sm text-basil;
   }
 }

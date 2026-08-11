@@ -51,7 +51,7 @@ export default function Register() {
         </div>
 
         {serverError && (
-          <p className="rounded-md bg-category-protein/10 px-3 py-2 text-sm text-category-protein">
+          <p className="error-message">
             {serverError}
           </p>
         )}

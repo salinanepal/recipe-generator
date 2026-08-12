@@ -19,7 +19,10 @@ export default function Footer() {
         </div>
 
         <p className="mt-6 text-center text-xs text-ink/40 sm:text-left">
-          Final-year project — ingredients analyzed by a custom algorithm, recipes generated via Google Gemini.
+        A final-year project built to turn everyday ingredients into delicious Nepali recipes with the help of intelligent ingredient analysis and AI-powered recipe generation.
+        <br /><br />
+        &copy; 2026 Nepali Recipe Generator. 
+
         </p>
       </div>
     </footer>

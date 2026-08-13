@@ -27,7 +27,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="relative border-b border-clay bg-paper">
+    <header className="border-b border-clay sticky top-0 z-50 bg-paper">
       <div className="mx-auto flex h-[57px] max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* logo */}
         <Link

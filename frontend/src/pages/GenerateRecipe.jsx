@@ -185,7 +185,7 @@ setError("");
       <div className="mx-auto max-w-3xl">
         <h1 className="font-display text-3xl text-ink">Generate Recipe</h1>
         <p className="mt-2 max-w-xl text-sm text-ink/60">
-          Enter the ingredients you have on hand — we'll use them to generate a
+          Enter the ingredients you have on hand, we'll use them to generate a
           recipe tailored to your kitchen.
         </p>
 

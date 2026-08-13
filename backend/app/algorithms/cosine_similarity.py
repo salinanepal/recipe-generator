@@ -1,7 +1,9 @@
 import math
 
 
+# -------------------------------------------------------
 # Dot Product
+# -------------------------------------------------------
 
 def dot_product(
     vector1,
@@ -22,7 +24,9 @@ def dot_product(
     return total
 
 
+# -------------------------------------------------------
 # Vector Magnitude
+# -------------------------------------------------------
 
 def vector_magnitude(vector):
     """
@@ -37,7 +41,9 @@ def vector_magnitude(vector):
     return math.sqrt(total)
 
 
+# -------------------------------------------------------
 # Cosine Similarity
+# -------------------------------------------------------
 
 def calculate_cosine_similarity(
     vector1,
@@ -70,16 +76,13 @@ def calculate_cosine_similarity(
     return numerator / denominator
 
 
+# -------------------------------------------------------
 # Calculate Recipe Similarities
+# -------------------------------------------------------
 
 def calculate_recipe_similarities(
     tfidf_result,
 ):
-    """
-    Calculate cosine similarity between the
-    user's TF-IDF vector and every recipe.
-    """
-
     recipe_names = tfidf_result[
         "recipe_names"
     ]
@@ -114,7 +117,7 @@ def calculate_recipe_similarities(
             recipe_vector.toarray()[0]
         )
 
-        score = (
+        cosine_score = (
             calculate_cosine_similarity(
                 user_vector,
                 recipe_vector,
@@ -132,8 +135,11 @@ def calculate_recipe_similarities(
                 "ingredients":
                     recipe_ingredients[index],
 
+                "cosine_score":
+                    round(cosine_score, 4),
+
                 "similarity_score":
-                    round(score, 4)
+                    round(cosine_score, 4),
             }
         )
 
@@ -150,7 +156,9 @@ def calculate_recipe_similarities(
     }
 
 
+# -------------------------------------------------------
 # Test
+# -------------------------------------------------------
 
 if __name__ == "__main__":
 

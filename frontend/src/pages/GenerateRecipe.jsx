@@ -12,6 +12,8 @@ export default function GenerateRecipe() {
   const [ingredients, setIngredients] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
   const [recipe, setRecipe] = useState(null);
+  const [hasRecommended, setHasRecommended] = useState(false);
+
 
   const [error, setError] = useState("");
 
@@ -92,6 +94,7 @@ export default function GenerateRecipe() {
       });
 
       setRecommendations(data.recommendations || []);
+      setHasRecommended(true);
       setRecipe(null);
       setSaved(false);
     } catch (err) {
@@ -296,6 +299,14 @@ setError("");
                   </button>
                 ))}
               </div>
+            </div>
+          )}
+
+          {hasRecommended && recommendations.length === 0 && !recommendLoading && (
+            <div className="mt-8 rounded-lg border border-clay bg-paper px-5 py-6 text-center">
+              <p className="font-medium text-ink">
+                No matching recipes found.
+              </p>
             </div>
           )}
 

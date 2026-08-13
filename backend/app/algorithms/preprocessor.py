@@ -3,21 +3,14 @@ import re
 from difflib import get_close_matches
 from pathlib import Path
 
-
 # -------------------------------------------------------
 # File Paths
 # -------------------------------------------------------
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-INGREDIENT_METADATA_FILE = (
-    BASE_DIR / "data" / "ingredients_metadata.csv"
-)
-
-INGREDIENT_VOCABULARY_FILE = (
-    BASE_DIR / "data" / "ingredient_vocabulary.csv"
-)
-
+INGREDIENT_METADATA_FILE = BASE_DIR / "data" / "ingredients_metadata.csv"
+INGREDIENT_VOCABULARY_FILE = BASE_DIR / "data" / "ingredient_vocabulary.csv"
 
 # -------------------------------------------------------
 # Cache
@@ -26,43 +19,7 @@ INGREDIENT_VOCABULARY_FILE = (
 _METADATA_CACHE = None
 _VOCABULARY_CACHE = None
 
-
-# -------------------------------------------------------
-# Clean Ingredient
-# -------------------------------------------------------
-
-def clean_ingredient(ingredient):
-    """
-    Clean ingredient text.
-    """
-
-    ingredient = str(ingredient).lower().strip()
-
-    ingredient = re.sub(
-        r"\s+",
-        " ",
-        ingredient,
-    )
-
-    ingredient = re.sub(
-        r"[^a-z0-9\s\-]",
-        "",
-        ingredient,
-    )
-
-    ingredient = re.sub(
-        r"-+",
-        "-",
-        ingredient,
-    )
-
-    return ingredient.strip()
-
-
-# -------------------------------------------------------
-# Normalize Ingredient
-# -------------------------------------------------------
-
+# Irregular plural mappings
 IRREGULAR_PLURALS = {
     "tomatoes": "tomato",
     "potatoes": "potato",
@@ -70,21 +27,48 @@ IRREGULAR_PLURALS = {
     "chillies": "chili",
     "leaves": "leaf",
     "mangoes": "mango",
+    "radishes": "radish",
 }
 
+# -------------------------------------------------------
+# Clean Ingredient
+# -------------------------------------------------------
 
-def normalize_ingredient(ingredient):
+def clean_ingredient(ingredient):
     """
-    Normalize simple plural ingredient names.
+    Clean ingredient text and strip common quantity/unit prefixes.
     """
+    ingredient = str(ingredient).lower().strip()
 
+    # Strip leading units/quantities (e.g., "100g timur" -> "timur")
+    ingredient = re.sub(
+        r"^[\d\.\/]+\s*(g|kg|tbsp|tsp|cup|cups|pinch|gram|grams|ml|liter|liters)?\s*(of)?\s*",
+        "",
+        ingredient,
+    )
+
+    ingredient = re.sub(r"\s+", " ", ingredient)
+    ingredient = re.sub(r"[^a-z0-9\s\-]", "", ingredient)
+    ingredient = re.sub(r"-+", "-", ingredient)
+
+    return ingredient.strip()
+
+# -------------------------------------------------------
+# Normalize Ingredient
+# -------------------------------------------------------
+
+def normalize_ingredient(ingredient, vocabulary=None):
+    """
+    Normalize plural ingredient names safely using vocabulary checks.
+    """
     if ingredient in IRREGULAR_PLURALS:
         return IRREGULAR_PLURALS[ingredient]
 
-    if (
-        ingredient.endswith("ies")
-        and len(ingredient) > 3
-    ):
+    # If the word itself is already in vocabulary (e.g. "molasses"), don't truncate
+    if vocabulary and ingredient in vocabulary:
+        return ingredient
+
+    if ingredient.endswith("ies") and len(ingredient) > 4:
         return ingredient[:-3] + "y"
 
     if (
@@ -92,29 +76,28 @@ def normalize_ingredient(ingredient):
         and not ingredient.endswith("ss")
         and len(ingredient) > 3
     ):
-        return ingredient[:-1]
+        candidate = ingredient[:-1]
+        # Only truncate if candidate is valid or vocabulary isn't provided
+        if vocabulary is None or candidate in vocabulary:
+            return candidate
 
     return ingredient
 
-
 # -------------------------------------------------------
-# Load Ingredient Metadata
+# Load Data & Vocabulary
 # -------------------------------------------------------
 
 def load_ingredient_vocabulary():
     """
     Load all valid ingredient names from ingredient_vocabulary.csv.
     """
-
     global _VOCABULARY_CACHE
 
     if _VOCABULARY_CACHE is not None:
         return _VOCABULARY_CACHE
 
     if not INGREDIENT_VOCABULARY_FILE.exists():
-        raise FileNotFoundError(
-            "ingredient_vocabulary.csv not found."
-        )
+        raise FileNotFoundError("ingredient_vocabulary.csv not found.")
 
     vocabulary = set()
 
@@ -124,14 +107,9 @@ def load_ingredient_vocabulary():
         encoding="utf-8-sig",
         newline="",
     ) as file:
-
         reader = csv.DictReader(file)
-
         for row in reader:
-            ingredient = clean_ingredient(
-                row.get("ingredient", "")
-            )
-
+            ingredient = clean_ingredient(row.get("ingredient", ""))
             if ingredient:
                 vocabulary.add(ingredient)
 
@@ -141,18 +119,15 @@ def load_ingredient_vocabulary():
 
 def load_ingredient_metadata():
     """
-    Load only synonym mappings from ingredients_metadata.csv.
+    Load synonym mappings from ingredients_metadata.csv.
     """
-
     global _METADATA_CACHE
 
     if _METADATA_CACHE is not None:
         return _METADATA_CACHE
 
     if not INGREDIENT_METADATA_FILE.exists():
-        raise FileNotFoundError(
-            "ingredients_metadata.csv not found."
-        )
+        raise FileNotFoundError("ingredients_metadata.csv not found.")
 
     synonym_map = {}
 
@@ -162,20 +137,13 @@ def load_ingredient_metadata():
         encoding="utf-8-sig",
         newline="",
     ) as file:
-
         reader = csv.DictReader(file)
-
         for row in reader:
-
-            canonical = clean_ingredient(
-                row.get("ingredient", "")
-            )
-
+            canonical = clean_ingredient(row.get("ingredient", ""))
             if not canonical:
                 continue
 
             synonym_map[canonical] = canonical
-
             synonyms = row.get("synonyms", "")
 
             if synonyms:
@@ -187,20 +155,14 @@ def load_ingredient_metadata():
     _METADATA_CACHE = synonym_map
     return synonym_map
 
-
 # -------------------------------------------------------
 # Correct Ingredient Spelling
 # -------------------------------------------------------
 
-def correct_spelling(
-    ingredient,
-    searchable_names,
-    cutoff=0.85,
-):
+def correct_spelling(ingredient, searchable_names, cutoff=0.82):
     """
-    Find closest known ingredient name.
+    Find closest known ingredient name using SequenceMatcher.
     """
-
     if ingredient in searchable_names:
         return ingredient
 
@@ -216,44 +178,24 @@ def correct_spelling(
 
     return ingredient
 
-
 # -------------------------------------------------------
-# Process Single Ingredient
+# Process Single & Multiple Ingredients
 # -------------------------------------------------------
 
-def process_ingredient(
-    ingredient,
-    vocabulary,
-    synonym_map,
-):
+def process_ingredient(ingredient, vocabulary, synonym_map):
     """
     Process one ingredient.
     """
-
     original = ingredient
 
-    ingredient = clean_ingredient(
-        ingredient
-    )
+    ingredient = clean_ingredient(ingredient)
+    ingredient = normalize_ingredient(ingredient, vocabulary)
 
-    ingredient = normalize_ingredient(
-        ingredient
-    )
+    searchable_names = set(synonym_map.keys())
 
-    searchable_names = set(
-        synonym_map.keys()
-    )
+    ingredient = correct_spelling(ingredient, searchable_names)
 
-    ingredient = correct_spelling(
-        ingredient,
-        searchable_names,
-    )
-
-    canonical = synonym_map.get(
-        ingredient,
-        ingredient,
-    )
-
+    canonical = synonym_map.get(ingredient, ingredient)
     is_valid = canonical in vocabulary
 
     return {
@@ -263,97 +205,50 @@ def process_ingredient(
     }
 
 
-# -------------------------------------------------------
-# Preprocess Ingredient List
-# -------------------------------------------------------
-
 def preprocess_ingredients(ingredients):
     """
     Preprocess user ingredient list.
     """
-
     vocabulary = load_ingredient_vocabulary()
     synonym_map = load_ingredient_metadata()
 
     processed_ingredients = []
-
     unknown_ingredients = []
-
     corrections = []
 
     seen = set()
-
     seen_corrections = set()
 
     for ingredient in ingredients:
-
-        result = process_ingredient(
-            ingredient,
-            vocabulary,
-            synonym_map,
-        )
-
+        result = process_ingredient(ingredient, vocabulary, synonym_map)
         processed = result["processed"]
 
         if not result["valid"]:
-
-            if (
-                result["original"]
-                not in unknown_ingredients
-            ):
-                unknown_ingredients.append(
-                    result["original"]
-                )
-
+            if result["original"] not in unknown_ingredients:
+                unknown_ingredients.append(result["original"])
             continue
 
-        original_cleaned = clean_ingredient(
-            result["original"]
-        )
+        original_cleaned = clean_ingredient(result["original"])
 
         if original_cleaned != processed:
-
-            correction_key = (
-                original_cleaned,
-                processed,
-            )
-
-            if (
-                correction_key
-                not in seen_corrections
-            ):
-
+            correction_key = (original_cleaned, processed)
+            if correction_key not in seen_corrections:
                 corrections.append(
                     {
-                        "original":
-                            result["original"],
-
-                        "processed":
-                            processed,
+                        "original": result["original"],
+                        "processed": processed,
                     }
                 )
-
-                seen_corrections.add(
-                    correction_key
-                )
+                seen_corrections.add(correction_key)
 
         if processed not in seen:
-
-            processed_ingredients.append(
-                processed
-            )
-
+            processed_ingredients.append(processed)
             seen.add(processed)
 
     return {
-        "processed_ingredients":
-            processed_ingredients,
-
-        "unknown_ingredients":
-            unknown_ingredients,
-
-        "corrections":
-            corrections,
+        "processed_ingredients": processed_ingredients,
+        "unknown_ingredients": unknown_ingredients,
+        "corrections": corrections,
     }
 
 
@@ -362,9 +257,8 @@ def preprocess_ingredients(ingredients):
 # -------------------------------------------------------
 
 if __name__ == "__main__":
-
     test_ingredients = [
-        "Tomatoes",
+        "250g Tomatoes",
         "potatos",
         "capsicum",
         "chiura",
@@ -376,23 +270,14 @@ if __name__ == "__main__":
         "Tomatoes",
     ]
 
-    result = preprocess_ingredients(
-        test_ingredients
-    )
+    result = preprocess_ingredients(test_ingredients)
 
     print("\nProcessed ingredients:")
-
-    print(
-        result["processed_ingredients"]
-    )
+    print(result["processed_ingredients"])
 
     print("\nUnknown ingredients:")
-
-    print(
-        result["unknown_ingredients"]
-    )
+    print(result["unknown_ingredients"])
 
     print("\nCorrections:")
-
     for correction in result["corrections"]:
         print(correction)

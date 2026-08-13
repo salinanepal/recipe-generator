@@ -43,6 +43,14 @@ def recommend_recipes(
     print("Corrections:", corrections)
     print("========================\n")
 
+    if not processed_ingredients:
+        return {
+            "recommendations": [],
+            "unknown_ingredients": unknown_ingredients,
+            "corrections": corrections,
+            "message": "No valid ingredients were provided."
+        }
+
     tfidf_result = build_tfidf_vectors(
         processed_ingredients
     )
@@ -79,10 +87,29 @@ def recommend_recipes(
     print("=============================\n")
 
     recommendation_result = generate_recommendation(
-        similarity_result
+        similarity_result,
+        processed_ingredients,
     )
 
+    print("\n===== Final Recommendation Ranking =====")
+
+    final_matches = recommendation_result[
+         "recommendations"
+    ][:3]
+
+    for i, recipe in enumerate(final_matches, 1):
+        print(
+            f"{i}. {recipe['recipe_name']} | "
+            f"Cosine: {recipe['cosine_score']:.4f} | "
+            f"Exact Coverage: {recipe['exact_coverage']:.4f} | "
+            f"Family Coverage: {recipe['family_coverage']:.4f} | "
+            f"Final Score: {recipe['similarity_score']:.4f}"
+        )
+
+    print("========================================\n")
+
     return recommendation_result
+
 
 
 # Generate Selected Recipe

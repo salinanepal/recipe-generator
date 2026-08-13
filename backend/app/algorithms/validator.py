@@ -12,148 +12,88 @@ MIN_SERVINGS = 1
 MAX_SERVINGS = 20
 
 
-# Validate Input
-
 def validate_input(
     ingredients,
     servings=1,
 ):
     """
     Validate recipe generation input.
-
-    Returns:
-    {
-        "valid": bool,
-        "errors": [],
-        "warnings": []
-    }
-
-    NOTE:
-    This function ONLY validates data.
-    Cleaning, normalization, synonym mapping,
-    spelling correction, etc. are handled
-    in preprocessor.py.
     """
-
     errors = []
     warnings = []
 
     if ingredients is None:
-        errors.append(
-            "Ingredient list is required."
-        )
+        errors.append("Ingredient list is required.")
 
-    elif not isinstance(
-        ingredients,
-        list,
-    ):
-        errors.append(
-            "Ingredients must be provided as a list."
-        )
+    elif not isinstance(ingredients, list):
+        errors.append("Ingredients must be provided as a list.")
 
     else:
-
         if len(ingredients) < MIN_INGREDIENTS:
-            errors.append(
-                "At least one ingredient is required."
-            )
+            errors.append("At least one ingredient is required.")
 
         if len(ingredients) > MAX_INGREDIENTS:
-            errors.append(
-                f"Maximum {MAX_INGREDIENTS} ingredients are allowed."
-            )
+            errors.append(f"Maximum {MAX_INGREDIENTS} ingredients are allowed.")
 
-        total_length = sum(
-            len(str(item))
-            for item in ingredients
-        )
+        total_length = sum(len(str(item)) for item in ingredients)
 
         if total_length > MAX_TOTAL_INPUT_LENGTH:
-            errors.append(
-                "Total ingredient input is too long."
-            )
+            errors.append("Total ingredient input is too long.")
 
         seen = set()
 
-        for index, ingredient in enumerate(
-            ingredients,
-            start=1,
-        ):
+        for index, ingredient in enumerate(ingredients, start=1):
 
             if ingredient is None:
-                errors.append(
-                    f"Ingredient {index} cannot be empty."
-                )
+                errors.append(f"Ingredient {index} cannot be empty.")
                 continue
 
-            if not isinstance(
-                ingredient,
-                str,
-            ):
-                errors.append(
-                    f"Ingredient {index} must be a string."
-                )
+            if not isinstance(ingredient, str):
+                errors.append(f"Ingredient {index} must be a string.")
                 continue
 
             ingredient = ingredient.strip()
 
             if ingredient == "":
-                errors.append(
-                    f"Ingredient {index} cannot be blank."
-                )
+                errors.append(f"Ingredient {index} cannot be blank.")
                 continue
 
-            if len(ingredient) < MIN_INGREDIENT_LENGTH:
-                errors.append(
-                    f'"{ingredient}" is too short.'
-                )
+            # Remove leading numbers/quantities (e.g., "2 tomatoes" -> "tomatoes") for checking
+            cleaned_check = re.sub(r"^[\d\.\/]+(\s*(g|kg|tbsp|tsp|cup|cups|pinch|gram|grams))?\s*", "", ingredient, flags=re.IGNORECASE).strip()
 
-            if len(ingredient) > MAX_INGREDIENT_LENGTH:
-                errors.append(
-                    f'"{ingredient}" is too long.'
-                )
+            if len(cleaned_check) < MIN_INGREDIENT_LENGTH:
+                errors.append(f'"{ingredient}" is too short.')
+                continue
 
-            if ingredient.isdigit():
-                errors.append(
-                    f'"{ingredient}" cannot contain only numbers.'
-                )
+            if len(cleaned_check) > MAX_INGREDIENT_LENGTH:
+                errors.append(f'"{ingredient}" is too long.')
+                continue
 
-            if not re.fullmatch(
-                r"[A-Za-z\\s\\-]+",
-                ingredient,
-            ):
-                errors.append(
-                    f'"{ingredient}" contains invalid characters.'
-                )
+            if cleaned_check.isdigit():
+                errors.append(f'"{ingredient}" cannot contain only numbers.')
+                continue
 
-            normalized = ingredient.lower()
+            # Allow letters, spaces, hyphens, and apostrophes
+            if not re.fullmatch(r"^[a-zA-Z\s'\-]+$", cleaned_check):
+                errors.append(f'"{ingredient}" contains invalid characters.')
+                continue
+
+            normalized = cleaned_check.lower()
 
             if normalized in seen:
-                warnings.append(
-                    f'Duplicate ingredient "{ingredient}" found.'
-                )
+                warnings.append(f'Duplicate ingredient "{ingredient}" found.')
             else:
                 seen.add(normalized)
 
-    if not isinstance(
-        servings,
-        int,
-    ):
-        errors.append(
-            "Servings must be an integer."
-        )
+    if not isinstance(servings, int):
+        errors.append("Servings must be an integer.")
 
     else:
-
         if servings < MIN_SERVINGS:
-            errors.append(
-                "Servings must be greater than zero."
-            )
+            errors.append("Servings must be greater than zero.")
 
         if servings > MAX_SERVINGS:
-            errors.append(
-                f"Maximum servings allowed is {MAX_SERVINGS}."
-            )
+            errors.append(f"Maximum servings allowed is {MAX_SERVINGS}.")
 
     return {
         "valid": len(errors) == 0,

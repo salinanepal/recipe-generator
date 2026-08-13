@@ -1,38 +1,193 @@
-def generate_recommendation(similarity_result, top_n=3):
+# -------------------------------------------------------
+# Ingredient Families
+# -------------------------------------------------------
+
+INGREDIENT_FAMILIES = {
+    "lentils": {
+        "red lentils",
+        "black gram lentils",
+        "split yellow lentils",
+    },
+
+    "flour": {
+        "rice flour",
+        "wheat flour",
+        "gram flour",
+        "buckwheat flour",
+        "finger millet flour",
+        "barley flour",
+        "all purpose flour",
+        "sticky rice flour"
+    },
+
+}
+
+
+# -------------------------------------------------------
+# Ingredient Match Scores
+# -------------------------------------------------------
+
+def calculate_ingredient_match_scores(
+    user_ingredients,
+    recipe_ingredients,
+):
     """
-    Return the top N matching Nepali recipes based on cosine similarity.
+    Calculate exact and family-based ingredient coverage.
     """
 
-    top_recipes = similarity_result["recipe_similarities"][:top_n]
+    user_ingredients = {
+        ingredient.lower().strip()
+        for ingredient in user_ingredients
+    }
+
+    recipe_ingredients = {
+        ingredient.lower().strip()
+        for ingredient in recipe_ingredients
+    }
+
+    if not user_ingredients:
+        return {
+            "exact_coverage": 0.0,
+            "family_coverage": 0.0,
+        }
+
+    # Exact ingredient matches
+    exact_matches = user_ingredients.intersection(
+        recipe_ingredients
+    )
+
+    exact_coverage = (
+        len(exact_matches)
+        / len(user_ingredients)
+    )
+
+    # Family ingredient matches
+    family_matches = 0
+
+    for family, members in INGREDIENT_FAMILIES.items():
+
+        if family not in user_ingredients:
+            continue
+
+        if recipe_ingredients.intersection(members):
+            family_matches += 1
+
+    family_coverage = (
+        family_matches
+        / len(user_ingredients)
+    )
 
     return {
-        "recommendations": top_recipes
+        "exact_coverage": exact_coverage,
+        "family_coverage": family_coverage,
     }
 
 
-# Test
-if __name__ == "__main__":
+# -------------------------------------------------------
+# Final Recommendation Score
+# -------------------------------------------------------
 
-    from tfidf import build_tfidf_vectors
-    from cosine_similarity import calculate_recipe_similarities
+COSINE_WEIGHT = 0.50
+EXACT_COVERAGE_WEIGHT = 0.40
+FAMILY_COVERAGE_WEIGHT = 0.10
 
-    test_ingredients = [
-        "rice",
-        "lentils",
-        "garlic",
-    ]
 
-    tfidf_result = build_tfidf_vectors(test_ingredients)
+def calculate_final_score(
+    cosine_score,
+    exact_coverage,
+    family_coverage,
+):
+    """
+    Calculate the final recommendation score.
 
-    similarity_result = calculate_recipe_similarities(tfidf_result)
+    Cosine similarity remains the primary score.
+    """
 
-    recommendation = generate_recommendation(similarity_result)
+    final_score = (
+        COSINE_WEIGHT * cosine_score
+        + EXACT_COVERAGE_WEIGHT * exact_coverage
+        + FAMILY_COVERAGE_WEIGHT * family_coverage
+    )
 
-    print("\nTop 3 Recommended Recipes:\n")
+    return round(
+        final_score,
+        4,
+    )
 
-    for recipe in recommendation["recommendations"]:
-        print(
-            f"{recipe['recipe_name']} | "
-            f"{recipe['cuisine']} | "
-            f"Score: {recipe['similarity_score']:.4f}"
+
+# -------------------------------------------------------
+# Generate Recommendation
+# -------------------------------------------------------
+
+def generate_recommendation(
+    similarity_result,
+    processed_ingredients,
+    top_n=3,
+):
+    """
+    Rank recipes using cosine similarity,
+    exact ingredient coverage, and family coverage.
+    """
+
+    ranked_recipes = []
+
+    for recipe in similarity_result[
+        "recipe_similarities"
+    ]:
+
+        match_scores = (
+            calculate_ingredient_match_scores(
+                processed_ingredients,
+                recipe["ingredients"],
+            )
         )
+
+        exact_coverage = (
+            match_scores["exact_coverage"]
+        )
+
+        family_coverage = (
+            match_scores["family_coverage"]
+        )
+
+        final_score = (
+            calculate_final_score(
+                recipe["cosine_score"],
+                exact_coverage,
+                family_coverage,
+            )
+        )
+
+        ranked_recipes.append(
+            {
+                **recipe,
+
+                "exact_coverage":
+                    round(
+                        exact_coverage,
+                        4,
+                    ),
+
+                "family_coverage":
+                    round(
+                        family_coverage,
+                        4,
+                    ),
+
+                "similarity_score":
+                    final_score,
+            }
+        )
+
+    # Sort by final recommendation score
+    ranked_recipes.sort(
+        key=lambda recipe:
+            recipe["similarity_score"],
+        reverse=True,
+    )
+
+    return {
+        "recommendations":
+            ranked_recipes[:top_n]
+    }
+

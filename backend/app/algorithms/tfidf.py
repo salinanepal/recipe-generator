@@ -4,6 +4,15 @@ from pathlib import Path
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+INGREDIENT_FAMILIES = {
+    "lentils": {
+        "lentils",
+        "red lentils",
+        "black gram lentils",
+        "split yellow lentils",
+    }
+}
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 RECIPES_FILE = BASE_DIR / "data" / "recipes.csv"
 
@@ -77,8 +86,8 @@ def load_recipe_documents():
                 recipe_cuisine
             )
 
-            document = " ".join(
-                ingredient.lower()
+            document = " ||| ".join(
+                ingredient.lower().strip()
                 for ingredient in ingredients
             )
 
@@ -128,8 +137,9 @@ def build_tfidf_vectors(
         "recipe_cuisines"
     ]
 
-    user_document = " ".join(
-        processed_ingredients
+    user_document = " ||| ".join(
+        ingredient.lower().strip()
+        for ingredient in processed_ingredients
     )
 
     all_documents = (
@@ -137,7 +147,13 @@ def build_tfidf_vectors(
         + [user_document]
     )
 
-    vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer(
+        analyzer=lambda document: [
+            ingredient.strip()
+            for ingredient in document.split("|||")
+            if ingredient.strip()
+        ]
+    )
 
     tfidf_matrix = vectorizer.fit_transform(
         all_documents
@@ -154,6 +170,7 @@ def build_tfidf_vectors(
         "recipe_vectors": recipe_vectors,
         "user_vector": user_vector,
         "feature_names": vectorizer.get_feature_names_out(),
+        "processed_ingredients": processed_ingredients,
     }
 
 

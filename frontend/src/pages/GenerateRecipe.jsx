@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, Trash2 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import {
   recommendRecipes,
@@ -65,6 +65,14 @@ export default function GenerateRecipe() {
   const removeIngredient = (index) => {
     setIngredients((prev) => prev.filter((_, i) => i !== index));
   };
+
+  const clearIngredients = () => {
+  setIngredients([]);
+  setRecommendations([]);
+  setRecipe(null);
+  setHasRecommended(false);
+  setError("");
+};
 
   const handleRecommend = async () => {
     if (!servings || servings < 1) {
@@ -212,27 +220,38 @@ setError("");
               Add
             </button>
           </div>
+{ingredients.length > 0 && (
+  <div className="mt-4 flex items-center justify-between gap-3">
+    <div className="flex flex-wrap gap-2">
+      {ingredients.map((ingredient, index) => (
+        <span
+          key={`${ingredient}-${index}`}
+          className="inline-flex items-center gap-1.5 rounded-full border border-clay bg-paper px-3 py-1 text-sm text-ink/70"
+        >
+          {ingredient}
 
-          {ingredients.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {ingredients.map((ingredient, index) => (
-                <span
-                  key={`${ingredient}-${index}`}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-clay bg-paper px-3 py-1 text-sm text-ink/70"
-                >
-                  {ingredient}
-                  <button
-                    type="button"
-                    onClick={() => removeIngredient(index)}
-                    aria-label={`Remove ${ingredient}`}
-                    className="text-ink/40 hover:text-ink transition-colors"
-                  >
-                    <X size={14} />
-                  </button>
-                </span>
-              ))}
-            </div>
-          )}
+          <button
+            type="button"
+            onClick={() => removeIngredient(index)}
+            aria-label={`Remove ${ingredient}`}
+            className="text-ink/40 transition-colors hover:text-red-600"
+          >
+            <X size={14} />
+          </button>
+        </span>
+      ))}
+    </div>
+
+    <button
+      type="button"
+      onClick={clearIngredients}
+      className="flex shrink-0 items-center gap-1.5 rounded-md border border-clay px-3 py-1.5 text-xs font-medium text-ink/60 transition-colors hover:border-red-300 hover:text-red-600"
+    >
+      <Trash2 size={14} />
+      Clear
+    </button>
+  </div>
+)}
 
           <div className="mt-6">
             <label className="form-label">Servings</label>

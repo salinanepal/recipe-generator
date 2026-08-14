@@ -31,9 +31,6 @@ def calculate_ingredient_match_scores(
     user_ingredients,
     recipe_ingredients,
 ):
-    """
-    Calculate exact and family-based ingredient coverage.
-    """
 
     user_ingredients = {
         ingredient.lower().strip()
@@ -124,10 +121,6 @@ def generate_recommendation(
     processed_ingredients,
     top_n=3,
 ):
-    """
-    Rank recipes using cosine similarity,
-    exact ingredient coverage, and family coverage.
-    """
 
     ranked_recipes = []
 

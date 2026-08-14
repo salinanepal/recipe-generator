@@ -43,11 +43,11 @@ water,pani
 
 cabbage,bandhakobi;banda gobi;patta gobi;cabbage;band gobi
 black chickpeas,kalo chana;chana;black chana;chickpeas
-pumpkin greens,pharsi ko munta;pharsi saag;pumpkin leaves;pharsi
+pumpkin greens,pharsi ko munta;pharsi saag;pumpkin leaves;farsi ko munta;farsi munta;farshi ko munta;farshi munta 
 eggplant,bhenta;baigan;brinjal;aubergine
 chayote squash,iskus;iskush;chayote
 
-pumpkin,pharsi;parsi;kaddu;yellow pumpkin
+pumpkin,pharsi;parsi;kaddu;yellow pumpkin;farsi;farshi
 pointed gourd,parwal;parwar;potala
 green peas,hariyo kerau;kerau;matar;green pea
 radish,mula;mulla;white radish
@@ -116,7 +116,7 @@ raw mango,aam;aap;kacho aap;kacho aam;raw green mango;green mango
 
 cherry pepper,akbare khursani;dalle khursani;akbare;dalle;cherry pepper
 fermented bamboo shoot,mesu;tama;fermented tama;bamboo shoot pickle
-yogurt,dahi;curd;plain yogurt;yogurt
+yogurt,dahi;curd;plain yogurt;yogurt;yoghurt
 lemon,kagati;kattar;lemon;lime
 fermented soybean,kinema;kinema ko achar;fermented soy
 
@@ -165,9 +165,8 @@ rock salt,bire noon;black salt;rock salt;himalayan pink salt
 barley flour,tsampa;barley flour;roasted barley flour;tsampa flour
 yak meat,yak meat;mountain beef;yak
 soft chhurpi,soft chhurpi;chhurpi;green chhurpi;artisanal cheese;fresh chhurpi
-
 goat lungs,goat lungs;lowa;lungs;mutton lungs
-
+milk, doodh
 dried fish,sanya;dried fish;sidhra;dried sea fish;sukeko machha
 buffalo liver,buffalo liver;buff liver;liver;liver cubes
 buffalo intestine,buffalo intestine;buff intestine;intestine;tripe strips
@@ -202,10 +201,13 @@ gram flour,chickpea flour
 egg,eggs
 
 dry mango powder,amchur;dry mango powder;amchur powder;mango powder
-
+curd
 pomelo,bhogate;pomelo;grapefruit;shaddock
 koiralo flowers,koiralo ko phool;orchid flowers;koiralo flowers;bauhinia flowers
 asparagus,kurilo;asparagus;wild asparagus;kurilo shoots
 
 biryani masala,biryani masala;biryani spice mix;biryani powder
 saffron,kesar;saffron;saffron strands;saffron milk
+
+pistachios,pistachios;pista;pistachio nuts
+rose water,rose water;gulab jal;rose essence;gulab pani

@@ -1,17 +1,12 @@
 import math
 
 
-# -------------------------------------------------------
 # Dot Product
-# -------------------------------------------------------
 
 def dot_product(
     vector1,
     vector2,
 ):
-    """
-    Compute the dot product of two vectors.
-    """
 
     total = 0.0
 
@@ -24,15 +19,10 @@ def dot_product(
     return total
 
 
-# -------------------------------------------------------
 # Vector Magnitude
-# -------------------------------------------------------
 
 def vector_magnitude(vector):
-    """
-    Compute the magnitude (length) of a vector.
-    """
-
+   
     total = 0.0
 
     for value in vector:
@@ -41,9 +31,7 @@ def vector_magnitude(vector):
     return math.sqrt(total)
 
 
-# -------------------------------------------------------
 # Cosine Similarity
-# -------------------------------------------------------
 
 def calculate_cosine_similarity(
     vector1,
@@ -76,9 +64,7 @@ def calculate_cosine_similarity(
     return numerator / denominator
 
 
-# -------------------------------------------------------
 # Calculate Recipe Similarities
-# -------------------------------------------------------
 
 def calculate_recipe_similarities(
     tfidf_result,
@@ -156,10 +142,7 @@ def calculate_recipe_similarities(
     }
 
 
-# -------------------------------------------------------
 # Test
-# -------------------------------------------------------
-
 if __name__ == "__main__":
 
     from tfidf import (

@@ -3,18 +3,15 @@ import re
 from difflib import get_close_matches
 from pathlib import Path
 
-# -------------------------------------------------------
 # File Paths
-# -------------------------------------------------------
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 INGREDIENT_METADATA_FILE = BASE_DIR / "data" / "ingredients_metadata.csv"
 INGREDIENT_VOCABULARY_FILE = BASE_DIR / "data" / "ingredient_vocabulary.csv"
 
-# -------------------------------------------------------
+
 # Cache
-# -------------------------------------------------------
 
 _METADATA_CACHE = None
 _VOCABULARY_CACHE = None
@@ -30,9 +27,7 @@ IRREGULAR_PLURALS = {
     "radishes": "radish",
 }
 
-# -------------------------------------------------------
 # Clean Ingredient
-# -------------------------------------------------------
 
 def clean_ingredient(ingredient):
     """
@@ -53,14 +48,11 @@ def clean_ingredient(ingredient):
 
     return ingredient.strip()
 
-# -------------------------------------------------------
-# Normalize Ingredient
-# -------------------------------------------------------
 
+# Normalize Ingredient
 def normalize_ingredient(ingredient, vocabulary=None):
-    """
-    Normalize plural ingredient names safely using vocabulary checks.
-    """
+
+    # Normalize plural ingredient names safely using vocabulary checks.
     if ingredient in IRREGULAR_PLURALS:
         return IRREGULAR_PLURALS[ingredient]
 
@@ -83,10 +75,7 @@ def normalize_ingredient(ingredient, vocabulary=None):
 
     return ingredient
 
-# -------------------------------------------------------
 # Load Data & Vocabulary
-# -------------------------------------------------------
-
 def load_ingredient_vocabulary():
     """
     Load all valid ingredient names from ingredient_vocabulary.csv.
@@ -155,14 +144,11 @@ def load_ingredient_metadata():
     _METADATA_CACHE = synonym_map
     return synonym_map
 
-# -------------------------------------------------------
 # Correct Ingredient Spelling
-# -------------------------------------------------------
-
 def correct_spelling(ingredient, searchable_names, cutoff=0.82):
-    """
-    Find closest known ingredient name using SequenceMatcher.
-    """
+
+    # Find closest known ingredient name using SequenceMatcher.
+
     if ingredient in searchable_names:
         return ingredient
 
@@ -178,10 +164,7 @@ def correct_spelling(ingredient, searchable_names, cutoff=0.82):
 
     return ingredient
 
-# -------------------------------------------------------
 # Process Single & Multiple Ingredients
-# -------------------------------------------------------
-
 def process_ingredient(ingredient, vocabulary, synonym_map):
     """
     Process one ingredient.
@@ -206,9 +189,8 @@ def process_ingredient(ingredient, vocabulary, synonym_map):
 
 
 def preprocess_ingredients(ingredients):
-    """
-    Preprocess user ingredient list.
-    """
+
+    # Preprocess user ingredient list.
     vocabulary = load_ingredient_vocabulary()
     synonym_map = load_ingredient_metadata()
 
@@ -252,10 +234,7 @@ def preprocess_ingredients(ingredients):
     }
 
 
-# -------------------------------------------------------
 # Test
-# -------------------------------------------------------
-
 if __name__ == "__main__":
     test_ingredients = [
         "250g Tomatoes",

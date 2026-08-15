@@ -16,9 +16,8 @@ def validate_input(
     ingredients,
     servings=1,
 ):
-    """
-    Validate recipe generation input.
-    """
+
+    # Validate recipe generation input.
     errors = []
     warnings = []
 

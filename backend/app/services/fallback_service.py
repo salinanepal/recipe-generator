@@ -15,11 +15,6 @@ def generate_recipe_from_dataset(
     recipe_name,
     servings=2,
 ):
-    """
-    Return the selected recipe directly from the dataset.
-    Used when Gemini is unavailable.
-    """
-
     df = pd.read_csv(DATASET_PATH)
 
     best_row = None

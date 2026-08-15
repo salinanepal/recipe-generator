@@ -312,8 +312,14 @@ setError("");
                     onClick={() => handleSelectRecipe(item.recipe_name)}
                     className="w-full rounded-lg border border-clay bg-paper p-4 text-left hover:border-basil transition-colors"
                   >
-                    <div className="font-semibold text-lg">
-                      {item.recipe_name}
+                    <div className="flex items-center justify-between">
+                      <div className="font-semibold text-lg">
+                        {item.recipe_name}
+                      </div>
+
+                      <div className="text-sm font-medium text-basil">
+                        Match Score: {(item.similarity_score * 100).toFixed(2)}%
+                      </div>
                     </div>
                   </button>
                 ))}

@@ -133,6 +133,16 @@ def generate_selected_recipe(
         request.servings or 2,
     )
 
+    prompt = build_prompt(
+        processed_ingredients,
+        request.recipe_name,
+        request.servings or 2,
+    )
+
+    print("\n===== Gemini Prompt =====")
+    print(prompt)
+    print("=========================\n")
+
     try:
         gemini_response = generate_recipe(
             prompt

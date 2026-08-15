@@ -15,11 +15,6 @@ client = genai.Client(
 def generate_recipe(
     prompt,
 ):
-    """
-    Send the prompt to Gemini
-    and return the generated recipe.
-    """
-
     response = client.models.generate_content(
         model="gemini-3.5-flash",
         contents=prompt,

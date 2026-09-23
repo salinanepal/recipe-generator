@@ -3,6 +3,7 @@ import csv
 from pathlib import Path
 
 from sklearn.feature_extraction.text import TfidfVectorizer
+from app.algorithms.cooking_methods import extract_cooking_methods
 
 INGREDIENT_FAMILIES = {
     "lentils": {
@@ -22,10 +23,7 @@ _RECIPE_CACHE = None
 # Load Recipe Documents
 
 def load_recipe_documents():
-    """
-    Load recipes and convert ingredient lists
-    into plain text documents for TF-IDF.
-    """
+    # Load recipes and convert ingredient lists into plain text documents for TF-IDF.
 
     global _RECIPE_CACHE
 
@@ -41,6 +39,7 @@ def load_recipe_documents():
     recipe_documents = []
     recipe_ingredients = []
     recipe_cuisines = []
+    recipe_cooking_methods = []
 
     with open(
         RECIPES_FILE,
@@ -78,12 +77,37 @@ def load_recipe_documents():
             ):
                 ingredients = []
 
+            # parse instructions the same way ingredients are parsed,
+            # then extract which cooking methods this recipe actually uses
+            instructions = row.get(
+                "instructions",
+                "[]",
+            )
+
+            try:
+                instructions = ast.literal_eval(
+                    instructions
+                )
+            except (
+                ValueError,
+                SyntaxError,
+            ):
+                instructions = []
+
+            cooking_methods = extract_cooking_methods(
+                instructions
+            )
+
             recipe_ingredients.append(
                 ingredients
             )
 
             recipe_cuisines.append(
                 recipe_cuisine
+            )
+
+            recipe_cooking_methods.append(
+                cooking_methods
             )
 
             document = " ||| ".join(
@@ -104,6 +128,7 @@ def load_recipe_documents():
         "recipe_documents": recipe_documents,
         "recipe_ingredients": recipe_ingredients,
         "recipe_cuisines": recipe_cuisines,
+        "recipe_cooking_methods": recipe_cooking_methods,
     }
 
     return _RECIPE_CACHE
@@ -114,10 +139,6 @@ def load_recipe_documents():
 def build_tfidf_vectors(
     processed_ingredients,
 ):
-    """
-    Build TF-IDF vectors for recipes
-    and the user's ingredients.
-    """
 
     recipe_data = load_recipe_documents()
 
@@ -170,6 +191,7 @@ def build_tfidf_vectors(
         "recipe_vectors": recipe_vectors,
         "user_vector": user_vector,
         "feature_names": vectorizer.get_feature_names_out(),
+        "idf_weights": vectorizer.idf_,
         "processed_ingredients": processed_ingredients,
     }
 

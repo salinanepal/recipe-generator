@@ -7,11 +7,19 @@ class RecipeGenerateRequest(BaseModel):
     ingredients: list[str]
     servings: Optional[int] = 2
 
-# Request when user selects a recommended recipe
+# Request to get priority candidates + available cooking styles
+class RecipeCandidatesRequest(BaseModel):
+    ingredients: list[str]
+    servings: Optional[int] = 2
+
+# Updated: add fields for cooking style + the ingredient walk's answers
 class RecipeSelectionRequest(BaseModel):
     recipe_name: str
     ingredients: list[str]
     servings: Optional[int] = 2
+    cooking_style: Optional[str] = None
+    confirmed_ingredients: Optional[list[str]] = None
+    declined_ingredients: Optional[list[str]] = None
 
 # Response returned by the backend
 class RecipeResponse(BaseModel):
@@ -60,3 +68,4 @@ class FavoriteRecipe(BaseModel):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+

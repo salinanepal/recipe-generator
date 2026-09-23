@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 import { X, Trash2 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import {
-  recommendRecipes,
+  getRecipeCandidates,
   generateSelectedRecipe,
   addFavorite,
 } from "../services/recipeService";
+import RecommendationWalk from "../components/common/recipe/RecommendationWalk";
 
 export default function GenerateRecipe() {
   const [input, setInput] = useState("");
   const [ingredients, setIngredients] = useState([]);
-  const [recommendations, setRecommendations] = useState([]);
+  const [candidatesData, setCandidatesData] = useState(null); // { candidates, available_styles }
   const [recipe, setRecipe] = useState(null);
   const [hasRecommended, setHasRecommended] = useState(false);
-
 
   const [error, setError] = useState("");
 
@@ -67,12 +67,12 @@ export default function GenerateRecipe() {
   };
 
   const clearIngredients = () => {
-  setIngredients([]);
-  setRecommendations([]);
-  setRecipe(null);
-  setHasRecommended(false);
-  setError("");
-};
+    setIngredients([]);
+    setCandidatesData(null);
+    setRecipe(null);
+    setHasRecommended(false);
+    setError("");
+  };
 
   const handleRecommend = async () => {
     if (!servings || servings < 1) {
@@ -96,12 +96,9 @@ export default function GenerateRecipe() {
       setRecommendLoading(true);
       setError("");
 
-      const data = await recommendRecipes({
-        ingredients,
-        servings,
-      });
+      const data = await getRecipeCandidates(ingredients, servings);
 
-      setRecommendations(data.recommendations || []);
+      setCandidatesData(data);
       setHasRecommended(true);
       setRecipe(null);
       setSaved(false);
@@ -114,16 +111,24 @@ export default function GenerateRecipe() {
     }
   };
 
-  const handleSelectRecipe = async (recipeName) => {
+  const handleFinalize = async ({
+    recipeName,
+    cookingStyle,
+    confirmedIngredients,
+    declinedIngredients,
+  }) => {
     try {
       setGenerateLoading(true);
-setLoadingMessage("Reading your ingredients...");
-setError("");
+      setLoadingMessage("Reading your ingredients...");
+      setError("");
 
       const data = await generateSelectedRecipe({
         recipe_name: recipeName,
         ingredients,
         servings,
+        cooking_style: cookingStyle,
+        confirmed_ingredients: confirmedIngredients,
+        declined_ingredients: declinedIngredients,
       });
 
       const normalized = {
@@ -147,6 +152,7 @@ setError("");
       };
 
       setRecipe(normalized);
+      setCandidatesData(null); // walk is done, clear it so the form area shows the result instead
       setSaved(false);
     } catch (err) {
       console.error(err);
@@ -220,38 +226,38 @@ setError("");
               Add
             </button>
           </div>
-{ingredients.length > 0 && (
-  <div className="mt-4 flex items-center justify-between gap-3">
-    <div className="flex flex-wrap gap-2">
-      {ingredients.map((ingredient, index) => (
-        <span
-          key={`${ingredient}-${index}`}
-          className="inline-flex items-center gap-1.5 rounded-full border border-clay bg-paper px-3 py-1 text-sm text-ink/70"
-        >
-          {ingredient}
+          {ingredients.length > 0 && (
+            <div className="mt-4 flex items-center justify-between gap-3">
+              <div className="flex flex-wrap gap-2">
+                {ingredients.map((ingredient, index) => (
+                  <span
+                    key={`${ingredient}-${index}`}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-clay bg-paper px-3 py-1 text-sm text-ink/70"
+                  >
+                    {ingredient}
 
-          <button
-            type="button"
-            onClick={() => removeIngredient(index)}
-            aria-label={`Remove ${ingredient}`}
-            className="text-ink/40 transition-colors hover:text-red-600"
-          >
-            <X size={14} />
-          </button>
-        </span>
-      ))}
-    </div>
+                    <button
+                      type="button"
+                      onClick={() => removeIngredient(index)}
+                      aria-label={`Remove ${ingredient}`}
+                      className="text-ink/40 transition-colors hover:text-red-600"
+                    >
+                      <X size={14} />
+                    </button>
+                  </span>
+                ))}
+              </div>
 
-    <button
-      type="button"
-      onClick={clearIngredients}
-      className="flex shrink-0 items-center gap-1.5 rounded-md border border-clay px-3 py-1.5 text-xs font-medium text-ink/60 transition-colors hover:border-red-300 hover:text-red-600"
-    >
-      <Trash2 size={14} />
-      Clear
-    </button>
-  </div>
-)}
+              <button
+                type="button"
+                onClick={clearIngredients}
+                className="flex shrink-0 items-center gap-1.5 rounded-md border border-clay px-3 py-1.5 text-xs font-medium text-ink/60 transition-colors hover:border-red-300 hover:text-red-600"
+              >
+                <Trash2 size={14} />
+                Clear
+              </button>
+            </div>
+          )}
 
           <div className="mt-6">
             <label className="form-label">Servings</label>
@@ -298,36 +304,26 @@ setError("");
             {recommendLoading ? "Finding recipes..." : "Get Recommendations"}
           </button>
 
-          {recommendations.length > 0 && (
+          {candidatesData && candidatesData.candidates.length > 0 && (
             <div className="mt-8">
-              <h2 className="font-display text-2xl">
-                Recommended Nepali Recipes
-              </h2>
+              <RecommendationWalk
+                candidates={candidatesData.candidates}
+                availableStyles={candidatesData.available_styles}
+                onFinalize={handleFinalize}
+              />
+            </div>
+          )}
 
-              <div className="mt-4 space-y-3">
-                {recommendations.map((item, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => handleSelectRecipe(item.recipe_name)}
-                    className="w-full rounded-lg border border-clay bg-paper p-4 text-left hover:border-basil transition-colors"
-                  >
-                    <div className="font-semibold text-lg">
-                      {item.recipe_name}
-                    </div>
-                  </button>
-                ))}
+          {hasRecommended &&
+            candidatesData &&
+            candidatesData.candidates.length === 0 &&
+            !recommendLoading && (
+              <div className="mt-8 rounded-lg border border-clay bg-paper px-5 py-6 text-center">
+                <p className="font-medium text-ink">
+                  No matching recipes found.
+                </p>
               </div>
-            </div>
-          )}
-
-          {hasRecommended && recommendations.length === 0 && !recommendLoading && (
-            <div className="mt-8 rounded-lg border border-clay bg-paper px-5 py-6 text-center">
-              <p className="font-medium text-ink">
-                No matching recipes found.
-              </p>
-            </div>
-          )}
+            )}
 
           {generateLoading && (
             <div className="mt-8 rounded-lg border border-clay bg-white px-5 py-6 text-center">

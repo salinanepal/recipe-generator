@@ -12,6 +12,25 @@ from app.algorithms.prompt_builder import build_prompt
 from app.services.gemini_service import generate_recipe
 from app.services.fallback_service import generate_recipe_from_dataset
 from app.core.exceptions import RecipeGenerationError
+from app.algorithms.tfidf import load_recipe_documents
+from app.algorithms.priority_matching import get_recommendation_flow
+
+# New: priority-candidate flow (contains all ingredients, ranked by smallest gap,
+# plus dynamically available cooking styles)
+def get_recipe_candidates(request):
+    preprocessing_result = preprocess_ingredients(
+        request.ingredients
+    )
+    processed_ingredients = preprocessing_result["processed_ingredients"]
+
+    recipe_data = load_recipe_documents()
+
+    flow_result = get_recommendation_flow(
+        processed_ingredients,
+        recipe_data,
+    )
+
+    return flow_result
 
 
 # Recommend Recipes
@@ -131,6 +150,9 @@ def generate_selected_recipe(
         processed_ingredients,
         request.recipe_name,
         request.servings or 2,
+        cooking_style=request.cooking_style,
+        confirmed_ingredients=request.confirmed_ingredients,
+        declined_ingredients=request.declined_ingredients,
     )
 
     try:

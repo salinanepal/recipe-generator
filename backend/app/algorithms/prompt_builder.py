@@ -54,6 +54,32 @@ Scale ingredient quantities accordingly.
 The JSON field "servings" must be {servings}.
 """
 
+def build_cooking_style_section(cooking_style):
+    # only include this section if the user actually picked a style
+    if not cooking_style:
+        return ""
+    return f"""
+Preferred cooking style: {cooking_style}
+
+The recipe should primarily use this cooking method.
+"""
+
+
+def build_preferences_section(confirmed_ingredients, declined_ingredients):
+    # only include this section if the user answered at least one question
+    if not confirmed_ingredients and not declined_ingredients:
+        return ""
+
+    lines = []
+    if confirmed_ingredients:
+        confirmed_list = "\n".join(f"- {ing}" for ing in confirmed_ingredients)
+        lines.append(f"The user specifically wants these included:\n{confirmed_list}")
+    if declined_ingredients:
+        declined_list = "\n".join(f"- {ing}" for ing in declined_ingredients)
+        lines.append(f"The user specifically wants these avoided:\n{declined_list}")
+
+    return "\n\n".join(lines) + "\n"
+
 
 def build_requirements_section():
     """
@@ -122,10 +148,11 @@ def build_prompt(
     processed_ingredients,
     recipe_name,
     servings,
+    cooking_style=None,
+    confirmed_ingredients=None,
+    declined_ingredients=None,
 ):
-    """
-    Build the complete Gemini prompt.
-    """
+    # Build the complete Gemini prompt.
     sections = [
         build_role_section(),
 
@@ -135,6 +162,15 @@ def build_prompt(
 
         build_ingredients_section(
             processed_ingredients,
+        ),
+
+        build_cooking_style_section(
+            cooking_style,
+        ),
+
+        build_preferences_section(
+            confirmed_ingredients,
+            declined_ingredients,
         ),
 
         build_servings_section(
@@ -147,7 +183,6 @@ def build_prompt(
     ]
 
     return "\n".join(sections)
-
 
 if __name__ == "__main__":
     processed_ingredients = [

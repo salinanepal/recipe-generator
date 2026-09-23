@@ -6,12 +6,14 @@ from app.core.security import get_current_user
 from app.schemas.recipe import (
     RecipeGenerateRequest,
     RecipeSelectionRequest,
+    RecipeCandidatesRequest, 
 )
 from app.services.recipe_service import (
     recommend_recipes,
     generate_selected_recipe,
     get_recipe_by_id,
     get_all_recipes,
+    get_recipe_candidates, 
 )
 from app.core.exceptions import RecipeGenerationError
 
@@ -19,6 +21,14 @@ router = APIRouter(
     prefix="/recipes",
     tags=["Recipes"],
 )
+
+#priority-candidate flow with dynamic cooking styles
+@router.post("/candidates")
+def candidates(
+    request: RecipeCandidatesRequest,
+    db: Session = Depends(get_db),
+):
+    return get_recipe_candidates(request)
 
 # Recommend top 3 recipes
 @router.post("/recommend")

@@ -65,3 +65,8 @@ export const removeFavorite = async (
 ) => {
   await api.delete(`/favorites/${recipeId}`);
 };
+
+export const getRecipeCandidates = async (ingredients, servings) => {
+  const response = await api.post("/recipes/candidates", { ingredients, servings });
+  return response.data; // { candidates, available_styles }
+};

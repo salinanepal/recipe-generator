@@ -52,7 +52,10 @@ def load_recipe_documents():
         reader = csv.DictReader(file)
 
         for row in reader:
-
+             
+            if not row.get("recipe_name", "").strip():
+                    continue
+            
             recipe_name = row.get(
                 "recipe_name",
                 "",

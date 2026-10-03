@@ -19,11 +19,18 @@ class RecipeRefineRequest(BaseModel):
     servings: Optional[int] = 2
     answers: list[QuestionAnswer] = []
 
+# Request for the optional ingredients of one recommended recipe
+class OptionalIngredientsRequest(BaseModel):
+    recipe_name: str
+    ingredients: list[str]
+
 # Request when user selects a recommended recipe
 class RecipeSelectionRequest(BaseModel):
     recipe_name: str
     ingredients: list[str]
     servings: Optional[int] = 2
+    selected_optional: Optional[list[str]] = None
+    excluded_optional: Optional[list[str]] = None
 
 # Response returned by the backend
 class RecipeResponse(BaseModel):

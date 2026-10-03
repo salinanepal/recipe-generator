@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.core.security import get_current_user
 from app.schemas.recipe import (
+    OptionalIngredientsRequest,
     RecipeGenerateRequest,
     RecipeRefineRequest,
     RecipeSelectionRequest,
@@ -11,6 +12,7 @@ from app.schemas.recipe import (
 from app.services.recipe_service import (
     recommend_recipes,
     generate_selected_recipe,
+    get_optional_ingredient_options,
     get_recipe_by_id,
     get_all_recipes,
 )
@@ -42,6 +44,11 @@ def questions(request: RecipeGenerateRequest):
 @router.post("/recommend-refined")
 def recommend_refined(request: RecipeRefineRequest):
     return recommend_with_answers(request)
+
+# Optional ingredients the user can add to the selected recipe
+@router.post("/optional-ingredients")
+def optional_ingredients(request: OptionalIngredientsRequest):
+    return get_optional_ingredient_options(request)
 
 # Generate recipe after user selects one recommendation
 @router.post("/generate-selected")

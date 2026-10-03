@@ -14,7 +14,13 @@ DATASET_PATH = (
 def generate_recipe_from_dataset(
     recipe_name,
     servings=2,
+    excluded_ingredients=None,
 ):
+    """
+    Return the selected recipe directly from the dataset.
+    Used when Gemini is unavailable.
+    """
+
     df = pd.read_csv(DATASET_PATH)
 
     best_row = None
@@ -60,6 +66,26 @@ def generate_recipe_from_dataset(
             if x.strip()
         ]
 
+    excluded = {
+        item.lower().strip()
+        for item in (excluded_ingredients or [])
+    }
+
+    cooking_tips = []
+
+    if excluded:
+        recipe_ingredients = [
+            ingredient
+            for ingredient in recipe_ingredients
+            if str(ingredient).lower().strip() not in excluded
+        ]
+
+        cooking_tips.append(
+            "You can skip these ingredients wherever they appear in the steps: "
+            + ", ".join(sorted(excluded))
+            + "."
+        )
+
     return {
         "recipe_name": best_row["recipe_name"],
         "cuisine": "Nepali",
@@ -74,5 +100,5 @@ def generate_recipe_from_dataset(
             for ingredient in recipe_ingredients
         ],
         "instructions": instructions,
-        "cooking_tips": [],
+        "cooking_tips": cooking_tips,
     }

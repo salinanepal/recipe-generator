@@ -27,6 +27,15 @@ export const recommendRefined = async (data) => {
   return response.data;
 };
 
+export const getOptionalIngredients = async (data) => {
+  const response = await api.post(
+    "/recipes/optional-ingredients",
+    data
+  );
+
+  return response.data;
+};
+
 export const generateSelectedRecipe = async (
   data
 ) => {

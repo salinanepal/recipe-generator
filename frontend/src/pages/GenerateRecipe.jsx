@@ -3,9 +3,21 @@ import { X, Trash2 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import {
   recommendRecipes,
+  getRecipeQuestions,
+  recommendRefined,
   generateSelectedRecipe,
   addFavorite,
 } from "../services/recipeService";
+import QuestionFlow from "../components/QuestionFlow";
+
+const LOADING_MESSAGES = [
+  "Reading your ingredients...",
+  "Finding the perfect combination...",
+  "Balancing the flavors...",
+  "Putting the recipe together...",
+  "Adding the finishing touches...",
+  "Almost ready to serve...",
+];
 
 export default function GenerateRecipe() {
   const [input, setInput] = useState("");
@@ -14,6 +26,8 @@ export default function GenerateRecipe() {
   const [recipe, setRecipe] = useState(null);
   const [hasRecommended, setHasRecommended] = useState(false);
 
+  const [questions, setQuestions] = useState([]);
+  const [asking, setAsking] = useState(false);
 
   const [error, setError] = useState("");
 
@@ -23,18 +37,7 @@ export default function GenerateRecipe() {
   const [saved, setSaved] = useState(false);
   const [recommendLoading, setRecommendLoading] = useState(false);
   const [generateLoading, setGenerateLoading] = useState(false);
-  const [loadingMessage, setLoadingMessage] = useState(
-    "Reading your ingredients...",
-  );
-
-  const loadingMessages = [
-    "Reading your ingredients...",
-    "Finding the perfect combination...",
-    "Balancing the flavors...",
-    "Putting the recipe together...",
-    "Adding the finishing touches...",
-    "Almost ready to serve...",
-  ];
+  const [loadingMessage, setLoadingMessage] = useState(LOADING_MESSAGES[0]);
 
   useEffect(() => {
     if (!generateLoading) return;
@@ -42,12 +45,17 @@ export default function GenerateRecipe() {
     let index = 0;
 
     const interval = setInterval(() => {
-      index = (index + 1) % loadingMessages.length;
-      setLoadingMessage(loadingMessages[index]);
+      index = (index + 1) % LOADING_MESSAGES.length;
+      setLoadingMessage(LOADING_MESSAGES[index]);
     }, 1800);
 
     return () => clearInterval(interval);
   }, [generateLoading]);
+
+  const resetQuestions = () => {
+    setQuestions([]);
+    setAsking(false);
+  };
 
   const addIngredient = () => {
     const trimmed = input.trim();
@@ -60,19 +68,47 @@ export default function GenerateRecipe() {
 
     setIngredients((prev) => [...prev, trimmed]);
     setInput("");
+    resetQuestions();
   };
 
   const removeIngredient = (index) => {
     setIngredients((prev) => prev.filter((_, i) => i !== index));
+    resetQuestions();
   };
 
   const clearIngredients = () => {
-  setIngredients([]);
-  setRecommendations([]);
-  setRecipe(null);
-  setHasRecommended(false);
-  setError("");
-};
+    setIngredients([]);
+    setRecommendations([]);
+    setRecipe(null);
+    setHasRecommended(false);
+    setError("");
+    resetQuestions();
+  };
+
+  // Fetch the final top 3, optionally refined by the user's answers
+  const fetchRecommendations = async (answers = []) => {
+    try {
+      setRecommendLoading(true);
+      setError("");
+
+      const hasAnswers = answers.some((a) => a.answer !== "skip");
+
+      const data = hasAnswers
+        ? await recommendRefined({ ingredients, servings, answers })
+        : await recommendRecipes({ ingredients, servings });
+
+      setRecommendations(data.recommendations || []);
+      setHasRecommended(true);
+      setRecipe(null);
+      setSaved(false);
+    } catch (err) {
+      console.error(err);
+
+      setError(err.response?.data?.detail || "Failed to get recommendations.");
+    } finally {
+      setRecommendLoading(false);
+    }
+  };
 
   const handleRecommend = async () => {
     if (!servings || servings < 1) {
@@ -92,33 +128,51 @@ export default function GenerateRecipe() {
       return;
     }
 
+    setError("");
+    setRecommendations([]);
+    setHasRecommended(false);
+    setRecipe(null);
+    resetQuestions();
+
     try {
       setRecommendLoading(true);
-      setError("");
 
-      const data = await recommendRecipes({
-        ingredients,
-        servings,
-      });
+      const data = await getRecipeQuestions({ ingredients, servings });
+      const fetched = data.questions || [];
 
-      setRecommendations(data.recommendations || []);
-      setHasRecommended(true);
-      setRecipe(null);
-      setSaved(false);
+      if (fetched.length === 0) {
+        // Nothing to ask, go straight to recommendations
+        setRecommendLoading(false);
+        await fetchRecommendations([]);
+        return;
+      }
+
+      setQuestions(fetched);
+      setAsking(true);
+      setRecommendLoading(false);
     } catch (err) {
       console.error(err);
-
-      setError(err.response?.data?.detail || "Failed to get recommendations.");
-    } finally {
+      // If the questions endpoint fails, fall back to the normal flow
       setRecommendLoading(false);
+      await fetchRecommendations([]);
     }
+  };
+
+  const handleQuestionsFinished = async (answers) => {
+    resetQuestions();
+    await fetchRecommendations(answers);
+  };
+
+  const handleSkipAllQuestions = async () => {
+    resetQuestions();
+    await fetchRecommendations([]);
   };
 
   const handleSelectRecipe = async (recipeName) => {
     try {
       setGenerateLoading(true);
-setLoadingMessage("Reading your ingredients...");
-setError("");
+      setLoadingMessage(LOADING_MESSAGES[0]);
+      setError("");
 
       const data = await generateSelectedRecipe({
         recipe_name: recipeName,
@@ -220,38 +274,39 @@ setError("");
               Add
             </button>
           </div>
-{ingredients.length > 0 && (
-  <div className="mt-4 flex items-center justify-between gap-3">
-    <div className="flex flex-wrap gap-2">
-      {ingredients.map((ingredient, index) => (
-        <span
-          key={`${ingredient}-${index}`}
-          className="inline-flex items-center gap-1.5 rounded-full border border-clay bg-paper px-3 py-1 text-sm text-ink/70"
-        >
-          {ingredient}
 
-          <button
-            type="button"
-            onClick={() => removeIngredient(index)}
-            aria-label={`Remove ${ingredient}`}
-            className="text-ink/40 transition-colors hover:text-red-600"
-          >
-            <X size={14} />
-          </button>
-        </span>
-      ))}
-    </div>
+          {ingredients.length > 0 && (
+            <div className="mt-4 flex items-center justify-between gap-3">
+              <div className="flex flex-wrap gap-2">
+                {ingredients.map((ingredient, index) => (
+                  <span
+                    key={`${ingredient}-${index}`}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-clay bg-paper px-3 py-1 text-sm text-ink/70"
+                  >
+                    {ingredient}
 
-    <button
-      type="button"
-      onClick={clearIngredients}
-      className="flex shrink-0 items-center gap-1.5 rounded-md border border-clay px-3 py-1.5 text-xs font-medium text-ink/60 transition-colors hover:border-red-300 hover:text-red-600"
-    >
-      <Trash2 size={14} />
-      Clear
-    </button>
-  </div>
-)}
+                    <button
+                      type="button"
+                      onClick={() => removeIngredient(index)}
+                      aria-label={`Remove ${ingredient}`}
+                      className="text-ink/40 transition-colors hover:text-red-600"
+                    >
+                      <X size={14} />
+                    </button>
+                  </span>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={clearIngredients}
+                className="flex shrink-0 items-center gap-1.5 rounded-md border border-clay px-3 py-1.5 text-xs font-medium text-ink/60 transition-colors hover:border-red-300 hover:text-red-600"
+              >
+                <Trash2 size={14} />
+                Clear
+              </button>
+            </div>
+          )}
 
           <div className="mt-6">
             <label className="form-label">Servings</label>
@@ -292,11 +347,19 @@ setError("");
           <button
             type="button"
             onClick={handleRecommend}
-            disabled={recommendLoading}
+            disabled={recommendLoading || asking}
             className="btn-primary mt-6 w-full sm:w-auto"
           >
             {recommendLoading ? "Finding recipes..." : "Get Recommendations"}
           </button>
+
+          {asking && (
+            <QuestionFlow
+              questions={questions}
+              onFinish={handleQuestionsFinished}
+              onSkipAll={handleSkipAllQuestions}
+            />
+          )}
 
           {recommendations.length > 0 && (
             <div className="mt-8">
@@ -327,13 +390,15 @@ setError("");
             </div>
           )}
 
-          {hasRecommended && recommendations.length === 0 && !recommendLoading && (
-            <div className="mt-8 rounded-lg border border-clay bg-paper px-5 py-6 text-center">
-              <p className="font-medium text-ink">
-                No matching recipes found.
-              </p>
-            </div>
-          )}
+          {hasRecommended &&
+            recommendations.length === 0 &&
+            !recommendLoading && (
+              <div className="mt-8 rounded-lg border border-clay bg-paper px-5 py-6 text-center">
+                <p className="font-medium text-ink">
+                  No matching recipes found.
+                </p>
+              </div>
+            )}
 
           {generateLoading && (
             <div className="mt-8 rounded-lg border border-clay bg-white px-5 py-6 text-center">

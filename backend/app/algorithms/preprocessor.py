@@ -30,9 +30,6 @@ IRREGULAR_PLURALS = {
 # Clean Ingredient
 
 def clean_ingredient(ingredient):
-    """
-    Clean ingredient text and strip common quantity/unit prefixes.
-    """
     ingredient = str(ingredient).lower().strip()
 
     # Strip leading units/quantities (e.g., "100g timur" -> "timur")
@@ -77,9 +74,6 @@ def normalize_ingredient(ingredient, vocabulary=None):
 
 # Load Data & Vocabulary
 def load_ingredient_vocabulary():
-    """
-    Load all valid ingredient names from ingredient_vocabulary.csv.
-    """
     global _VOCABULARY_CACHE
 
     if _VOCABULARY_CACHE is not None:
@@ -107,9 +101,6 @@ def load_ingredient_vocabulary():
 
 
 def load_ingredient_metadata():
-    """
-    Load synonym mappings from ingredients_metadata.csv.
-    """
     global _METADATA_CACHE
 
     if _METADATA_CACHE is not None:
@@ -166,9 +157,7 @@ def correct_spelling(ingredient, searchable_names, cutoff=0.82):
 
 # Process Single & Multiple Ingredients
 def process_ingredient(ingredient, vocabulary, synonym_map):
-    """
-    Process one ingredient.
-    """
+
     original = ingredient
 
     ingredient = clean_ingredient(ingredient)

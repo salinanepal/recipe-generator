@@ -1,5 +1,5 @@
 from pydantic import BaseModel, ConfigDict
-from typing import Optional
+from typing import Literal, Optional
 from datetime import datetime
 
 # Request from frontend to find recommended recipes
@@ -7,11 +7,30 @@ class RecipeGenerateRequest(BaseModel):
     ingredients: list[str]
     servings: Optional[int] = 2
 
+# One answer to a follow-up cooking question
+class QuestionAnswer(BaseModel):
+    ingredient: str
+    verb: str
+    answer: Literal["yes", "no", "skip"]
+
+# Request for recommendations refined by the user's answers
+class RecipeRefineRequest(BaseModel):
+    ingredients: list[str]
+    servings: Optional[int] = 2
+    answers: list[QuestionAnswer] = []
+
+# Request for the optional ingredients of one recommended recipe
+class OptionalIngredientsRequest(BaseModel):
+    recipe_name: str
+    ingredients: list[str]
+
 # Request when user selects a recommended recipe
 class RecipeSelectionRequest(BaseModel):
     recipe_name: str
     ingredients: list[str]
     servings: Optional[int] = 2
+    selected_optional: Optional[list[str]] = None
+    excluded_optional: Optional[list[str]] = None
 
 # Response returned by the backend
 class RecipeResponse(BaseModel):

@@ -4,14 +4,21 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.core.security import get_current_user
 from app.schemas.recipe import (
+    OptionalIngredientsRequest,
     RecipeGenerateRequest,
+    RecipeRefineRequest,
     RecipeSelectionRequest,
 )
 from app.services.recipe_service import (
     recommend_recipes,
     generate_selected_recipe,
+    get_optional_ingredient_options,
     get_recipe_by_id,
     get_all_recipes,
+)
+from app.services.refinement_service import (
+    get_refinement_questions,
+    recommend_with_answers,
 )
 from app.core.exceptions import RecipeGenerationError
 
@@ -27,6 +34,21 @@ def recommend(
     db: Session = Depends(get_db),
 ):
     return recommend_recipes(db, request)
+
+# Dynamic follow-up cooking questions (learned from the instructions column)
+@router.post("/questions")
+def questions(request: RecipeGenerateRequest):
+    return get_refinement_questions(request)
+
+# Recommend top 3 recipes, refined by the user's answers
+@router.post("/recommend-refined")
+def recommend_refined(request: RecipeRefineRequest):
+    return recommend_with_answers(request)
+
+# Optional ingredients the user can add to the selected recipe
+@router.post("/optional-ingredients")
+def optional_ingredients(request: OptionalIngredientsRequest):
+    return get_optional_ingredient_options(request)
 
 # Generate recipe after user selects one recommendation
 @router.post("/generate-selected")

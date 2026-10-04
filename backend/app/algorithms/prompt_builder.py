@@ -22,13 +22,23 @@ Generate a detailed and authentic version of this recipe.
 """
 
 
-def build_ingredients_section(processed_ingredients):
+def build_ingredients_section(
+    processed_ingredients,
+    selected_optional=None,
+):
     """
     Build the available ingredients section.
+    Optional ingredients the user chose to add are included here.
     """
+    available = list(processed_ingredients)
+
+    for ingredient in selected_optional or []:
+        if ingredient not in available:
+            available.append(ingredient)
+
     ingredient_list = "\n".join(
         f"- {ingredient}"
-        for ingredient in processed_ingredients
+        for ingredient in available
     )
 
     return f"""
@@ -39,6 +49,33 @@ Use these ingredients as much as possible.
 
 If some traditional ingredients are missing,
 adapt the recipe naturally while keeping it authentically Nepali.
+"""
+
+
+def build_exclusions_section(excluded_optional):
+    """
+    Build the excluded ingredients section.
+    Returns an empty string when nothing is excluded.
+    """
+    if not excluded_optional:
+        return ""
+
+    excluded_list = "\n".join(
+        f"- {ingredient}"
+        for ingredient in excluded_optional
+    )
+
+    return f"""
+Excluded ingredients (the user chose NOT to use these):
+{excluded_list}
+
+Do NOT use any excluded ingredient anywhere in the recipe:
+not in the ingredients list, not in the instructions
+and not in the cooking tips.
+
+Rewrite the recipe so it still tastes good and stays authentic
+without the excluded ingredients.
+Do not mention that these ingredients were removed.
 """
 
 
@@ -55,11 +92,18 @@ The JSON field "servings" must be {servings}.
 """
 
 
-def build_requirements_section():
+def build_requirements_section(excluded_optional=None):
     """
     Build recipe generation requirements.
     """
-    return """
+    extra_rule = ""
+
+    if excluded_optional:
+        extra_rule = """- Do not introduce any other non-pantry ingredient that is not
+  in the available ingredients list.
+"""
+
+    return f"""
 Requirements:
 
 - Generate an authentic Nepali recipe.
@@ -67,8 +111,10 @@ Requirements:
 - Use the user's available ingredients wherever possible.
 - Common Nepali pantry ingredients such as water, salt, oil,
   turmeric, cumin, garlic, ginger, and other basic seasonings
-  may be added when necessary.
-- Keep the recipe practical and realistic.
+  may be added when necessary, unless they are listed as
+  excluded ingredients.
+- Never use an ingredient that is listed as excluded.
+{extra_rule}- Keep the recipe practical and realistic.
 - Adapt missing traditional ingredients naturally.
 - Do not invent a completely unrelated recipe.
 - Do not include recipe_type.
@@ -122,6 +168,8 @@ def build_prompt(
     processed_ingredients,
     recipe_name,
     servings,
+    selected_optional=None,
+    excluded_optional=None,
 ):
     """
     Build the complete Gemini prompt.
@@ -135,13 +183,20 @@ def build_prompt(
 
         build_ingredients_section(
             processed_ingredients,
+            selected_optional,
+        ),
+
+        build_exclusions_section(
+            excluded_optional,
         ),
 
         build_servings_section(
             servings,
         ),
 
-        build_requirements_section(),
+        build_requirements_section(
+            excluded_optional,
+        ),
 
         build_output_format_section(),
     ]
@@ -160,6 +215,8 @@ if __name__ == "__main__":
         processed_ingredients,
         "Khichadi",
         2,
+        selected_optional=["green peas"],
+        excluded_optional=["ghee", "asafoetida"],
     )
 
     print(prompt)

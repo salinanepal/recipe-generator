@@ -8,6 +8,7 @@ from app.algorithms.tfidf import build_tfidf_vectors
 from app.algorithms.cosine_similarity import calculate_recipe_similarities
 from app.algorithms.recommendation import generate_recommendation
 from app.algorithms.prompt_builder import build_prompt
+from app.algorithms.optional_ingredients import get_optional_ingredients
 
 from app.services.gemini_service import generate_recipe
 from app.services.fallback_service import generate_recipe_from_dataset
@@ -111,6 +112,29 @@ def recommend_recipes(
     return recommendation_result
 
 
+# Optional Ingredients For A Selected Recipe
+
+def get_optional_ingredient_options(
+    request,
+):
+    preprocessing_result = preprocess_ingredients(
+        request.ingredients
+    )
+
+    processed_ingredients = preprocessing_result[
+        "processed_ingredients"
+    ]
+
+    options = get_optional_ingredients(
+        request.recipe_name,
+        processed_ingredients,
+    )
+
+    return {
+        "recipe_name": request.recipe_name,
+        "optional_ingredients": options,
+    }
+
 
 # Generate Selected Recipe
 
@@ -127,10 +151,15 @@ def generate_selected_recipe(
         "processed_ingredients"
     ]
 
+    selected_optional = request.selected_optional or []
+    excluded_optional = request.excluded_optional or []
+
     prompt = build_prompt(
         processed_ingredients,
         request.recipe_name,
         request.servings or 2,
+        selected_optional,
+        excluded_optional,
     )
 
     try:
@@ -147,6 +176,7 @@ def generate_selected_recipe(
         recipe_data = generate_recipe_from_dataset(
             request.recipe_name,
             request.servings or 2,
+            excluded_optional,
         )
 
         if user_id is not None:

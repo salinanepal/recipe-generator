@@ -12,3 +12,9 @@ ACCESS_TOKEN_EXPIRE_MINUTES = int(
 )
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+# If Gemini does not answer within this many seconds,
+# the recipe is generated from the local dataset instead.
+GEMINI_TIMEOUT_SECONDS = float(
+    os.getenv("GEMINI_TIMEOUT_SECONDS", 10)
+)

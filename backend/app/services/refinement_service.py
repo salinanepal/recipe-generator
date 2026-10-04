@@ -69,16 +69,17 @@ def recommend_with_answers(request):
         top_n=CANDIDATE_POOL,
     )["recommendations"]
 
-    # Each answer becomes feature tokens: the verb and the
-    # "ingredient|verb" pair that the question was about
+    # Yes  -> plain method once + ingredient|method pair twice
+    # No   -> only the ingredient|method pair, so "don't fry the chicken"
+    #         does not penalise every recipe that fries something else
     liked = []
     disliked = []
 
     for a in request.answers:
         if a.answer == "yes":
-            liked.extend(answer_tokens(a.ingredient, a.verb))
+            liked += answer_tokens(a.ingredient, a.verb)
         elif a.answer == "no":
-            disliked.extend(answer_tokens(a.ingredient, a.verb))
+            disliked += answer_tokens(a.ingredient, a.verb)[1:]
 
     if not liked and not disliked:
         return {

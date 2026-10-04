@@ -163,7 +163,7 @@ def process_ingredient(ingredient, vocabulary, synonym_map):
     ingredient = clean_ingredient(ingredient)
     ingredient = normalize_ingredient(ingredient, vocabulary)
 
-    searchable_names = set(synonym_map.keys())
+    searchable_names = set(synonym_map.keys()) | set(vocabulary)
 
     ingredient = correct_spelling(ingredient, searchable_names)
 

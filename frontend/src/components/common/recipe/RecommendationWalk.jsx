@@ -22,18 +22,41 @@ function scoreCandidate(candidate, answeredMap) {
   return feedbackScore - gapPenalty;
 }
 
+function getActivePool(candidates, answeredMap) {
+  return candidates.filter(candidate => {
+    // Keep candidates that haven't been ruled out
+    return !candidate.extra_ingredients.some(
+      ingredient =>
+        ingredient in answeredMap &&
+        answeredMap[ingredient] === false
+    );
+  });
+}
+
 // which ingredient to ask about next: score every candidate right now,
 // then take the next un-asked question from whichever is currently on top
 function getNextQuestion(candidates, answeredMap, askedSet) {
-  const ranked = [...candidates].sort(
-    (a, b) => scoreCandidate(b, answeredMap) - scoreCandidate(a, answeredMap) || a.gap_size - b.gap_size
-  );
+  const active = getActivePool(candidates, answeredMap);
+
+  // how many questions has each candidate already been asked?
+  const askedCountByCandidate = {};
+  for (const c of active) {
+    askedCountByCandidate[c.name] = (c.questions || []).filter(q => askedSet.has(q)).length;
+  }
+
+  // prefer candidates asked about LEAST so far (breadth-first);
+  // only break ties using current relevance score
+  const ranked = [...active].sort((a, b) => {
+    const countDiff = askedCountByCandidate[a.name] - askedCountByCandidate[b.name];
+    if (countDiff !== 0) return countDiff;
+    return scoreCandidate(b, answeredMap) - scoreCandidate(a, answeredMap) || a.gap_size - b.gap_size;
+  });
 
   for (const candidate of ranked) {
     const next = (candidate.questions || []).find(ing => !askedSet.has(ing));
     if (next) return next;
   }
-  return null; // nothing left to ask, anywhere
+  return null;
 }
 
 export default function RecommendationWalk({ candidates, availableStyles, onFinalize }) {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X, Trash2 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import {
@@ -36,6 +36,7 @@ export default function GenerateRecipe() {
   const [optionsLoadingFor, setOptionsLoadingFor] = useState(null);
 
   const [error, setError] = useState("");
+  const [favoriteError, setFavoriteError] = useState("");
 
   const [servings, setServings] = useState(2);
 
@@ -44,6 +45,9 @@ export default function GenerateRecipe() {
   const [recommendLoading, setRecommendLoading] = useState(false);
   const [generateLoading, setGenerateLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState(LOADING_MESSAGES[0]);
+
+  // Right column (loading state + generated recipe)
+  const resultRef = useRef(null);
 
   useEffect(() => {
     if (!generateLoading) return;
@@ -56,6 +60,16 @@ export default function GenerateRecipe() {
     }, 1800);
 
     return () => clearInterval(interval);
+  }, [generateLoading]);
+
+  // When generation starts, bring the right column into view
+  useEffect(() => {
+    if (generateLoading && resultRef.current) {
+      resultRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   }, [generateLoading]);
 
   const resetQuestions = () => {
@@ -96,6 +110,7 @@ export default function GenerateRecipe() {
     setRecipe(null);
     setHasRecommended(false);
     setError("");
+    setFavoriteError("");
     resetQuestions();
     resetOptional();
   };
@@ -116,6 +131,7 @@ export default function GenerateRecipe() {
       setHasRecommended(true);
       setRecipe(null);
       setSaved(false);
+      setFavoriteError("");
     } catch (err) {
       console.error(err);
 
@@ -144,6 +160,7 @@ export default function GenerateRecipe() {
     }
 
     setError("");
+    setFavoriteError("");
     setRecommendations([]);
     setHasRecommended(false);
     setRecipe(null);
@@ -191,6 +208,7 @@ export default function GenerateRecipe() {
       setGenerateLoading(true);
       setLoadingMessage(LOADING_MESSAGES[0]);
       setError("");
+      setFavoriteError("");
 
       const data = await generateSelectedRecipe({
         recipe_name: recipeName,
@@ -234,6 +252,7 @@ export default function GenerateRecipe() {
   // Clicking a recommended recipe: check for optional ingredients first
   const handleSelectRecipe = async (recipeName) => {
     setError("");
+    setFavoriteError("");
     setRecipe(null);
     setPendingRecipe(null);
     setOptionalOptions([]);
@@ -272,24 +291,24 @@ export default function GenerateRecipe() {
 
   const handleAddFavorite = async () => {
     if (!user) {
-      setError("Please log in to save recipes to your favorites.");
+      setFavoriteError("Please log in to save recipes to your favorites.");
       return;
     }
 
     if (!recipe?.id) {
-      setError("This recipe must be saved before it can be favorited.");
+      setFavoriteError("This recipe must be saved before it can be favorited.");
       return;
     }
 
     try {
-      setError("");
+      setFavoriteError("");
       await addFavorite(recipe.id);
       setSaved(true);
     } catch (err) {
       if (err.response?.status === 400) {
         setSaved(true);
       } else {
-        setError("Failed to save favorite.");
+        setFavoriteError("Failed to save favorite.");
       }
     }
   };
@@ -487,7 +506,7 @@ export default function GenerateRecipe() {
           </div>
 
           {/* ---------------- Right column: generated recipe ---------------- */}
-          <div className="space-y-6">
+          <div ref={resultRef} className="scroll-mt-24 space-y-6">
             {generateLoading && (
               <div className="rounded-lg border border-clay bg-white px-5 py-6 text-center">
                 <div className="mx-auto mb-3 flex justify-center gap-1">
@@ -599,11 +618,19 @@ export default function GenerateRecipe() {
                     </ul>
                   </div>
 
+                  {favoriteError && (
+                    <p className="mt-6 text-sm text-red-600">
+                      {favoriteError}
+                    </p>
+                  )}
+
                   <button
                     type="button"
                     onClick={handleAddFavorite}
                     disabled={saved}
-                    className={`mt-6 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                    className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                      favoriteError ? "mt-2" : "mt-6"
+                    } ${
                       saved
                         ? "bg-category-protein/10 text-category-protein border border-category-protein/30 cursor-default"
                         : "bg-basil text-white hover:bg-basil-dark"

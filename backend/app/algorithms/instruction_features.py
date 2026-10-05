@@ -15,9 +15,7 @@ RECIPES_FILE = BASE_DIR / "data" / "recipes.csv"
 # Tunable settings
 # -------------------------------------------------------
 
-
-              
-MAX_QUESTIONS = 4                 
+MAX_QUESTIONS = 4
 MIN_EXTRA_BALANCE = 0.30           # 2nd..4th question must split this ingredient's
                                    # recipes reasonably (1.0 = perfect 50/50 split)
 
@@ -30,6 +28,12 @@ BACKFILL_BREADTH_RATIO = 0.30      # filler questions (tiers 2 and 3) only use v
 STAPLE_THRESHOLD = 0.60            # skip ingredients in > 60% of recipes (salt, water...)
 GENERIC_TOKEN_MIN_NAMES = 5        # a word in >= 5 ingredient names ("powder", "seeds")
                                    # is not used to recognise an ingredient in a step
+
+# Garnish, flavouring and seasoning items: the user has no cooking choice to make
+NO_QUESTION_INGREDIENTS = {
+    "lemon juice", "fresh coriander", "mint", "sugar",
+    "cumin seeds", "turmeric powder", "sichuan pepper", "mustard oil",
+}
 
 # Generic kitchen words that are not useful as "cooking method" questions.
 # This is a language-level list, NOT tied to any recipe or ingredient.
@@ -48,8 +52,18 @@ NON_METHOD_WORDS = {
     "half", "small", "large", "medium", "fresh", "hot", "warm", "cold",
     "cook", "drop", "top", "gently", "gradually", "well", "hard", "pan",
     "allow", "apply", "close", "finish", "prepare",
-    "pack", "spread", "layer", "flip", "seal", "crack", "grease",
+    "pack", "spread", "layer", "flip", "seal", "crack", "grease", "drizzle",
 }
+
+# Preparation steps (not a cooking choice for the user). These showed up in
+# the test output as questions like "knead the yogurt" or "soak the lentils".
+# Set PREP_WORDS = set() to go back to the previous behaviour.
+PREP_WORDS = {
+    "soak", "whisk", "coat", "knead", "melt", "blend", "mash", "ferment",
+    "grind", "shred", "stuff", "wrap", "dip", "churn", "strain", "distill",
+}
+
+NON_METHOD_WORDS = NON_METHOD_WORDS | PREP_WORDS
 
 # Words that come in front of a cooking verb ("deep fry", "stir fry",
 # "dry roast", "pressure cook"). When a step starts with one of them,
@@ -58,6 +72,7 @@ COMPOUND_PREFIXES = {
     "deep", "shallow", "stir", "pan", "pressure", "flash", "dry", "slow",
     "charcoal", "flame", "hard", "gently", "gradually", "slowly",
 }
+
 
 _RECIPE_CACHE = None
 _INDEX_CACHE = None
@@ -77,7 +92,7 @@ def normalize_verb(word):
     """
     word = re.sub(r"[^a-z]", "", word.lower())
 
-    if word in PROTECTED_VERBS:      
+    if word in PROTECTED_VERBS:
         return word
 
     if len(word) <= 3:
@@ -398,8 +413,13 @@ def _choose_verbs(ingredient, index):
 
     ranked = []
 
+    min_support = 2 if len(mine) >= 8 else 1
+
     for verb, rs in ingredient_verb_recipes.get(ingredient, {}).items():
         if breadth.get(verb, 0) < MIN_VERB_BREADTH:
+            continue
+
+        if len(rs) < min_support:
             continue
 
         p = len(rs) / len(mine)
@@ -417,6 +437,7 @@ def _choose_verbs(ingredient, index):
 
     return chosen
 
+
 def generate_questions(processed_ingredients):
     """
     Build cooking questions for every ingredient, learned from the
@@ -430,8 +451,9 @@ def generate_questions(processed_ingredients):
     questions = []
 
     for ingredient in processed_ingredients:
-        # Staples (salt, water, oil...) make meaningless questions
-        if ingredient in index["staples"]:
+        # Staples (salt, water, oil...) and garnish/seasoning items
+        # make meaningless questions
+        if ingredient in index["staples"] or ingredient in NO_QUESTION_INGREDIENTS:
             continue
 
         for verb in _choose_verbs(ingredient, index):

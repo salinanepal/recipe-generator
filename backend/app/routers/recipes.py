@@ -20,6 +20,7 @@ from app.services.refinement_service import (
     get_refinement_questions,
     recommend_with_answers,
 )
+from app.algorithms.validator import validate_input
 from app.core.exceptions import RecipeGenerationError
 
 router = APIRouter(
@@ -27,27 +28,53 @@ router = APIRouter(
     tags=["Recipes"],
 )
 
+
+# Validate the user's input before any processing.
+# Raises HTTP 422 with a readable message if the input is not valid.
+def check_input(request):
+    # OptionalIngredientsRequest has no servings field
+    servings = getattr(request, "servings", 2)
+
+    if servings is None:
+        servings = 2
+
+    result = validate_input(
+        request.ingredients,
+        servings,
+    )
+
+    if not result["valid"]:
+        raise HTTPException(
+            status_code=422,
+            detail=" ".join(result["errors"]),
+        )
+
+
 # Recommend top 3 recipes
 @router.post("/recommend")
 def recommend(
     request: RecipeGenerateRequest,
     db: Session = Depends(get_db),
 ):
+    check_input(request)
     return recommend_recipes(db, request)
 
 # Dynamic follow-up cooking questions (learned from the instructions column)
 @router.post("/questions")
 def questions(request: RecipeGenerateRequest):
+    check_input(request)
     return get_refinement_questions(request)
 
 # Recommend top 3 recipes, refined by the user's answers
 @router.post("/recommend-refined")
 def recommend_refined(request: RecipeRefineRequest):
+    check_input(request)
     return recommend_with_answers(request)
 
 # Optional ingredients the user can add to the selected recipe
 @router.post("/optional-ingredients")
 def optional_ingredients(request: OptionalIngredientsRequest):
+    check_input(request)
     return get_optional_ingredient_options(request)
 
 # Generate recipe after user selects one recommendation
@@ -57,6 +84,8 @@ def generate_selected(
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user),
 ):
+    check_input(request)
+
     try:
         return generate_selected_recipe(
             db=db,

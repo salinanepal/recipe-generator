@@ -9,7 +9,7 @@ MAX_INGREDIENT_LENGTH = 50
 MAX_TOTAL_INPUT_LENGTH = 500
 
 MIN_SERVINGS = 1
-MAX_SERVINGS = 20
+MAX_SERVINGS = 10
 
 
 def validate_input(
@@ -57,8 +57,23 @@ def validate_input(
                 errors.append(f"Ingredient {index} cannot be blank.")
                 continue
 
+            # Only digits / quantity symbols, e.g. "12333" or "2 / 3"
+            if re.fullmatch(r"[\d\.\/\s]+", ingredient):
+                errors.append(f'"{ingredient}" cannot contain only numbers.')
+                continue
+
             # Remove leading numbers/quantities (e.g., "2 tomatoes" -> "tomatoes") for checking
-            cleaned_check = re.sub(r"^[\d\.\/]+(\s*(g|kg|tbsp|tsp|cup|cups|pinch|gram|grams))?\s*", "", ingredient, flags=re.IGNORECASE).strip()
+            cleaned_check = re.sub(
+                r"^[\d\.\/]+(\s*(g|kg|tbsp|tsp|cup|cups|pinch|gram|grams))?\s*",
+                "",
+                ingredient,
+                flags=re.IGNORECASE,
+            ).strip()
+
+            # A quantity with no name, e.g. "250g"
+            if cleaned_check == "":
+                errors.append(f'"{ingredient}" must include an ingredient name.')
+                continue
 
             if len(cleaned_check) < MIN_INGREDIENT_LENGTH:
                 errors.append(f'"{ingredient}" is too short.')
@@ -66,10 +81,6 @@ def validate_input(
 
             if len(cleaned_check) > MAX_INGREDIENT_LENGTH:
                 errors.append(f'"{ingredient}" is too long.')
-                continue
-
-            if cleaned_check.isdigit():
-                errors.append(f'"{ingredient}" cannot contain only numbers.')
                 continue
 
             # Allow letters, spaces, hyphens, and apostrophes
